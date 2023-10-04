@@ -66,7 +66,7 @@ ii)
 
 Landing Page
 1) Buku: judul, gambar, harga
-2) Bisa filter buku & sort
+2) Bisa filter buku & sort, search
 
 
 Data User
@@ -74,7 +74,7 @@ Data User
 2) Bisa ngisi data diri ekstra
 3) Saldo
 4) Page tambah saldo
-5) Buku yg sedang dipesan
+5) Buku yg sedang dipesan search
 
 Data Buku
 1) Judul, pengarang, dst, harga, kategori, deskripsi, jumlah halaman, stok
@@ -90,4 +90,4 @@ Admin:
 - bisa switch mode admin mode user:
 Mode admin:
 - edit data buku (tambah judul, hapus judul, tambah stok, ganti yg lain2)
-- Page daftar pesanan (simulasi pengiriman)
+- Page daftar pesanan (simulasi pengiriman) -- instan kirim
