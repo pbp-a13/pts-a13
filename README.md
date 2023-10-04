@@ -25,12 +25,16 @@ Ini tempat readme kita yaa
   Penjelasan dan Pembagian Fitur
 </h1>
 
-<p>
-  List fitur:
-  1. main_user - menampilkan buku yang tersedia, bisa menambah ke cart dari sini
-  2. main_admin - menampilkan buku yang tersedia, bisa edit data (ubah deskripsi), tambah stok, tambah judul.
-  2. cart - menampilkan buku yang akan dibeli, cek saldo user disini
-  4. history - menampilkan buku yang pernah dibeli
-  5. order - menampilkan buku-buku yang sedang dibeli (simulasi pengiriman)
+List fitur:
+1. main_user - menampilkan buku yang tersedia, bisa menambah ke cart dari sini.
+2. main_admin - menampilkan buku yang tersedia, bisa edit data (ubah deskripsi), tambah stok, tambah judul.
+3. order - proses pembelian termasuk cart, simulasi pengiriman, dst.
+4. review dan rating - setiap buku bisa direview: berpengaruh pada rating buku.
+5. 
+
+
+1. Main_user
+halaman 1: menampilkan list buku yang tersedia, baik itu berdasarkan ranking, kategori, alfabet, dst
+halaman 2: halaman per item: menampilkan nama, foto, harga, deskripsi, review, dst
+halaman 3: 
   
-</p>
