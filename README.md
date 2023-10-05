@@ -52,9 +52,20 @@ ii)
 
 
 
+Models:
+
+1. User
+   Nama, email, password, saldo, buku yang dipesan, buku yang telah dibeli, review
+
+2. Buku
+   Judul, pengarang, harga, kategori, deskripsi, jumlah halaman, stok, review, rating
 
 
 
+
+
+Landing Page:
+List buku-buku yang ada. Pakai card (?). Setiap card menampilkan gambar buku, judul buku, dan harga buku. Bisa filter & sort buku berdasarkan harga, buku, rating. Bisa search buku.
 
 
 
@@ -66,7 +77,7 @@ ii)
 
 Landing Page
 1) Buku: judul, gambar, harga
-2) Bisa filter buku & sort, search
+3) Bisa filter buku & sort, search
 
 
 Data User
