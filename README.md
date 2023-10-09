@@ -21,26 +21,33 @@ Ini tempat readme kita yaa
 
 
 List Page:
-1. Main page (admin dan user)
-2. User info page (per user)
-3. Book info page (admin & user)
+1. Main page (admin dan member)
+2. Account info page (per account)
+3. Book info page (admin & member)
 4. Cart page
-5. Order page - list of ongoing and completed orders (admin & user)
-6. Isi saldo page
-7. Payment page
-8. All users info (Admin only)
-9. Ongoi
+5. Order list page - list of ongoing and completed orders (admin & member)
+6. Order page - detail dari masing-masing order (admin & member)
+7. Isi saldo page
+8. Payment page
+9. All users info (Admin only)
+
 
 
 Models:
-1. User
-   Nama, email, password, saldo, pesanan ongoing, buku yang telah dibeli, review
+1. Account
+   IsAdmin, Username, Nama, email, password, saldo, pesanan ongoing, buku yang telah dibeli, review
 
 2. Buku
    Judul, pengarang, harga, kategori, deskripsi, jumlah halaman, stok, review, rating, jumlah terjual
 
+3. Order
+   Order id, Username, Buku, tanggal order, status(ongoing/completed), tanggal completed.
+
+4. Review
+   Reivew id, Username, Buku, rating, isi review, tanggal review.
+
 <h3>
-  Main page (user)
+  Main page (member)
 </h3>
 
 - Menampilkan buku-buku yang tersedia pada toko buku.
@@ -52,20 +59,21 @@ Models:
 <h3>
   Main page (admin)
 </h3>
-- memiliki semua fitur yang dimiliki main mage (user).
+- memiliki semua fitur yang dimiliki main mage (member).
 - Ada opsi untuk menambah judul buku -- menambahkan buku baru ke dalam katalog, diarahkan ke book info page yang kosong
 
 <h3>
-  Book info page (user)
+  Book info page (member)
 </h3>
 - Menampilkan semua informasi tentang buku
 - Jika stok tersedia, bisa menambahkan dan mengurangi item ke/dari cart.
 
 <h3>
-  Book info page (admin)
+  Book info page (member)
 </h3>
-- Menampilkan semua informasi tentang buku, namun bisa diedit (berbentuk form).
+- Menampilkan semua informasi tentang buku.
 - Ada opsi delete judul -- menghapus buku dari katalog
+- Ada tombol "edit" yang akan mengubah semua tampilan menjadi form sehingga bisa dimodifikasi. Setelah itu ada tombol "Save" untuk menyimpan modifikasi.
 - Jika sedang menambah judul buku, akan menampilkan form kosong
 
 
@@ -80,15 +88,66 @@ Models:
 <h3>
   Payment page
 </h3>
-- Menampilkan total harga yang harus dibayar, dan saldo user yang tersedia
+- Menampilkan total harga yang harus dibayar, dan saldo member yang tersedia
 - Ada tombol untuk mengarahkan ke page isi saldo
-- Tombol bayar: memasukkan buku ke order list, dan mengurangi saldo user dengan harga total buku.
+- Tombol bayar: memasukkan buku ke order list, dan mengurangi saldo member dengan harga total buku.
 - Tombol bayar tidak bisa diklik jika saldo kurang dari harga yang harus dibayar
 
 
 <h3>
+  Order list page (admin)
+</h3>
+- Berisi semua order yang pernah dilakukan, oleh semua member, baik ongoing ataupun completed (ada dua section)
+- Setiap order memiliki informasi username, judul buku yang dibeli, serta jumlahnya.
+- Setiap order dapat diklik untuk mengarahkan ke order page (admin)
+
+<h3>
   Order page (admin)
 </h3>
+- Berisi semua detail tentang satu order spesifik.
+- Untuk ongoing order, ada tombol "Kirim" --> mengubah status order menjadi completed. 
+
+
+<h3>
+  Order list page (member)
+</h3>
+- Berisi semua order yang pernah dilakukan oleh member, baik ongoing ataupun completed (ada dua section)
+- Setiap order memiliki informasi username, judul buku yang dibeli, serta jumlahnya.
+- Setiap order dapat diklik untuk mengarahkan ke order page (member)
+
+<h3>
+  Order page (member)
+</h3>
+- Berisi semua detail tentang satu order spesifik.
+
+<h3>
+  Isi Saldo Page
+</h3>
+- Member dapat meng-input jumlah top-up saldo lalu menekan tombol "Isi" untuk mengupdate saldo.
+
+
+<h3>
+  Account Info Page
+</h3>
+- User dapat melihat semua informasi tentang account.
+- Ada tombol "edit" yang akan mengubah semua tampilan menjadi form sehingga bisa dimodifikasi. Setelah itu ada tombol "Save" untuk menyimpan modifikasi.
+
+<h3>
+  All Account Info (admin only) 
+</h3>
+- List semua member yang ada, menampilkan username, tanggal join, dan jumlah order yang pernah dibuat
+- Setiap member bisa diklik untuk melihat member info page masing-masing. 
+
+<h3>
+  General
+</h3>
+- Terdapat navbar pada setiap halaman untuk dapat berpindah-pindah ke semua halaman yang tidak buku-spesifik atau order-spesifik
+- Admin memiliki opsi untuk berganti ke member-mode jika ingin membeli buku seperti member.
+- Ada tiga  jenis user:
+1. Non member: Hanya bisa melihat-lihat buku, tidak bisa membeli
+2. Member: bisa membeli buku
+3. Admin: Bisa mengedit buku, mengirim order, dan bisa switch ke mode member untuk membeli buku.
+
 
 
 <h1>
@@ -128,25 +187,8 @@ iv) Menunggu pengiriman
 
 v) review & rating
 
-
-
-
-
-
-
-
-
-
 Landing Page:
 List buku-buku yang ada. Pakai card (?). Setiap card menampilkan . Bisa filter & sort buku berdasarkan harga, buku, rating. Bisa search buku.
-
-
-
-
-
-
-
-
 
 Landing Page
 1) Buku: judul, gambar, harga
