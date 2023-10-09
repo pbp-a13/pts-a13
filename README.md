@@ -18,7 +18,7 @@ Ini tempat readme kita yaa
 </h1>
 
 <h1>
-  Toko buk
+  Toko buku
 </h1>
 
 <h1>
@@ -26,8 +26,8 @@ Ini tempat readme kita yaa
 </h1>
 
 List fitur:
-1. main_user - menampilkan buku yang tersedia, bisa menambah ke cart dari sini.
-2. main_admin - menampilkan buku yang tersedia, bisa edit data (ubah deskripsi), tambah stok, tambah judul.
+1. main_user - menampilkan buku yang tersedia (default: sort by abjad, opsi: sort by category), bisa menambah ke cart dari sini.
+2. main_admin - menampilkan buku yang tersedia, bisa edit data (ubah deskripsi), tambah/kurang stok, tambah/hapus judul.
 3. User Account system
 4. order - proses pembelian termasuk cart, simulasi pengiriman, dst.
 5. review dan rating - setiap buku bisa direview: berpengaruh pada rating buku
@@ -47,7 +47,13 @@ halaman 3:
 2. Order
 i) Add to cart
 
-ii) 
+ii) Checkout
+
+iii) Payment
+
+iv) Menunggu pengiriman
+
+v) review & rating
 
 
 
