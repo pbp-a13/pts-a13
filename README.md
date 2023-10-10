@@ -19,6 +19,9 @@ Ini tempat readme kita yaa
   Penjelasan dan Pembagian Fitur
 </h1>
 
+Sumber database: [insert here]
+
+
 
 List Page:
 1. Main page (admin dan member)
