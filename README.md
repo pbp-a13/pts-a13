@@ -47,6 +47,18 @@ Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
   Book
 </h3>
 
+BOOK
+- PJ: Shafira Ramadhina Adifa
+- Page berisi **info** dan **detail produk** dari suatu buku yg diklik user.
+### Info
+- Info berisi `Foto`, `Penulis`, `Book-Title`, `Book-Author`, `Book-Price`, dan `Ratings`.
+- `Ratings` berupa angka desimal dalam range 0-5 (higher value denoting higher appreciation) disertai jumlah pembeli yang telah memberikan rating. Rating diperoleh dari rerata nilai yang diberikan user setelah melakukan pembelian (bilangan bulat 1-5). Default dari nilai rating adalah 0 (kondisi ketika belum memiliki nilai rating dari pembeli).
+### Detail Produk
+- Detail produk berupa: Deskripsi, Details, dan Penilaian Produk.
+- Details terdiri dari `Book-Title`, `Book-Author`, `Year-Of-Publication`, dan `Publisher`.
+- Penilaian produk terdiri dari `Ratings` dan `Review`.
+- Review berupa kumpulan ulasan produk dari user berbentuk narasi.
+
 <h3>
   Order
 </h3>
