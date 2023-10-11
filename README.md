@@ -6,6 +6,16 @@ Ini tempat readme kita yaa
   Brainstorm
 </h1>
 
+<h1>
+  Anggota Kelompok
+</h1>
+- William Joel Matthew Quinn Rompis - 2206081843 </br>
+- Adrial Natanael Liong - 2206026321 </br>
+- Kezia Lasma Angelica - 2206082234 </br>
+- Alifa Muhammad Hafidz - 2206082852 </br>
+- Shafira Ramadhina Adifa  - 2206082972 </br>
+
+
 
 <h1>
   Cerita Besar
@@ -19,7 +29,7 @@ Ini tempat readme kita yaa
   Penjelasan dan Pembagian Fitur
 </h1>
 
-Sumber database: [insert here]
+Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
 
 
 
