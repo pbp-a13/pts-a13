@@ -5,6 +5,7 @@ Ini tempat readme kita yaa
 <h1>
   Anggota Kelompok
 </h1>
+
 - William Joel Matthew Quinn Rompis - 2206081843 </br>
 - Adrial Natanael Liong - 2206026321 </br>
 - Kezia Lasma Angelica - 2206082234 </br>
@@ -32,6 +33,7 @@ Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
 <h3>
   Main
 </h3>
+
 - PJ: William Joel Matthew Quinn Rompis 2206081843
 - Berisi main page (member) dan main page (admin)
 - Menampilkan semua buku yang tersedia di toko buku.
