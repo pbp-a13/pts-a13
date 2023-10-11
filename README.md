@@ -57,7 +57,7 @@ Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
 - Role <b>Admin</b> memiliki akses untuk melihat seluruh order dari customer
 - Untuk halaman seluruh pesanan atau <i>order list</i>, terdapat pilihan untuk melihat pesanan <i>ongoing</i> atau <i>completed</i> yang menyediakan informasi <i>username</i>, judul buku yang dibeli, serta jumlahnya
 - Jika admin melakukan klik pada suatu pesanan, maka akan mengarahkan sistem ke halaman order page yang menampilkan suatu pesanan secara spesifik. Jika pesanan tersebut berstatus <b>ongoing</b>, maka akan tersedia button <b>Kirim</b> untuk mengubah status pesanan menjadi <b>completed</b>
-- Role <b>Member</b> memiliki akses untuk melihat seluruh pesanan yang pernah dibuat oleh member tersebut, dimana halaman defaultnya adalah order list member yang menampilkan informasi buku yang d.
+- Role <b>Member</b> memiliki akses untuk melihat seluruh pesanan yang pernah dibuat oleh member tersebut, dimana halaman defaultnya adalah order list member yang menampilkan informasi buku yang dipesan.
 - Setiap pesanan dapat diklik untuk mengarahkan ke order page member yang berisi semua detail tentang satu order spesifik seperti jenis dan jumlah buku yang dipesan, tanggal pemesanan, dan estimasi pesanan sampai.
 
 <h3>
