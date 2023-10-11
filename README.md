@@ -99,6 +99,12 @@ Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
   Account
 </h3>
 
+- PJ : Adrial Natanael Liong (2206026321)
+- Pada halaman register, pengguna diminta username dan password saja untuk mendaftar.
+- Akun admin bisa mengganti mode menjadi akun member, sehingga pengguna biasa tidak bisa register sebagai admin.
+- Pada All member info page, hanya akun admin yang dapat melihat list seluruh akun member yang ada dan masuk ke member info page untuk melihat detail akun member seperti name, saldo, pesanan ongoing, buku yang telah dibeli, review.
+- Akun member dapat membeli buku, akun non-member perlu login/register untuk membeli buku, akun admin tidak dapat memberli buku (perlu ganti ke akun member dahulu jika ingin beli buku), hanya bisa konfirmasi pembelian buku.
+- Pada halaman account info, setiap akun ada data yang bisa diedit (nama, email, alamat, password) dan data yang tidak bisa diedit (username).
 
 
 <h2>
