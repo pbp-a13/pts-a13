@@ -64,6 +64,16 @@ Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
   Payment
 </h3>
 
+- PJ: Alifa Muhammad Hafidz (2206082852)
+- Halaman "Payment" adalah halaman di mana user (member) menyelesaikan pembayaran untuk buku-buku yang ada dalam keranjang (cart) mereka.
+- User dapat melihat daftar buku-buku yang ada dalam cart beserta harga dan jumlahnya.
+- Setiap item dalam cart memiliki opsi untuk menambah dan mengurangi jumlahnya serta menghapus item dari cart.
+- User akan melihat saldo mereka yang tersedia di akun mereka, dan total harga pembayaran. Jika saldo user mencukupi untuk membayar pesanan, user dapat memilih untuk menggunakan saldo tersebut untuk pembayaran.
+- Terdapat tombol atau tautan yang mengarahkan user ke halaman "Isi Saldo Page" jika saldo mereka kurang untuk membayar pesanan.
+- Terdapat tombol "Bayar" yang akan mengambil buku-buku dari cart pengguna dan memasukkannya ke dalam daftar pesanan (order list). Tombol "Bayar" hanya dapat diklik jika saldo user cukup untuk membayar pesanan. Jika saldo kurang dari total harga, tombol tersebut tidak dapat diklik.
+- Jika transaksi berhasil, saldo user akan dikurangkan sejumlah total harga buku-buku yang dibeli.
+- Setelah pembayaran selesai, user akan menerima konfirmasi pembayaran dan diberikan opsi untuk kembali ke halaman utama atau melanjutkan berbelanja.
+
 <h3>
   Account
 </h3>
