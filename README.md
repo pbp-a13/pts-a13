@@ -1,6 +1,6 @@
-# Proyek Tengah Semester Kelompok A13
+# Proyek Tengah Semester Kelompok A13 -- pacil-bookstore
 
-Ini tempat readme kita yaa
+Berikut deskripsi proyek kami.
 
 <h1>
   Anggota Kelompok
@@ -283,80 +283,6 @@ Models:
    - Admin memiliki opsi untuk beralih ke mode "Member" untuk membeli buku seperti pengguna biasa.
 
 
-
-<h1>
-  Brainstorm
-</h1>
-
-
-List fitur:
-1. main_user - menampilkan buku yang tersedia (default: sort by abjad, opsi: sort by category), bisa menambah ke cart dari sini.
-2. main_admin - menampilkan buku yang tersedia, bisa edit data (ubah deskripsi), tambah/kurang stok, tambah/hapus judul.
-3. User Account system
-4. order - proses pembelian termasuk cart, simulasi pengiriman, dst.
-5. review dan rating - setiap buku bisa direview: berpengaruh pada rating buku
-7. 
-
-Landing page
-Data user
-Data buku
-
-
-
-
-1. Main_user
-halaman 1: halaman utama: menampilkan list buku yang tersedia, baik itu berdasarkan ranking, kategori, alfabet, dst
-halaman 2: halaman per item: menampilkan nama, foto, harga, deskripsi, review, dst
-
-<h4>kykny gaperlu deh</h4> 
-
-halaman 3: halaman user: mengubah/menambah informasi user
-halaman 4: halaman isi saldo: bisa mengisi jumlah saldo yang diingin dengan masukan jumlah uang yang ingin dimasukan dan uang tersebut akan tambah dengan saldo sekarang
-halaman 5: halaman list order: menampilkan setiap order yang pernah dilakukan user
-halaman 6: halaman order: menampilkan sebuah order yang telah dipilih pada halaman list order (halaman 6) dan menampilkan jenis dan jumlah setiap buku yang dipesan pada sebuah order, kapan pesanan dilakukan, dan status pesanan, dan tanggal selesai(kalau sudah selesai)
-halaman 7: halaman keranjang: menampilkan setiap buku yang sudah dipesan dan jumlah setiap buku yang sudah dipesan, jumlah harga, dan tombol bayar untuk mengkonfirmasi pemesanan buku
-halaman 8: halaman review: menampilkan setiap buku yabng pernah dipesan dan bisa click setiap buku untuk member review
-
-3. Main_admin
-halaman 1: halaman utama: menampilkan list buku yang tersedia, dan bisa mengubah data buku tersebut
-halaman 2: halaman per item: menampilkan nama, foto, harga, deskripsi, review dan bisa diubah
-
-
-4. Order
-i) Add to cart
-
-ii) Checkout
-
-iii) Payment
-
-iv) Menunggu pengiriman
-
-v) review & rating
-
-Landing Page:
-List buku-buku yang ada. Pakai card (?). Setiap card menampilkan judul buku, stock buku yang ada, pilihan untuk masukan ke keranjang, tahun publikasi, penulis buku. Bisa filter & sort buku berdasarkan harga, buku, rating. Bisa search buku.
-
-Landing Page
-1) Buku: judul, gambar, harga
-2) Bisa filter buku, sort buku, search buku spesifik
-
-
-Data User
-1) User page
-2) Bisa ngisi data diri ekstra
-3) Saldo
-4) Page tambah saldo
-5) Buku yg sedang dipesan search
-
-Data Buku
-1) Judul, pengarang, harga, kategori, deskripsi, jumlah halaman, stok
-2) review, rating
-
-ALgo beli buku:
-- Tambah ke keranjang
-- Halaman checkout
-- Checkout
-- Review page.
 
 Admin:
 - bisa switch mode admin mode user:
