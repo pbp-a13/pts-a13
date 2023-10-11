@@ -155,7 +155,7 @@ Models:
 - Ada tombol "edit" yang akan mengubah semua tampilan menjadi form sehingga bisa dimodifikasi. Setelah itu ada tombol "Save" untuk menyimpan modifikasi.
 
 <h3>
-  All User Info (admin only) 
+  All Member Info (admin only) 
 </h3>
 
 - List semua member yang ada, menampilkan username, tanggal join, dan jumlah order yang pernah dibuat
@@ -166,6 +166,12 @@ Models:
 </h3>
 
 - dapat melihat informasi umum sebuah member seperti nama, username, saldo, pesanan ongoing, buku yang telah dibeli, review
+
+<h3>
+  Register Page
+</h3>
+- halaman untuk register menjadi member
+- Isinya mirip account info page tapi form kosong, beserta input username & password
 
 <h3>
   General
