@@ -224,9 +224,25 @@ Models:
 - Terdapat navbar pada setiap halaman untuk dapat berpindah-pindah ke semua halaman yang tidak buku-spesifik atau order-spesifik
 - Admin memiliki opsi untuk berganti ke member-mode jika ingin membeli buku seperti member.
 - Ada tiga  jenis user:
-1. Non member: Hanya bisa melihat-lihat buku, tidak bisa membeli
-2. Member: bisa membeli buku
-3. Admin: Bisa mengedit buku, mengirim order, dan bisa switch ke mode member untuk membeli buku.
+1. Non member:
+   - Hanya dapat mengakses halaman main page (non member)
+   - Dapat melihat informasi tentang buku, termasuk judul, pengarang, harga, dan rating
+   - Jika ingin menambahkan buku ke keranjang (cart), user akan diminta untuk login atau melakukan pendaftaran
+2. Member:
+   - Dapat mengakses halaman "Main page (member)" dan fitur-fitur seluruh situs web
+   - Bisa melihat dan membeli buku
+   - Dapat menambahkan buku ke keranjang (cart) dan melakukan transaksi pembayaran
+   - Memiliki saldo yang dapat diisi melalui halaman "Isi Saldo"
+   - Dapat melihat semua pesanan yang pernah dibuat (baik yang masih berlangsung maupun yang sudah selesai) pada halaman "Order list (member)"
+   - Dapat melihat informasi tentang akun mereka pada halaman "Account Info"
+3. Admin:
+   - Memiliki semua hak akses yang dimiliki oleh Member
+   - Dapat mengakses halaman "Main page (admin)" yang memiliki semua fitur yang dimiliki oleh "Main page (member)."
+   - Dapat menambahkan judul buku ke dalam katalog melalui halaman "Main page (admin)" dengan mengarahkan ke "Book info page (admin)."
+   - Dapat mengedit informasi buku, termasuk menghapus buku dari katalog, Menambahkan buku, serta dapat mengedit deskripsi buku melalui "Book info page (admin)."
+   - Dapat mengelola pesanan pada halaman "Order list (admin)" dan mengubah status pesanan menjadi "completed" melalui "Order page (admin)."
+   - Dapat mengakses halaman "All Member Info" untuk melihat informasi seluruh anggota dan mengakses halaman "Member Info Page (admin)" untuk melihat detail tentang anggota tertentu.
+   - Admin memiliki opsi untuk beralih ke mode "Member" untuk membeli buku seperti pengguna biasa.
 
 
 
