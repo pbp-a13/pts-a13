@@ -100,11 +100,11 @@ Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
 </h3>
 
 - PJ : Adrial Natanael Liong (2206026321)
-- Pada halaman register, pengguna diminta username dan password saja untuk mendaftar.
-- Akun admin bisa mengganti mode menjadi akun member, sehingga pengguna biasa tidak bisa register sebagai admin.
-- Pada All member info page, hanya akun admin yang dapat melihat list seluruh akun member yang ada dan masuk ke member info page untuk melihat detail akun member seperti name, saldo, pesanan ongoing, buku yang telah dibeli, review.
-- Akun member dapat membeli buku, akun non-member perlu login/register untuk membeli buku, akun admin tidak dapat memberli buku (perlu ganti ke akun member dahulu jika ingin beli buku), hanya bisa konfirmasi pembelian buku.
-- Pada halaman account info, setiap akun ada data yang bisa diedit (nama, email, alamat, password) dan data yang tidak bisa diedit (username).
+- Pada halaman <i>register</i>, pengguna diminta <b>username</b> dan <b>password</b> saja untuk mendaftar.
+- Akun <b>admin</b> bisa mengganti mode menjadi akun <b>member</b>, sehingga pengguna biasa tidak bisa register sebagai admin.
+- Pada <i>All member info page</i>, hanya akun admin yang dapat melihat list seluruh akun member yang ada dan masuk ke <i>member info page</i> untuk melihat detail akun member seperti <b>name, saldo, pesanan ongoing, buku yang telah dibeli, review</b>.
+- Akun <b>member</b> dapat membeli buku, akun <b>non-member</b> perlu login/register untuk membeli buku, akun <b>admin</b> tidak dapat memberli buku (perlu ganti ke akun member dahulu jika ingin beli buku), hanya bisa konfirmasi pembelian buku.
+- Pada <i>halaman account info</i>, setiap akun ada data yang bisa diedit (nama, email, alamat, password) dan data yang tidak bisa diedit (username).
 
 
 <h2>
