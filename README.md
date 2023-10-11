@@ -33,6 +33,7 @@ List Page:
 7. Isi saldo page
 8. Payment page
 9. All users info (Admin only)
+10. Member Info Page (Admin only)
 
 
 
@@ -74,7 +75,14 @@ Models:
 - Jika stok tersedia, bisa menambahkan dan mengurangi item ke/dari cart.
 
 <h3>
-  Book info page (member)
+  Book info page (non-member)
+</h3>
+
+- Menampilkan semua informasi tentang buku
+- Jika ingin menambahkan item ke cart, akan diminta untuk login/signup
+
+<h3>
+  Book info page (admin)
 </h3>
 
 - Menampilkan semua informasi tentang buku.
@@ -130,7 +138,7 @@ Models:
   Order page (member)
 </h3>
 
-- Berisi semua detail tentang satu order spesifik.
+- Berisi semua detail tentang satu order spesifik. (jenis dan jumlah buku yang dipesan, kapan dipesan, kapan diperkirakan akan sampai pesanannya)
 
 <h3>
   Isi Saldo Page
@@ -147,11 +155,17 @@ Models:
 - Ada tombol "edit" yang akan mengubah semua tampilan menjadi form sehingga bisa dimodifikasi. Setelah itu ada tombol "Save" untuk menyimpan modifikasi.
 
 <h3>
-  All Account Info (admin only) 
+  All User Info (admin only) 
 </h3>
 
 - List semua member yang ada, menampilkan username, tanggal join, dan jumlah order yang pernah dibuat
-- Setiap member bisa diklik untuk melihat member info page masing-masing. 
+- Setiap member bisa diklik untuk melihat member info page masing-masing.
+
+<h3>
+  Member Info Page (admin only) 
+</h3>
+
+- dapat melihat informasi umum sebuah member seperti nama, username, saldo, pesanan ongoing, buku yang telah dibeli, review
 
 <h3>
   General
@@ -187,12 +201,24 @@ Data buku
 
 
 1. Main_user
-halaman 1: menampilkan list buku yang tersedia, baik itu berdasarkan ranking, kategori, alfabet, dst
+halaman 1: halaman utama: menampilkan list buku yang tersedia, baik itu berdasarkan ranking, kategori, alfabet, dst
 halaman 2: halaman per item: menampilkan nama, foto, harga, deskripsi, review, dst
-halaman 3: 
+
+<h4>kykny gaperlu deh</h4> 
+
+halaman 3: halaman user: mengubah/menambah informasi user
+halaman 4: halaman isi saldo: bisa mengisi jumlah saldo yang diingin dengan masukan jumlah uang yang ingin dimasukan dan uang tersebut akan tambah dengan saldo sekarang
+halaman 5: halaman list order: menampilkan setiap order yang pernah dilakukan user
+halaman 6: halaman order: menampilkan sebuah order yang telah dipilih pada halaman list order (halaman 6) dan menampilkan jenis dan jumlah setiap buku yang dipesan pada sebuah order, kapan pesanan dilakukan, dan status pesanan, dan tanggal selesai(kalau sudah selesai)
+halaman 7: halaman keranjang: menampilkan setiap buku yang sudah dipesan dan jumlah setiap buku yang sudah dipesan, jumlah harga, dan tombol bayar untuk mengkonfirmasi pemesanan buku
+halaman 8: halaman review: menampilkan setiap buku yabng pernah dipesan dan bisa click setiap buku untuk member review
+
+3. Main_admin
+halaman 1: halaman utama: menampilkan list buku yang tersedia, dan bisa mengubah data buku tersebut
+halaman 2: halaman per item: menampilkan nama, foto, harga, deskripsi, review dan bisa diubah
 
 
-2. Order
+4. Order
 i) Add to cart
 
 ii) Checkout
@@ -204,11 +230,11 @@ iv) Menunggu pengiriman
 v) review & rating
 
 Landing Page:
-List buku-buku yang ada. Pakai card (?). Setiap card menampilkan . Bisa filter & sort buku berdasarkan harga, buku, rating. Bisa search buku.
+List buku-buku yang ada. Pakai card (?). Setiap card menampilkan judul buku, stock buku yang ada, pilihan untuk masukan ke keranjang, tahun publikasi, penulis buku. Bisa filter & sort buku berdasarkan harga, buku, rating. Bisa search buku.
 
 Landing Page
 1) Buku: judul, gambar, harga
-3) Bisa filter buku & sort, search
+2) Bisa filter buku, sort buku, search buku spesifik
 
 
 Data User
@@ -219,7 +245,7 @@ Data User
 5) Buku yg sedang dipesan search
 
 Data Buku
-1) Judul, pengarang, dst, harga, kategori, deskripsi, jumlah halaman, stok
+1) Judul, pengarang, harga, kategori, deskripsi, jumlah halaman, stok
 2) review, rating
 
 ALgo beli buku:
