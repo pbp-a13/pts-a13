@@ -3,10 +3,6 @@
 Ini tempat readme kita yaa
 
 <h1>
-  Brainstorm
-</h1>
-
-<h1>
   Anggota Kelompok
 </h1>
 - William Joel Matthew Quinn Rompis - 2206081843 </br>
@@ -21,9 +17,6 @@ Ini tempat readme kita yaa
   Cerita Besar
 </h1>
 
-<h1>
-  Toko buku
-</h1>
 
 <h1>
   Penjelasan dan Pembagian Fitur
