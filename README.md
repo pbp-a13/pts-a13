@@ -53,6 +53,13 @@ Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
   Order
 </h3>
 
+- PJ: Kezia Lasma Angelica (2206082234)
+- <i>Role</i> admin memiliki akses untuk melihat seluruh order dari customer
+- Untuk halaman seluruh pesanan atau order list, terdapat pilihan untuk melihat pesanan ongoing atau completed yang menyediakan informasi username, judul buku yang dibeli, serta jumlahnya
+- Jika admin melakukan klik pada suatu pesanan, maka akan mengarahkan sistem ke halaman order page yang menampilkan suatu pesanan secara spesifik. Jika pesanan tersebut berstatus <b>ongoing</b>, maka akan tersedia button "Kirim" untuk mengubah status pesanan menjadi <b>completed</b>
+- <b>Role</b> Member memiliki akses untuk melihat seluruh pesanan yang pernah dibuat oleh member tersebut, dimana halaman defaultnya adalah order list member yang menampilkan informasi buku yang d.
+- Setiap pesanan dapat diklik untuk mengarahkan ke order page member yang berisi semua detail tentang satu order spesifik seperti jenis dan jumlah buku yang dipesan, tanggal pemesanan, dan estimasi pesanan sampai.
+
 <h3>
   Payment
 </h3>
