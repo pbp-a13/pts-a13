@@ -49,13 +49,14 @@ Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
 
 - PJ: Shafira Ramadhina Adifa
 - Page berisi **info** dan **detail produk** dari suatu buku yg diklik user.
-- Terdapat informasi status produk (Tersedia/Habis), jumlah yang ingin dibeli (Default: 1) yang dapat ditambah/kurang (Batas jumlah pembelian: 1 sampai total stock produk), dan button `Add to Cart`. Button `-` dan `+` hanya dapat diklik jika masih di dalam batas jumlah pembelian. Button `Add to Cart` dapat diklik hanya jika stock produk tersedia minimal 1.
+- [Khusus User] Terdapat informasi status produk (Tersedia/Habis), jumlah yang ingin dibeli (Default: 1) yang dapat ditambah/kurang (Batas jumlah pembelian: 1 sampai total stock produk), dan button `Add to Cart`. Button `-` dan `+` hanya dapat diklik jika masih di dalam batas jumlah pembelian. Button `Add to Cart` dapat diklik hanya jika stock produk tersedia minimal 1.
+- [Khusus Admin] Terdapat informasi jumlah stock produk dan button `Edit` untuk akses mengedit seluruh informasi buku.
   
 <h4>
   (1) Info
 </h4>
 
-- Info berisi `Foto`, `Penulis`, `Book-Title`, `Book-Author`, `Book-Price`, dan `Ratings`.
+- Info berisi `Foto`, `Book-Author`, `Book-Title`, `Book-Price`, dan `Ratings`.
 - `Ratings` berupa angka desimal dalam range 0-5 (higher value denoting higher appreciation) disertai jumlah pembeli yang telah memberikan rating. Rating diperoleh dari rerata nilai yang diberikan user setelah melakukan pembelian (bilangan bulat 1-5). Default dari nilai rating adalah 0 (kondisi ketika belum memiliki nilai rating dari pembeli).
 
 <h4>
