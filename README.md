@@ -56,14 +56,14 @@ Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
   (1) Info
 </h4>
 
-- Info berisi `Foto`, `Book-Author`, `Book-Title`, `Book-Price`, dan `Ratings`.
+- Info berisi `Foto`, `Book-Author`, `Book-Title`, `Book-Price`, jumlah terjual, dan `Ratings`.
 - `Ratings` berupa angka desimal dalam range 0-5 (higher value denoting higher appreciation) disertai jumlah pembeli yang telah memberikan rating. Rating diperoleh dari rerata nilai yang diberikan user setelah melakukan pembelian (bilangan bulat 1-5). Default dari nilai rating adalah 0 (kondisi ketika belum memiliki nilai rating dari pembeli).
 
 <h4>
   (2) Detail Produk
 </h4>
 
-- Detail produk berupa: Deskripsi, Details, dan Penilaian Produk.
+- Detail produk berupa: Kategori, Deskripsi, Details, dan Penilaian Produk.
 - Details terdiri dari `Book-Title`, `Book-Author`, `Year-Of-Publication`, dan `Publisher`.
 - Penilaian produk terdiri dari `Ratings` dan `Review`.
 - Review berupa kumpulan ulasan produk dari user berbentuk narasi.
