@@ -25,33 +25,70 @@ Ini tempat readme kita yaa
 Sumber database: https://www.gutenberg.org/cache/epub/feeds/pg_catalog.csv
 
 
+<h2>
+  Modul
+</h2>
 
-List Page:
-1. Main page (admin dan member)
-2. Account info page (per account)
-3. Book info page (admin & member)
-4. Cart page
-5. Order list page - list of ongoing and completed orders (admin & member)
-6. Order page - detail dari masing-masing order (admin & member)
-7. Isi saldo page
-8. Payment page
-9. All users info (Admin only)
-10. Member Info Page (Admin only)
+<h3>
+  Main
+</h3>
+- PJ: William Joel Matthew Quinn Rompis 2206081843
+- Berisi main page (member) dan main page (admin)
+- Menampilkan semua buku yang tersedia di toko buku.
+- Informasi buku yang ditampilkan: gambar buku, judul buku, pengarang buku, harga buku, dan rating buku
+- Buku bisa diklik untuk mengalihkan ke book info page
+- Ada search bar untuk search buku berdasarkan judul atau pengarang.
+- Bisa sort/filter berdasarkan alphabetic, best-seller, top-rated.
+- [Khusus admin] Ada opsi untuk menambah judul buku -- menambahkan buku baru ke dalam katalog, diarahkan ke book info page yang kosong
 
+<h3>
+  Book
+</h3>
+
+<h3>
+  Order
+</h3>
+
+<h3>
+  Payment
+</h3>
+
+<h3>
+  Account
+</h3>
+
+
+
+<h2>
+  Models list
+</h2>
 
 
 Models:
 1. Account
-   IsAdmin, Username, Nama, email, password, saldo, pesanan ongoing, buku yang telah dibeli, review
+   Username, Nama, email, password,
 
 2. Buku
    Judul, pengarang, harga, kategori, deskripsi, jumlah halaman, stok, review, rating, jumlah terjual
 
 3. Order
-   Order id, Username, Buku, tanggal order, status(ongoing/completed), tanggal completed.
+   Order id, Username, Buku, alamat, tanggal order, status(ongoing/completed), tanggal completed.
 
 4. Review
    Reivew id, Username, Buku, rating, isi review, tanggal review.
+
+5. Member
+   Extends account, alamat, saldo, pesanan ongoing, buku yang telah dibeli, review
+
+6. Admin
+   Extends account, no. of books added, no. of orders completed.
+
+
+
+<h2>
+  Page List
+</h2>
+
 
 <h3>
   Main page (member)
