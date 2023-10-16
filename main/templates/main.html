@@ -2,35 +2,49 @@
 
 {% block content %}
 
-<h1>
-    Toko Buku Main Page
-</h1>
+<div class="container m-4">
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Price</th>
-        <th>Description</th>
-        <th>Date Added</th>
-    </tr>
 
-    {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
+<h1 class="m-3">Toko Buku Pacil</h1>
 
-    {% for book in books %}
-        <tr>
-            <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
-            <td>{{book.price}}</td>
-        </tr>
-    {% endfor %}
-</table>
+<a href="{% url 'book:add_book' %}" class="btn btn-primary btn-sm m-3">Add New Book</a>
 
-<br />
+<div id="book_cards"></div>
 
-<a href="{% url 'book:add_book' %}">
-    <button>
-        Add New Book
-    </button>
-</a>
 
-{% endblock content %}
+<script>
+    async function getBooks() {
+        return fetch("{% url 'main:get_book_json' %}").then((res) => res.json())
+    }
+    async function refreshBooks() {
+      document.getElementById("book_cards").innerHTML = ""
+      const books = await getBooks()
+      let htmlString = `<div class="row row-cols-md-5">`
+        books.forEach((book) => {
+          htmlString += `\n
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${book.fields.title}</h5>
+                    <div class="card-text">image path: ${book.fields.image}</div>
+                    <div class="card-text">Author: ${book.fields.author}</div>
+                    <div class="card-text">Price: ${book.fields.price}</div>
+                    <div class="card-text">Rating: ${book.fields.rating}</div>
+                    <button class="btn btn-primary btn-sm" onclick="detailBookAjax(${book.pk})">Detail</button>
+                </div>
+            </div>`
+    })
+    htmlString += `\n </div>`
+  
+      
+      document.getElementById("book_cards").innerHTML = htmlString
+    }
+  
+    refreshBooks()
+  
+    function detailBookAjax(id){
+    }
+        
+  
+  </script>
+  
+  {% endblock content %}
