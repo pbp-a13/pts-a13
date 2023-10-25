@@ -16,3 +16,13 @@ def show_main(request):
 def get_book_json(request):
     books = Book.objects.all()
     return HttpResponse(serializers.serialize('json', books))
+
+def search_book_json(request, mode):
+    if request.method == "POST":
+        value = request.POST.get("search")
+        if mode == "title":
+            books = Book.objects.filter(title__icontains=value)
+        else:
+            books = Book.objects.filter(author__icontains=value)
+        return HttpResponse(serializers.serialize('json', books))
+
