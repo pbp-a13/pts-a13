@@ -7,25 +7,74 @@
 
 <h1 class="m-3">Toko Buku Pacil</h1>
 
+<form id = "search_form" onsubmit="return false;">
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="search" class="col-form-label">Name:</label>
+    <input type="text" class="form-control" placeholder="Search" id="search" name="search"></input>
+    <div class="search_form_check">
+      <input class="form-check-input" type="radio" name="search_title_author" id="is_search_title" checked="">
+      <label class="form-check-label" for="is_search_title">
+        Judul
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="search_title_author" id="is_search_author">
+      <label class="form-check-label" for="is_search_author">
+        Pengarang
+      </label>
+    </div>
+  </div>
+</form>
+<div>
+  <button type="button" class="btn btn-primary" id="button_search" >Search</button>
+</div>
+
+
 <a href="{% url 'book:add_book' %}" class="btn btn-primary btn-sm m-3">Add New Book</a>
 
 <div id="book_cards"></div>
 
 
 <script>
-    async function getBooks() {
+    async function getAllBooks() {
         return fetch("{% url 'main:get_book_json' %}").then((res) => res.json())
     }
-    async function refreshBooks() {
+    async function refreshAllBooks() {
       document.getElementById("book_cards").innerHTML = ""
-      const books = await getBooks()
+      const books = await getAllBooks()
+
+      
       let htmlString = `<div class="row row-cols-md-5">`
         books.forEach((book) => {
           htmlString += `\n
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">${book.fields.title}</h5>
-                    <div class="card-text">image path: ${book.fields.image}</div>
+                    <div class="card-text">Author: ${book.fields.author}</div>
+                    <div class="card-text">Price: ${book.fields.price}</div>
+                    <div class="card-text">Rating: ${book.fields.rating}</div>
+                    <button class="btn btn-primary btn-sm" onclick="detailBookAjax(${book.pk})">Detail</button>
+                </div>
+            </div>`
+    })
+    htmlString += `\n </div>`
+  
+      
+      document.getElementById("book_cards").innerHTML = htmlString
+    }
+
+    async function refreshSearchedBooks() {
+      document.getElementById("book_cards").innerHTML = ""
+      const books = await getSearchedBooks()
+
+      
+      let htmlString = `<div class="row row-cols-md-5">`
+        books.forEach((book) => {
+          htmlString += `\n
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${book.fields.title}</h5>
                     <div class="card-text">Author: ${book.fields.author}</div>
                     <div class="card-text">Price: ${book.fields.price}</div>
                     <div class="card-text">Rating: ${book.fields.rating}</div>
@@ -39,10 +88,31 @@
       document.getElementById("book_cards").innerHTML = htmlString
     }
   
-    refreshBooks()
+    refreshAllBooks()
   
     function detailBookAjax(id){
     }
+
+    function getSearchedBooks(){
+      is_search_title = document.querySelector("#is_search_title").checked
+      if (is_search_title){
+        return fetch("{% url 'main:search_book_json' 'title' %}",{
+          method: "POST",
+          body: new FormData(document.querySelector('#search_form'))
+        }).then((res) => res.json())
+      }
+      else{
+        return fetch("{% url 'main:search_book_json' 'author' %}",{
+          method: "POST",
+          body: new FormData(document.querySelector('#search_form'))
+        }).then((res) => res.json())
+      }
+    }
+
+    document.getElementById("button_search").onclick = function(){
+      refreshSearchedBooks()
+    }
+      
         
   
   </script>
