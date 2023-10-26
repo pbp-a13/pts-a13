@@ -7,8 +7,8 @@ class Account(models.Model):
     username = models.CharField(max_length = 60)
     nama = models.CharField(max_length = 255 , default = "unknown")
     email = models.EmailField()
-    buku_dibeli = models.ManyToManyField(Book)
-    buku_ongoing = models.ManyToManyField(Book)
+    buku_dibeli = models.ManyToManyField(Book, related_name='purchased')
+    buku_ongoing = models.ManyToManyField(Book, related_name='ongoing_purchase')
     saldo = models.IntegerField()
     alamat = models.CharField(max_length = 1000)
 
