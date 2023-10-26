@@ -1,0 +1,902 @@
+[
+  {
+    "pk": 1,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Declaration of Independence of the United States of America",
+      "authors": "Jefferson, Thomas, 1743-1826",
+      "categories": "United States -- History -- Revolution, 1775-1783 -- Sources; United States. Declaration of Independence"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "book.Book",
+    "fields": {
+      "title": "The United States Bill of Rights\r\nThe Ten Original Amendments to the Constitution of the United States",
+      "authors": "United States",
+      "categories": "Civil rights -- United States -- Sources; United States. Constitution. 1st-10th Amendments"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "book.Book",
+    "fields": {
+      "title": "John F. Kennedy's Inaugural Address",
+      "authors": "Kennedy, John F. (John Fitzgerald), 1917-1963",
+      "categories": "United States -- Foreign relations -- 1961-1963; Presidents -- United States -- Inaugural addresses"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "book.Book",
+    "fields": {
+      "title": "Lincoln's Gettysburg Address\r\nGiven November 19, 1863 on the battlefield near Gettysburg, Pennsylvania, USA",
+      "authors": "Lincoln, Abraham, 1809-1865",
+      "categories": "Consecration of cemeteries -- Pennsylvania -- Gettysburg; Soldiers' National Cemetery (Gettysburg, Pa.); Lincoln, Abraham, 1809-1865. Gettysburg address"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "book.Book",
+    "fields": {
+      "title": "The United States Constitution",
+      "authors": "United States",
+      "categories": "United States -- Politics and government -- 1783-1789 -- Sources; United States. Constitution"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "book.Book",
+    "fields": {
+      "title": "Give Me Liberty or Give Me Death",
+      "authors": "Henry, Patrick, 1736-1799",
+      "categories": "Speeches, addresses, etc., American; United States -- Politics and government -- 1775-1783 -- Sources; Virginia -- Politics and government -- 1775-1783 -- Sources"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Mayflower Compact",
+      "authors": "Rompis, Joel",
+      "categories": "Massachusetts -- History -- New Plymouth, 1620-1691 -- Sources; Pilgrims (New Plymouth Colony); Mayflower Compact (1620)"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "book.Book",
+    "fields": {
+      "title": "Abraham Lincoln's Second Inaugural Address",
+      "authors": "Lincoln, Abraham, 1809-1865",
+      "categories": "United States -- Politics and government -- 1861-1865; Presidents -- United States -- Inaugural addresses"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "book.Book",
+    "fields": {
+      "title": "Abraham Lincoln's First Inaugural Address",
+      "authors": "Lincoln, Abraham, 1809-1865",
+      "categories": "United States -- Politics and government -- 1861-1865; Presidents -- United States -- Inaugural addresses"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "book.Book",
+    "fields": {
+      "title": "The King James Version of the Bible",
+      "authors": "God",
+      "categories": "Bible"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "book.Book",
+    "fields": {
+      "title": "Alice's Adventures in Wonderland",
+      "authors": "Carroll, Lewis, 1832-1898",
+      "categories": "Fantasy fiction; Children's stories; Imaginary places -- Juvenile fiction; Alice (Fictitious character from Carroll) -- Juvenile fiction"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "book.Book",
+    "fields": {
+      "title": "Through the Looking-Glass",
+      "authors": "Carroll, Lewis, 1832-1898",
+      "categories": "Fantasy fiction; Children's stories; Imaginary places -- Juvenile fiction; Alice (Fictitious character from Carroll) -- Juvenile fiction"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Hunting of the Snark: An Agony in Eight Fits",
+      "authors": "Carroll, Lewis, 1832-1898",
+      "categories": "Nonsense verses, English"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "book.Book",
+    "fields": {
+      "title": "The 1990 CIA World Factbook",
+      "authors": "United States. Central Intelligence Agency",
+      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc."
+    }
+  },
+  {
+    "pk": 15,
+    "model": "book.Book",
+    "fields": {
+      "title": "Moby-Dick; or, The Whale",
+      "authors": "Melville, Herman, 1819-1891",
+      "categories": "Whaling -- Fiction; Sea stories; Psychological fiction; Ship captains -- Fiction; Adventure stories; Mentally ill -- Fiction; Ahab, Captain (Fictitious character) -- Fiction; Whales -- Fiction; Whaling ships -- Fiction"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "book.Book",
+    "fields": {
+      "title": "Peter Pan",
+      "authors": "Barrie, J. M. (James Matthew), 1860-1937",
+      "categories": "Fantasy literature; Peter Pan (Fictitious character) -- Fiction; Never-Never Land (Imaginary place) -- Fiction; Pirates -- Fiction; Fairies -- Fiction"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Book of Mormon\r\nAn Account Written by the Hand of Mormon, Upon Plates Taken from the Plates of Nephi",
+      "authors": "Church of Jesus Christ of Latter-day Saints; Smith, Joseph, Jr., 1805-1844",
+      "categories": "Church of Jesus Christ of Latter-day Saints -- Sacred books; Mormon Church -- Sacred books"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Federalist Papers",
+      "authors": "Hamilton, Alexander, 1757-1804; Jay, John, 1745-1829; Madison, James, 1751-1836",
+      "categories": "Constitutional history -- United States -- Sources; Constitutional law -- United States"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Song of Hiawatha",
+      "authors": "Longfellow, Henry Wadsworth, 1807-1882; Morris, Woodrow W. [Editor]",
+      "categories": "Indians of North America -- Poetry; Hiawatha, active 15th century -- Poetry; Iroquois Indians -- Kings and rulers -- Poetry"
+    }
+  },
+  {
+    "pk": 20,
+    "model": "book.Book",
+    "fields": {
+      "title": "Paradise Lost",
+      "authors": "Milton, John, 1608-1674",
+      "categories": "Fall of man -- Poetry; Adam (Biblical figure) -- Poetry; Eve (Biblical figure) -- Poetry; Bible. Genesis -- History of Biblical events -- Poetry"
+    }
+  },
+  {
+    "pk": 21,
+    "model": "book.Book",
+    "fields": {
+      "title": "Aesop's Fables\r\nTranslated by George Fyler Townsend",
+      "authors": "Aesop, 620? BCE-564? BCE; Townsend, George Fyler, 1814-1900 [Translator]",
+      "categories": "Fables, Greek -- Translations into English; Aesop's fables -- Translations into English"
+    }
+  },
+  {
+    "pk": 22,
+    "model": "book.Book",
+    "fields": {
+      "title": "Roget's Thesaurus",
+      "authors": "Roget, Peter Mark, 1779-1869",
+      "categories": "English language -- Synonyms and antonyms"
+    }
+  },
+  {
+    "pk": 23,
+    "model": "book.Book",
+    "fields": {
+      "title": "Narrative of the Life of Frederick Douglass, an American Slave",
+      "authors": "Douglass, Frederick, 1818-1895",
+      "categories": "Douglass, Frederick, 1818-1895; African American abolitionists -- Biography; Abolitionists -- United States -- Biography; Enslaved persons -- United States -- Biography"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "book.Book",
+    "fields": {
+      "title": "O Pioneers!",
+      "authors": "Cather, Willa, 1873-1947",
+      "categories": "Nebraska -- Fiction; Historical fiction; Frontier and pioneer life -- Nebraska -- Fiction; Domestic fiction; Siblings -- Fiction; Farm life -- Fiction; Women pioneers -- Fiction; Women farmers -- Fiction; Women immigrants -- Fiction; Swedish Americans -- Fiction"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "book.Book",
+    "fields": {
+      "title": "The 1991 CIA World Factbook",
+      "authors": "United States. Central Intelligence Agency",
+      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc."
+    }
+  },
+  {
+    "pk": 26,
+    "model": "book.Book",
+    "fields": {
+      "title": "Paradise Lost",
+      "authors": "Milton, John, 1608-1674",
+      "categories": "Fall of man -- Poetry; Adam (Biblical figure) -- Poetry; Eve (Biblical figure) -- Poetry; Bible. Genesis -- History of Biblical events -- Poetry"
+    }
+  },
+  {
+    "pk": 27,
+    "model": "book.Book",
+    "fields": {
+      "title": "Far from the Madding Crowd",
+      "authors": "Hardy, Thomas, 1840-1928",
+      "categories": "Didactic fiction; Love stories; Triangles (Interpersonal relations) -- Fiction; Pastoral fiction; Farm life -- Fiction; Women farmers -- Fiction; Wessex (England) -- Fiction"
+    }
+  },
+  {
+    "pk": 28,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Fables of Aesop\r\nSelected, Told Anew, and Their History Traced",
+      "authors": "Aesop, 620? BCE-564? BCE; Jacobs, Joseph, 1854-1916 [Editor]",
+      "categories": "Aesop's fables -- Adaptations; Fables, Greek -- Adaptations"
+    }
+  },
+  {
+    "pk": 29,
+    "model": "book.Book",
+    "fields": {
+      "title": "The 1990 United States Census",
+      "authors": "United States. Bureau of the Census",
+      "categories": "United States -- Population -- Statistics; United States -- Census; Housing -- United States -- Statistics"
+    }
+  },
+  {
+    "pk": 30,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Bible, King James Version, Complete",
+      "authors": "God",
+      "categories": "Bible"
+    }
+  },
+  {
+    "pk": 31,
+    "model": "book.Book",
+    "fields": {
+      "title": "Plays of Sophocles: Oedipus the King; Oedipus at Colonus; Antigone",
+      "authors": "Sophocles, 495? BCE-406 BCE; Storr, Francis, 1839-1919 [Translator]",
+      "categories": "Tragedies; Antigone (Mythological character) -- Drama; Oedipus (Greek mythological figure) -- Drama; Greek drama (Tragedy) -- Translations into English"
+    }
+  },
+  {
+    "pk": 32,
+    "model": "book.Book",
+    "fields": {
+      "title": "Herland",
+      "authors": "Gilman, Charlotte Perkins, 1860-1935",
+      "categories": "Utopias -- Fiction; Women -- Fiction; Utopian fiction; Black humor"
+    }
+  },
+  {
+    "pk": 33,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Scarlet Letter",
+      "authors": "Hawthorne, Nathaniel, 1804-1864",
+      "categories": "Adultery -- Fiction; Historical fiction; Revenge -- Fiction; Psychological fiction; Married women -- Fiction; Clergy -- Fiction; Triangles (Interpersonal relations) -- Fiction; Illegitimate children -- Fiction; Women immigrants -- Fiction; Puritans -- Fiction; Boston (Mass.) -- History -- Colonial period, ca. 1600-1775 -- Fiction"
+    }
+  },
+  {
+    "pk": 34,
+    "model": "book.Book",
+    "fields": {
+      "title": "Zen and the Art of the Internet",
+      "authors": "Kehoe, Brendan P., 1970-2011",
+      "categories": "Internet; Computer networks; Information networks; Information retrieval"
+    }
+  },
+  {
+    "pk": 35,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Time Machine",
+      "authors": "Wells, H. G. (Herbert George), 1866-1946",
+      "categories": "Science fiction; Time travel -- Fiction; Dystopias -- Fiction"
+    }
+  },
+  {
+    "pk": 36,
+    "model": "book.Book",
+    "fields": {
+      "title": "The War of the Worlds",
+      "authors": "Wells, H. G. (Herbert George), 1866-1946",
+      "categories": "Science fiction; War stories; Martians -- Fiction; Mars (Planet) -- Fiction; Space warfare -- Fiction; Imaginary wars and battles -- Fiction; Life on other planets -- Fiction"
+    }
+  },
+  {
+    "pk": 37,
+    "model": "book.Book",
+    "fields": {
+      "title": "The 1990 United States Census [2nd]",
+      "authors": "United States. Bureau of the Census",
+      "categories": "United States -- Population -- Statistics; United States -- Census; Housing -- United States -- Statistics"
+    }
+  },
+  {
+    "pk": 38,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Jargon File, Version 2.9.10, 01 Jul 1992",
+      "authors": "Raymond, Eric S., 1957- [Editor]; Steele, Guy L., 1954- [Editor]",
+      "categories": "Electronic data processing -- Terminology -- Humor; Computers -- Humor; Computers -- Slang -- Dictionaries"
+    }
+  },
+  {
+    "pk": 39,
+    "model": "book.Book",
+    "fields": {
+      "title": "Hitchhiker's Guide to the Internet",
+      "authors": "Krol, Ed, 1951-",
+      "categories": "Internet; Computer networks"
+    }
+  },
+  {
+    "pk": 40,
+    "model": "book.Book",
+    "fields": {
+      "title": "NorthWestNet User Services Internet Resource Guide (NUSIRG)",
+      "authors": "Kochmer, Jonathan",
+      "categories": "Internet"
+    }
+  },
+  {
+    "pk": 41,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Legend of Sleepy Hollow",
+      "authors": "Irving, Washington, 1783-1859",
+      "categories": "Ghosts -- Fiction; New York (State) -- History -- 1775-1865 -- Fiction"
+    }
+  },
+  {
+    "pk": 42,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+      "authors": "Stevenson, Robert Louis, 1850-1894",
+      "categories": "Science fiction; Horror tales; London (England) -- Fiction; Physicians -- Fiction; Psychological fiction; Self-experimentation in medicine -- Fiction; Multiple personality -- Fiction"
+    }
+  },
+  {
+    "pk": 43,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+      "authors": "Stevenson, Robert Louis, 1850-1894",
+      "categories": "Science fiction; Horror tales; London (England) -- Fiction; Physicians -- Fiction; Psychological fiction; Self-experimentation in medicine -- Fiction; Multiple personality -- Fiction"
+    }
+  },
+  {
+    "pk": 44,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Song of the Lark",
+      "authors": "Cather, Willa, 1873-1947",
+      "categories": "Musical fiction; Young women -- Fiction; Bildungsromans; Chicago (Ill.) -- Fiction; Swedish Americans -- Fiction; Colorado -- Fiction; Opera -- Fiction; Children of clergy -- Fiction; Women singers -- Fiction"
+    }
+  },
+  {
+    "pk": 45,
+    "model": "book.Book",
+    "fields": {
+      "title": "Anne of Green Gables",
+      "authors": "Montgomery, L. M. (Lucy Maud), 1874-1942",
+      "categories": "Orphans -- Fiction; Islands -- Fiction; Friendship -- Fiction; Bildungsromans; Girls -- Fiction; Country life -- Prince Edward Island -- Fiction; Prince Edward Island -- History -- 20th century -- Fiction; Canada -- History -- 1867-1914 -- Fiction; Shirley, Anne (Fictitious character) -- Fiction"
+    }
+  },
+  {
+    "pk": 46,
+    "model": "book.Book",
+    "fields": {
+      "title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas",
+      "authors": "Dickens, Charles, 1812-1870; Leech, John, 1817-1864 [Illustrator]",
+      "categories": "Christmas stories; London (England) -- Fiction; Poor families -- Fiction; Ghost stories; Misers -- Fiction; Sick children -- Fiction; Scrooge, Ebenezer (Fictitious character) -- Fiction"
+    }
+  },
+  {
+    "pk": 47,
+    "model": "book.Book",
+    "fields": {
+      "title": "Anne of Avonlea",
+      "authors": "Montgomery, L. M. (Lucy Maud), 1874-1942",
+      "categories": "Orphans -- Fiction; Islands -- Fiction; Teachers -- Fiction; Prince Edward Island -- History -- 20th century -- Fiction; Canada -- History -- 1914-1945 -- Fiction; Shirley, Anne (Fictitious character) -- Fiction"
+    }
+  },
+  {
+    "pk": 48,
+    "model": "book.Book",
+    "fields": {
+      "title": "The 1992 CIA World Factbook",
+      "authors": "United States. Central Intelligence Agency",
+      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc."
+    }
+  },
+  {
+    "pk": 49,
+    "model": "book.Book",
+    "fields": {
+      "title": "Surfing the Internet: An Introduction\r\nVersion 2.0.2",
+      "authors": "Polly, Jean Armour",
+      "categories": "Internet addresses -- Directories; Computer network resources -- Directories; Electronic mail systems -- Directories"
+    }
+  },
+  {
+    "pk": 50,
+    "model": "book.Book",
+    "fields": {
+      "title": "Pi",
+      "authors": "Hemphill, Scott",
+      "categories": "Mathematics; Pi"
+    }
+  },
+  {
+    "pk": 51,
+    "model": "book.Book",
+    "fields": {
+      "title": "Anne of the Island",
+      "authors": "Montgomery, L. M. (Lucy Maud), 1874-1942",
+      "categories": "Orphans -- Fiction; Prince Edward Island -- History -- 20th century -- Fiction; Interpersonal relations -- Fiction; Canada -- History -- 1914-1945 -- Fiction; Self-perception -- Fiction; Universities and colleges -- Fiction; Nova Scotia -- History -- 20th century -- Fiction; Shirley, Anne (Fictitious character) -- Fiction"
+    }
+  },
+  {
+    "pk": 52,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Square Root of 2",
+      "authors": "Kerr, Stan",
+      "categories": "Mathematics; Square root"
+    }
+  },
+  {
+    "pk": 53,
+    "model": "book.Book",
+    "fields": {
+      "title": "Workshop on Electronic Texts: Proceedings, 9-10 June 1992",
+      "authors": "Library of Congress; Daly, James, 1948- [Editor]",
+      "categories": "Text processing (Computer science) -- Congresses; Electronic books; Electronic publishing -- Congresses"
+    }
+  },
+  {
+    "pk": 54,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Marvelous Land of Oz",
+      "authors": "Baum, L. Frank (Lyman Frank), 1856-1919",
+      "categories": "Oz (Imaginary place) -- Juvenile fiction; Fantasy literature; Conduct of life -- Juvenile fiction; Friendship -- Juvenile fiction; Voyages and travels -- Juvenile "
+    }
+  },
+  {
+    "pk": 55,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Wonderful Wizard of Oz",
+      "authors": "Baum, L. Frank (Lyman Frank), 1856-1919",
+      "categories": "Oz (Imaginary place) -- Juvenile fiction; Fantasy literature; Courage -- Juvenile fiction; Home -- Juvenile fiction; Good and evil -- Juvenile fiction; Dreams -- Juvenile fiction; Gale, Dorothy (Fictitious character) -- Juvenile fiction; Cowardly Lion (Fictitious character) -- Juvenile fiction; Cyclones -- Juvenile fiction; Scarecrow (Fictitious character from Baum) -- Juvenile fiction; Toto (Fictitious character) -- "
+    }
+  },
+  {
+    "pk": 56,
+    "model": "book.Book",
+    "fields": {
+      "title": "NREN for All: Insurmountable Opportunity",
+      "authors": "Polly, Jean Armour",
+      "categories": "Internet; National Research and Education Network (Computer network)"
+    }
+  },
+  {
+    "pk": 57,
+    "model": "book.Book",
+    "fields": {
+      "title": "Aladdin and the Magic Lamp",
+      "authors": "Unknown",
+      "categories": "Fairy tales; Children's stories; Arabs -- Folklore; Folklore -- Arab countries"
+    }
+  },
+  {
+    "pk": 58,
+    "model": "book.Book",
+    "fields": {
+      "title": "Paradise Regained",
+      "authors": "Milton, John, 1608-1674",
+      "categories": "English poetry; Epic poetry; Bible. Gospels -- History of Biblical events -- Poetry; Jesus Christ -- Temptation -- Poetry"
+    }
+  },
+  {
+    "pk": 59,
+    "model": "book.Book",
+    "fields": {
+      "title": "Discourse on the Method of Rightly Conducting One's Reason and of Seeking Truth in the Sciences",
+      "authors": "Descartes, René, 1596-1650; Veitch, John, 1829-1894 [Translator]",
+      "categories": "Science -- Methodology; Methodology"
+    }
+  },
+  {
+    "pk": 60,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Scarlet Pimpernel",
+      "authors": "Orczy, Emmuska Orczy, Baroness, 1865-1947",
+      "categories": "Historical fiction; France -- History -- Revolution, 1789-1799 -- Fiction; Adventure stories; British -- France -- Fiction; Nobility -- Fiction; Blakeney, Percy, Sir (Fictitious character) -- Fiction"
+    }
+  },
+  {
+    "pk": 61,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Communist Manifesto",
+      "authors": "Engels, Friedrich, 1820-1895; Marx, Karl, 1818-1883",
+      "categories": "Socialism; Communism"
+    }
+  },
+  {
+    "pk": 62,
+    "model": "book.Book",
+    "fields": {
+      "title": "A Princess of Mars",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Science fiction; Mars (Planet) -- Fiction; Princesses -- Fiction; Carter, John (Fictitious character) -- Fiction; Dejah Thoris (Fictitious character) -- Fiction"
+    }
+  },
+  {
+    "pk": 63,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Number \"e\"",
+      "authors": "Unknown",
+      "categories": "Mathematics; Mathematical constants"
+    }
+  },
+  {
+    "pk": 64,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Gods of Mars",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Science fiction; Mars (Planet) -- Fiction; Life on other planets -- Fiction; Carter, John (Fictitious character) -- Fiction; Dejah Thoris (Fictitious character) -- Fiction"
+    }
+  },
+  {
+    "pk": 65,
+    "model": "book.Book",
+    "fields": {
+      "title": "The First 100,000 Prime Numbers",
+      "authors": "Unknown",
+      "categories": "Mathematics; Numbers, Prime"
+    }
+  },
+  {
+    "pk": 66,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Dawn of Amateur Radio in the U.K. and Greece: A Personal View",
+      "authors": "Joly, Norman F.",
+      "categories": "Radio broadcasting"
+    }
+  },
+  {
+    "pk": 67,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Black Experience in America",
+      "authors": "Coombs, Norman, 1932-",
+      "categories": "African Americans -- History; Slavery -- United States -- History"
+    }
+  },
+  {
+    "pk": 68,
+    "model": "book.Book",
+    "fields": {
+      "title": "The warlord of Mars",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Science fiction; Mars (Planet) -- Fiction; Carter, John (Fictitious character) -- Fiction; Dejah Thoris (Fictitious character) -- Fiction"
+    }
+  },
+  {
+    "pk": 69,
+    "model": "book.Book",
+    "fields": {
+      "title": "The 32nd Mersenne Prime\r\nPredicted by Mersenne",
+      "authors": "Slowinski, David",
+      "categories": "Numbers, Prime; Number theory"
+    }
+  },
+  {
+    "pk": 70,
+    "model": "book.Book",
+    "fields": {
+      "title": "What Is Man? and Other Essays",
+      "authors": "Twain, Mark, 1835-1910",
+      "categories": "American essays"
+    }
+  },
+  {
+    "pk": 71,
+    "model": "book.Book",
+    "fields": {
+      "title": "On the Duty of Civil Disobedience",
+      "authors": "Thoreau, Henry David, 1817-1862",
+      "categories": "Civil disobedience; Government, Resistance to"
+    }
+  },
+  {
+    "pk": 72,
+    "model": "book.Book",
+    "fields": {
+      "title": "Thuvia, Maid of Mars",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Science fiction; Martians -- Fiction; Mars (Planet) -- Fiction"
+    }
+  },
+  {
+    "pk": 73,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Red Badge of Courage: An Episode of the American Civil War",
+      "authors": "Crane, Stephen, 1871-1900",
+      "categories": "Historical fiction; War stories; United States -- History -- Civil War, 1861-1865 -- Fiction; Virginia -- History -- Civil War, 1861-1865 -- Fiction; Chancellorsville, Battle of, Chancellorsville, Va., 1863 -- Fiction"
+    }
+  },
+  {
+    "pk": 74,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Adventures of Tom Sawyer, Complete",
+      "authors": "Twain, Mark, 1835-1910",
+      "categories": "Humorous stories; Bildungsromans; Boys -- Fiction; Male friendship -- Fiction; Adventure stories; Missouri -- Fiction; Sawyer, Tom (Fictitious character) -- Fiction; Child witnesses -- Fiction; Runaway children -- Fiction; Mississippi River Valley -- Fiction"
+    }
+  },
+  {
+    "pk": 75,
+    "model": "book.Book",
+    "fields": {
+      "title": "E-mail 101",
+      "authors": "Goodwin, John E.",
+      "categories": "Electronic mail systems"
+    }
+  },
+  {
+    "pk": 76,
+    "model": "book.Book",
+    "fields": {
+      "title": "Adventures of Huckleberry Finn",
+      "authors": "Twain, Mark, 1835-1910; Kemble, E. W. (Edward Windsor), 1861-1933 [Illustrator]",
+      "categories": "Humorous stories; Bildungsromans; Boys -- Fiction; Male friendship -- Fiction; Adventure stories; Missouri -- Fiction; Race relations -- Fiction; Runaway children -- Fiction; Finn, Huckleberry (Fictitious character) -- Fiction; Fugitive slaves -- Fiction; Mississippi River -- Fiction"
+    }
+  },
+  {
+    "pk": 77,
+    "model": "book.Book",
+    "fields": {
+      "title": "The House of the Seven Gables",
+      "authors": "Hawthorne, Nathaniel, 1804-1864",
+      "categories": "Historical fiction; Domestic fiction; Paranormal fiction; Haunted houses -- Fiction; Salem (Mass.) -- Fiction"
+    }
+  },
+  {
+    "pk": 78,
+    "model": "book.Book",
+    "fields": {
+      "title": "Tarzan of the Apes",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Tarzan (Fictitious character) -- Fiction; Africa -- Fiction; Fantasy fiction; Adventure stories; British -- Africa -- Fiction; Wild men -- Fiction"
+    }
+  },
+  {
+    "pk": 79,
+    "model": "book.Book",
+    "fields": {
+      "title": "Terminal Compromise",
+      "authors": "Schwartau, Winn, 1952-",
+      "categories": "Computer security -- Fiction; Didactic fiction; Privacy, Right of -- Fiction; Records -- Access control -- Fiction"
+    }
+  },
+  {
+    "pk": 80,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Online World",
+      "authors": "De Presno, Odd, 1944-",
+      "categories": "Internet"
+    }
+  },
+  {
+    "pk": 81,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Return of Tarzan",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Adventure stories"
+    }
+  },
+  {
+    "pk": 82,
+    "model": "book.Book",
+    "fields": {
+      "title": "Ivanhoe: A Romance",
+      "authors": "Scott, Walter, 1771-1832",
+      "categories": "Historical fiction; Knights and knighthood -- Fiction; Love stories; Triangles (Interpersonal relations) -- Fiction; Great Britain -- History -- Richard I, 1189-1199 -- Fiction; Jews -- England -- Fiction; Ivanhoe, Wilfred of, Sir (Fictitious character) -- Fiction; Anglo-Saxons -- Fiction; Normans -- Great Britain -- Fiction"
+    }
+  },
+  {
+    "pk": 83,
+    "model": "book.Book",
+    "fields": {
+      "title": "From the Earth to the Moon; and, Round the Moon",
+      "authors": "Verne, Jules, 1828-1905",
+      "categories": "Science fiction; Space flight to the moon -- Fiction; Moon -- Fiction; Space ships -- Fiction; Manned space flight -- Fiction"
+    }
+  },
+  {
+    "pk": 84,
+    "model": "book.Book",
+    "fields": {
+      "title": "Frankenstein; Or, The Modern Prometheus",
+      "authors": "Shelley, Mary Wollstonecraft, 1797-1851",
+      "categories": "Science fiction; Horror tales; Gothic fiction; Scientists -- Fiction; Monsters -- Fiction; Frankenstein, Victor (Fictitious character) -- Fiction; Frankenstein's monster (Fictitious character) -- Fiction"
+    }
+  },
+  {
+    "pk": 85,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Beasts of Tarzan",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Jungle animals -- Fiction; Adventure stories"
+    }
+  },
+  {
+    "pk": 86,
+    "model": "book.Book",
+    "fields": {
+      "title": "A Connecticut Yankee in King Arthur's Court",
+      "authors": "Twain, Mark, 1835-1910",
+      "categories": "Fantasy fiction; Satire; Knights and knighthood -- Fiction; Arthurian romances -- Adaptations; Time travel -- Fiction; Americans -- Great Britain -- Fiction; Kings and rulers -- Fiction; Britons -- Fiction"
+    }
+  },
+  {
+    "pk": 87,
+    "model": "book.Book",
+    "fields": {
+      "title": "The 1993 CIA World Factbook",
+      "authors": "United States. Central Intelligence Agency",
+      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc."
+    }
+  },
+  {
+    "pk": 88,
+    "model": "book.Book",
+    "fields": {
+      "title": "Price/Cost Indexes from 1875 to 1989; Estimated to 2010",
+      "authors": "Hart, Michael, 1947-2011",
+      "categories": "Cost and standard of living"
+    }
+  },
+  {
+    "pk": 89,
+    "model": "book.Book",
+    "fields": {
+      "title": "North American Free Trade Agreement, 1992 Oct. 7 Tariff Phasing Descriptions",
+      "authors": "Canada",
+      "categories": "Canada. Treaties, etc. 1992 Oct. 7; Tariff -- Law and legislation -- North America; Free trade -- North America; Foreign trade regulation -- North America; Free trade -- United States; Free trade -- Canada; Free trade -- Mexico"
+    }
+  },
+  {
+    "pk": 90,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Son of Tarzan",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Adventure stories"
+    }
+  },
+  {
+    "pk": 91,
+    "model": "book.Book",
+    "fields": {
+      "title": "Tom Sawyer Abroad",
+      "authors": "Twain, Mark, 1835-1910",
+      "categories": "Adventure stories; Sawyer, Tom (Fictitious character) -- Fiction; Balloon ascensions -- Fiction; Americans -- Foreign countries -- Fiction"
+    }
+  },
+  {
+    "pk": 92,
+    "model": "book.Book",
+    "fields": {
+      "title": "Tarzan and the Jewels of Opar",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Adventure stories"
+    }
+  },
+  {
+    "pk": 93,
+    "model": "book.Book",
+    "fields": {
+      "title": "Tom Sawyer, Detective",
+      "authors": "Twain, Mark, 1835-1910",
+      "categories": "Sawyer, Tom (Fictitious character) -- Fiction; Mystery fiction"
+    }
+  },
+  {
+    "pk": 94,
+    "model": "book.Book",
+    "fields": {
+      "title": "Alexander's Bridge",
+      "authors": "Cather, Willa, 1873-1947",
+      "categories": "Civil engineers -- Fiction; London (England) -- Fiction; Psychological fiction; Married people -- Fiction; Boston (Mass.) -- Fiction; Mistresses -- Fiction; Bridges -- Design and construction -- Fiction"
+    }
+  },
+  {
+    "pk": 95,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Prisoner of Zenda",
+      "authors": "Hope, Anthony, 1863-1933",
+      "categories": "Impostors and imposture -- Fiction; Adventure stories; British -- Foreign countries -- Fiction"
+    }
+  },
+  {
+    "pk": 96,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Monster Men",
+      "authors": "Burroughs, Edgar Rice, 1875-1950",
+      "categories": "Science fiction; Fantasy fiction"
+    }
+  },
+  {
+    "pk": 97,
+    "model": "book.Book",
+    "fields": {
+      "title": "Flatland: A Romance of Many Dimensions",
+      "authors": "Abbott, Edwin Abbott, 1838-1926",
+      "categories": "Fourth dimension"
+    }
+  },
+  {
+    "pk": 98,
+    "model": "book.Book",
+    "fields": {
+      "title": "A Tale of Two Cities",
+      "authors": "Dickens, Charles, 1812-1870",
+      "categories": "Historical fiction; France -- History -- Revolution, 1789-1799 -- Fiction; London (England) -- History -- 18th century -- Fiction; War stories; Executions and executioners -- Fiction; French -- England -- London -- Fiction; Lookalikes -- Fiction; British -- France -- Paris -- Fiction; Paris (France) -- History -- 1789-1799 -- Fiction"
+    }
+  },
+  {
+    "pk": 99,
+    "model": "book.Book",
+    "fields": {
+      "title": "Collected Articles of Frederick Douglass",
+      "authors": "Douglass, Frederick, 1818-1895",
+      "categories": "Douglass, Frederick, 1818-1895; Slavery; African American abolitionists; Essays; Reconstruction (U.S. history, 1865-1877)"
+    }
+  },
+  {
+    "pk": 100,
+    "model": "book.Book",
+    "fields": {
+      "title": "The Complete Works of William Shakespeare",
+      "authors": "Shakespeare, William, 1564-1616",
+      "categories": "English drama -- Early modern and Elizabethan, 1500-1600"
+    }
+  }
+]
