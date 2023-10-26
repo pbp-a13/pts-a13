@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Information</title>
+</head>
+<body>
+    <h1>Account Information</h1>
+
+    <p>Username: {{ account.username }}</p>
+    <p>Nama: {{ account.nama }}</p>
+    <p>Email: {{ account.email }}</p>
+    <p>Alamat: {{ account.alamat }}</p>
+    <p>Saldo: {{ account.saldo }}</p>
+
+    <h3>Buku yang Telah Dibeli:</h3>
+    <ul>
+        {% for book in account.buku_dibeli.all %}
+            <li>{{ book.title }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Reviews:</h3>
+    <ul>
+        {% for review in account.review_set.all %}
+            <li>{{ review.book.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
