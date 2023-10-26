@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View All Members</title>
+</head>
+<body>
+    <h1>View All Members</h1>
+
+    <ul>
+        {% for member in members %}
+            <li>
+                {{ member.username }} - {{ member.nama }}
+                <a href="{% url 'account:member_details' member.id %}">See Full Information</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
