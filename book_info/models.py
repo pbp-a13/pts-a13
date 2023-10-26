@@ -2,7 +2,6 @@ from django.db import models
 from book.models import Book
 # from account.models import Account, Review
 from account.models import Account, Review
-import random
 
 # Create your models here.
 class Cart(models.Model):
