@@ -6,10 +6,10 @@ from account.models import Account, Review
 from book_info.models import Cart
 
 # Create your views here.
-def show_info(request, book_id):
-    book = get_object_or_404(Book, id=book_id)
-    member = request.user
-    cart_entry, created = Cart.objects.get_or_create(member=member, book=book)
+def show_info(request, book_id=1):
+    # book = get_object_or_404(Book, id=book_id)
+    # member = request.user
+    # cart_entry, created = Cart.objects.get_or_create(member=member, book=book)
     context = {
         'authors': 'Leila S. Chudori',
         'title': 'Laut Bercerita',
@@ -19,7 +19,7 @@ def show_info(request, book_id):
         'stock': 1550,
         'jumlah_terjual': 44,
         'jumlah_pembelian': 1,
-        'initial_quantity': cart_entry.jumlah_pembelian,
+        # 'initial_quantity': cart_entry.jumlah_pembelian,
     }
 
     return render(request, "book_info.html", context)
@@ -30,15 +30,16 @@ def increment_amount(request, book_id):
     member = request.user 
 
     cart_entry, created = Cart.objects.get_or_create(member=member, book=book)
-    cart_entry.jumlah_pembelian += 1
-    cart_entry.save()
+    if cart_entry.jumlah_pembelian < book.stock:
+        cart_entry.jumlah_pembelian += 1
+        cart_entry.save()
 
     return JsonResponse({'success': True})
 
 @csrf_exempt
 def decrement_amount(request, book_id):
     book = get_object_or_404(Book, id=book_id)
-    member = request.user  # Assuming you have a logged-in user
+    member = request.user
 
     cart_entry, created = Cart.objects.get_or_create(member=member, book=book)
     if cart_entry.jumlah_pembelian > 0:
