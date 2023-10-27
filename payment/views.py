@@ -1,11 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import UserProfile, Order, OrderItem
+from account.models import Account # yang order belom
 
 @login_required
 def payment(request):
     # Ambil profil pengguna yang sedang login
-    user_profile = UserProfile.objects.get(user=request.user)
+    user_profile = Account.objects.get(user=request.user)
 
     # Ambil pesanan yang sedang berlangsung oleh pengguna
     ongoing_orders = Order.objects.filter(user=request.user, is_completed=False)

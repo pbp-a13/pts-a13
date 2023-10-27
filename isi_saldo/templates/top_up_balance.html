@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container m-4">
+    <h1 class="m-3">Isi Saldo</h1>
+
+    <p>Saldo Anda saat ini: ${{ user_balance.balance }}</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="amount">Jumlah Saldo yang Ingin Diisi:</label>
+        <input type="number" step="0.01" name="amount" id="amount" required>
+        <button type="submit" class="btn btn-primary">Isi Saldo</button>
+    </form>
+</div>
+
+{% endblock content %}
