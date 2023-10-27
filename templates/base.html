@@ -15,21 +15,25 @@
 	</head>
 
     <body>
-		<div class="navbar", style="background-color: bisque;">
-			<div class="container p-0 text-left">
-				<div class="row align-items-center">
-				  <div class="col-9">
-					<h2 class="m-3">Toko Buku Pacil</h2>
-				  </div>
-				  <div class="col-2">
-					<a href="{% url 'order:member_orderlist' %}">Login</a>
-				  </div>
-				  <div class="col-1">
-					<a href="{% url 'order:member_orderlist' %}">Order</a>
-				  </div>
-				</div>
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid">
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <a class="navbar-brand fw-bold" href="#">Toko Buku Pacil</a>
+			  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#">Home</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link active" href="{% url 'order:member_orderlist' %}">Order</a>
+				  </li>
+				</ul>
+				<button class="btn btn-outline-success me-2" type="button">Login</button>
+			  </div>
 			</div>
-		</div>
+		  </nav>
 
         {% block content %}
         {% endblock content %}
