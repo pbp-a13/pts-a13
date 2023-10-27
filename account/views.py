@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Account, Admin
 from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth import authenticate, login
 
 def register(request):
     form = UserCreationForm()
@@ -15,6 +16,21 @@ def register(request):
             return redirect('main:login')
     context = {'form':form}
     return render(request, 'register.html', context)
+
+
+
+def login_user(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('main:show_main')
+        else:
+            messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+    context = {}
+    return render(request, 'login.html', context)
 
 def account_info(request):
     user = request.user 
