@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 
-<div class="container m-4">
+
+
+<div class="container m-4" id="main_container" background-color>
 
 
 <h1 class="m-3">Toko Buku Pacil</h1>
@@ -61,30 +64,46 @@
 
 
 <script>
-    async function getAllBooks() {
-      if (document.querySelector("#is_sort_title").checked){
-        return fetch("{% url 'main:get_book_json' 'title' %}").then((res) => res.json())
-      }
-      if (document.querySelector("#is_sort_author").checked){
-        return fetch("{% url 'main:get_book_json' 'author' %}").then((res) => res.json())
-      }
-      else{
-        return fetch("{% url 'main:get_book_json' 'rating' %}").then((res) => res.json())
-      }
-    }
+    // async function getBooks() {
+    //   if (document.querySelector("#is_sort_title").checked){
+    //     return fetch("{% url 'main:get_book_json' 'title' %}").then((res) => res.json())
+    //   }
+    //   if (document.querySelector("#is_sort_author").checked){
+    //     return fetch("{% url 'main:get_book_json' 'authors' %}").then((res) => res.json())
+    //   }
+    //   else{
+    //     return fetch("{% url 'main:get_book_json' 'rating' %}").then((res) => res.json())
+    //   }
+    // }
     async function refreshAllBooks() {
       document.getElementById("book_cards").innerHTML = ""
-      const books = await getAllBooks()
+      const books = await getBooks()
 
       
       let htmlString = `<div class="row row-cols-md-5">`
         books.forEach((book) => {
           htmlString += `\n
-            <div class="card">
-                <div class="card-body">
+          <div class="card m-4">
+                <div class="card-body">`
+          if (book.fields.image){
+            book_url = "media/" + book.fields.image
+            htmlString += `\n <img src= ${book_url}  width="150" height="200" alt="connect">`
+          }
+          else{
+            htmlString += `\n <img src="{% static 'book/images/default_book.png' %}" style="max-height:200px">`
+          }
+          htmlString += `\n
                     <h5 class="card-title">${book.fields.title}</h5>
-                    <div class="card-text">Author: ${book.fields.authors}</div>
-                    <button class="btn btn-primary btn-sm" onclick="detailBookAjax(${book.pk})">Detail</button>
+                </div>
+                <div class="card-body"
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">Author: ${book.fields.authors}</li>
+                  <li class="list-group-item">Price: ${book.fields.price}</li>
+                  <li class="list-group-item">Rating: ${book.fields.rating}</li>
+                </ul>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary btn-sm my-auto" onclick="detailBookAjax(${book.pk})">Detail</button>
                 </div>
             </div>`
     })
@@ -94,83 +113,79 @@
       document.getElementById("book_cards").innerHTML = htmlString
     }
 
-    async function refreshSearchedBooks() {
-      document.getElementById("book_cards").innerHTML = ""
-      const books = await getSearchedBooks()
-
-      
-      let htmlString = `<div class="row row-cols-md-5">`
-        books.forEach((book) => {
-          htmlString += `\n
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">${book.fields.title}</h5>
-                    <div class="card-text">Author: ${book.fields.author}</div>
-                    <div class="card-text">Price: ${book.fields.price}</div>
-                    <div class="card-text">Rating: ${book.fields.rating}</div>
-                    <button class="btn btn-primary btn-sm" onclick="detailBookAjax(${book.pk})">Detail</button>
-                </div>
-            </div>`
-    })
-    htmlString += `\n </div>`
-  
-      
-      document.getElementById("book_cards").innerHTML = htmlString
-    }
   
     refreshAllBooks()
   
     function detailBookAjax(id){
     }
 
-    function getSearchedBooks(){
-      is_search_title = document.querySelector("#is_search_title").checked
-      if (is_search_title){
-        if (document.querySelector("#is_sort_title").checked){
-          return fetch("{% url 'main:search_book_json' 'title' 'title' %}",{
-            method: "POST",
-            body: new FormData(document.querySelector('#search_form'))
-          }).then((res) => res.json())
-        }
-        if (document.querySelector("#is_sort_author").checked){
-          return fetch("{% url 'main:search_book_json' 'title' 'author' %}",{
-            method: "POST",
-            body: new FormData(document.querySelector('#search_form'))
-          }).then((res) => res.json())
-        }
-        else{
-          return fetch("{% url 'main:search_book_json' 'title' 'rating' %}",{
-            method: "POST",
-            body: new FormData(document.querySelector('#search_form'))
-          }).then((res) => res.json())
-        }
+    function getBooks(){
+      fetch_string = "{% url 'main:search_book_json' 'search' 'sort' %}"
 
+      if (document.querySelector("#is_search_title").checked){
+        fetch_string = "{% url 'main:search_book_json' 'title' 'sort' %}"
+        console.log("masuk sini")
       }
-      else{
-        if (document.querySelector("#is_sort_title").checked){
-          return fetch("{% url 'main:search_book_json' 'author' 'title' %}",{
-            method: "POST",
-            body: new FormData(document.querySelector('#search_form'))
-          }).then((res) => res.json())
-        }
-        if (document.querySelector("#is_sort_author").checked){
-          return fetch("{% url 'main:search_book_json' 'author' 'author' %}",{
-            method: "POST",
-            body: new FormData(document.querySelector('#search_form'))
-          }).then((res) => res.json())
-        }
-        else{
-          return fetch("{% url 'main:search_book_json' 'author' 'rating' %}",{
-            method: "POST",
-            body: new FormData(document.querySelector('#search_form'))
-          }).then((res) => res.json())
-        }
+      if (document.querySelector("#is_search_author").checked){
+        fetch_string = "{% url 'main:search_book_json' 'author' 'sort' %}"
       }
+
+
+      if (document.querySelector("#is_sort_title").checked){
+        fetch_string = fetch_string.replace("sort", "title")
+      }
+      if (document.querySelector("#is_sort_author").checked){
+        fetch_string = fetch_string.replace("sort", "authors")
+      }
+      if (document.querySelector("#is_sort_rating").checked){
+        fetch_string = fetch_string.replace("sort", "rating")
+      }
+      //     }).then((res) => res.json())
+      //   }
+      //   if (document.querySelector("#is_sort_author").checked){
+      //     return fetch("{% url 'main:search_book_json' 'title' 'authors' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      //   else{
+      //     return fetch("{% url 'main:search_book_json' 'title' 'rating' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+
+      // }
+      // else{
+      //   if (document.querySelector("#is_sort_title").checked){
+      //     return fetch("{% url 'main:search_book_json' 'author' 'title' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      //   if (document.querySelector("#is_sort_author").checked){
+      //     return fetch("{% url 'main:search_book_json' 'author' 'authors' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      //   else{
+      //     return fetch("{% url 'main:search_book_json' 'author' 'rating' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      // }
+      console.log(fetch_string)
+      return fetch(fetch_string,{
+            method: "POST",
+            body: new FormData(document.querySelector('#search_form'))
+          }).then((res) => res.json())
 
       }
 
     document.getElementById("button_search").onclick = function(){
-      refreshSearchedBooks()
+      refreshAllBooks()
     }
       
         
