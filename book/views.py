@@ -5,7 +5,7 @@ from django.urls import reverse
 
 
 def add_book(request):
-    form = BookForm(request.POST or None)
+    form = BookForm(request.POST, request.FILES)
 
     if form.is_valid() and request.method == "POST":
         form.save()

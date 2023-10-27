@@ -3,6 +3,7 @@ import random
 
 class Book(models.Model):
     title = models.CharField(max_length=511, null=True)
+    image = models.ImageField( upload_to='book/images', null=True, blank=True)
     authors = models.CharField(max_length=511, null=True)
     categories = models.CharField(max_length=511, null=True)
     price = models.IntegerField(default = random.randint(25000, 200000))
