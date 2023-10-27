@@ -15,6 +15,22 @@
 	</head>
 
     <body>
+		<div class="navbar", style="background-color: bisque;">
+			<div class="container p-0 text-left">
+				<div class="row align-items-center">
+				  <div class="col-9">
+					<h2 class="m-3">Toko Buku Pacil</h2>
+				  </div>
+				  <div class="col-2">
+					<a href="{% url 'order:member_orderlist' %}">Login</a>
+				  </div>
+				  <div class="col-1">
+					<a href="{% url 'order:member_orderlist' %}">Order</a>
+				  </div>
+				</div>
+			</div>
+		</div>
+
         {% block content %}
         {% endblock content %}
     </body>
