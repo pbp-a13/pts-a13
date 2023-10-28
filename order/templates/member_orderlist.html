@@ -54,7 +54,7 @@
                     <p>Order Date: {{ order.order_date }}</p>
                     <p>Total Price: {{ order.price }}</p>
                     <p>Estimated Delivery Date: {{ order.estimated_delivery_date }}</p>
-                    <a class="btn btn-primary" role="button" style="background-color: rgb(10, 22, 65); padding-left: 30px; padding-right: 30px;">Details</a>
+                    <a id="detailsButton" class="btn btn-primary" role="button" style="background-color: rgb(10, 22, 65); padding-left: 30px; padding-right: 30px;">Details</a>
                 </div>
                 <div class="col-3">
                     {% if order.is_completed %}
@@ -70,9 +70,8 @@
             </div>
         </div>
     </div>
-    <script>
 
-    </script>
+ 
 </body>
 
 {% endblock content %}
