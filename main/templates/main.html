@@ -10,17 +10,27 @@
 
 <h1 class="m-3">Toko Buku Pacil</h1>
 
-<form id="form" onsubmit="return false;">
-  {% csrf_token %}
-  <div>
-      <label for="name" class="col-form-label">Username:</label>
-      <input type="text" class="form-control" id="username" name="username"></input>
+{% if user.is_authenticated %}
+{% if admin == 0 %}
+  Saya bukan admin tapi akun biasa
+{% endif %}
+
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    {{user.username}}
+		<a href="{% url 'account:logout_user' %}" class="btn btn-primary" type="button">Logout</a>
   </div>
-  <div>
-      <label for="price" class="col-form-label">Password:</label>
-      <input type="number" class="form-control" id="password" name="password"></input>
-  </div>
-</form>
+{% else %}
+<div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <a href="{% url 'account:login_user' %}" class="btn btn-primary" type="button">Login</a>
+</div>
+{% endif %}
+
+{% if admin == 1 %}
+  Saya admin
+{% endif %}
+
+
+
 
 
 <form id = "search_form" onsubmit="return false;">
@@ -93,7 +103,7 @@
       const books = await getBooks()
 
       
-      let htmlString = `<div class="row row-cols-md-5">`
+      let htmlString = `<div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3">`
         books.forEach((book) => {
           htmlString += `\n
           <div class="card m-4">
@@ -165,16 +175,6 @@
       refreshAllBooks()
     }
 
-
-    function login() {
-    fetch("{% url 'main:login' %}", {
-      method: "POST",
-      body: new FormData(document.querySelector('#form'))
-    }).then(refreshItems)
-
-    document.getElementById("form").reset()
-    return false
-  }
       
         
   
