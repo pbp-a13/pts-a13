@@ -32,10 +32,7 @@ class Review(models.Model):
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     review_text = models.TextField()
 
-class Admin(Account):
-    account = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    orders_completed = models.IntegerField(default=0)
-    books_added = models.IntegerField(default=0)
+
 
 
 

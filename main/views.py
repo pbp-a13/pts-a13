@@ -5,7 +5,8 @@ from django.core import serializers
 from django.db.models.functions import Lower
 from django.http import JsonResponse
 from django.contrib.auth.decorators import login_required
-from account.models import Admin, Account
+from account.models import Account
+from main.models import Admin
 
 from django.shortcuts import render
 
