@@ -11,18 +11,18 @@
 <h1 class="m-3">Toko Buku Pacil</h1>
 
 {% if user.is_authenticated %}
-{% if admin == 0 %}
-  Saya bukan admin tapi akun biasa
-{% endif %}
+  {% if admin == 0 %}
+    Saya bukan admin tapi akun biasa
+  {% endif %}
 
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    {{user.username}}
-		<a href="{% url 'account:logout_user' %}" class="btn btn-primary" type="button">Logout</a>
-  </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      {{user.username}}
+      <a href="{% url 'account:logout_user' %}" class="btn btn-primary" type="button">Logout</a>
+    </div>
 {% else %}
-<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-  <a href="{% url 'account:login_user' %}" class="btn btn-primary" type="button">Login</a>
-</div>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <a href="{% url 'account:login_user' %}" class="btn btn-primary" type="button">Login</a>
+  </div>
 {% endif %}
 
 {% if admin == 1 %}
@@ -122,11 +122,16 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Author: ${book.fields.authors}</li>
                   <li class="list-group-item">Price: ${book.fields.price}</li>
+
                   <li class="list-group-item">Rating: ${book.fields.rating}</li>
                 </ul>
                 </div>
                 <div class="card-footer">
+                  {% if admin == 1 %}
+                  <button class="btn btn-primary btn-sm my-auto" onclick="detailBookAjax(${book.pk})">Edit</button>
+                  {% else %}
                     <button class="btn btn-primary btn-sm my-auto" onclick="detailBookAjax(${book.pk})">Detail</button>
+                  {% endif %}
                 </div>
             </div>`
     })
