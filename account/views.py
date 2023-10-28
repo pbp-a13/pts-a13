@@ -1,7 +1,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages 
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Account, Admin
+from .models import Account
+from main.models import Admin
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import authenticate, login
 from .forms import UserForm, AccountForm
