@@ -163,6 +163,43 @@
       if (document.querySelector("#is_sort_rating").checked){
         fetch_string = fetch_string.replace("sort", "rating")
       }
+      //     }).then((res) => res.json())
+      //   }
+      //   if (document.querySelector("#is_sort_author").checked){
+      //     return fetch("{% url 'main:search_book_json' 'title' 'authors' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      //   else{
+      //     return fetch("{% url 'main:search_book_json' 'title' 'rating' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+
+      // }
+      // else{
+      //   if (document.querySelector("#is_sort_title").checked){
+      //     return fetch("{% url 'main:search_book_json' 'author' 'title' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      //   if (document.querySelector("#is_sort_author").checked){
+      //     return fetch("{% url 'main:search_book_json' 'author' 'authors' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      //   else{
+      //     return fetch("{% url 'main:search_book_json' 'author' 'rating' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      // }
+
       console.log(fetch_string)
       return fetch(fetch_string,{
             method: "POST",
