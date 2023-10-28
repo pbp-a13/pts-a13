@@ -12,24 +12,37 @@
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+J4jsl5c9zdLKaUk5Ae5f5b1bw6AUn5f5v8FZJoMxm6f5cH1" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+		<style>
+			.navbar {
+				background-color: #6aa8db;
+				margin-bottom: 20px; /* Adjust the margin as needed */
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.navbar-brand {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 24px; /* Adjust the font size as needed */
+				color: antiquewhite;
+				font-weight: bold;
+				height: 100%;
+				margin-left: 10px;
+			}
+		</style>
+
 	</head>
 
     <body>
-		<div class="navbar", style="background-color: bisque;">
-			<div class="container p-0 text-left">
-				<div class="row align-items-center">
-				  <div class="col-9">
-					<h2 class="m-3">Toko Buku Pacil</h2>
-				  </div>
-				  <div class="col-2">
-					<a href="{% url 'order:member_orderlist' %}">Login</a>
-				  </div>
-				  <div class="col-1">
-					<a href="{% url 'order:member_orderlist' %}">Order</a>
-				  </div>
-				</div>
-			</div>
-		</div>
+		<nav class="navbar">
+			<a href="{% url 'main:show_main' %}" class="navbar-brand fw-bold" href="#" style="color: rgb(10, 22, 65);">Toko Buku Pacil</a>
+			<span>
+				<a href="{% url 'order:member_orderlist' %}" style="padding-right: 20px; text-decoration: none; color: rgb(10, 22, 65); text-shadow: white;">Order</a>
+				<a href="{% url 'account:login_user' %}" class="btn btn-primary" role="button" style="margin-right: 20px; background-color: rgb(10, 22, 65);">Login</a>
+			</span>
+		</nav>
 
         {% block content %}
         {% endblock content %}

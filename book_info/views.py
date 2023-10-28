@@ -6,7 +6,7 @@ from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from book.models import Book
 from account.models import Account, Review
-from book_info.forms import BookForm
+# from book_info.forms import BookForm
 from book_info.models import Cart
 from main.models import Admin
 
