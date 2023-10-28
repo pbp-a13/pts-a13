@@ -8,21 +8,14 @@
 <div class="container m-4" id="main_container" background-color>
 
 
-<h1 class="m-3">Toko Buku Pacil</h1>
 
 {% if user.is_authenticated %}
   {% if admin == 0 %}
     Saya bukan admin tapi akun biasa
   {% endif %}
 
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-      {{user.username}}
-      <a href="{% url 'account:logout_user' %}" class="btn btn-primary" type="button">Logout</a>
-    </div>
 {% else %}
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a href="{% url 'account:login_user' %}" class="btn btn-primary" type="button">Login</a>
-  </div>
+    <p>Saya belum login</p>
 {% endif %}
 
 {% if admin == 1 %}
@@ -81,7 +74,12 @@
 </form>
 
 
+
+
+
+{% if admin == 1 %}
 <a href="{% url 'book:add_book' %}" class="btn btn-primary btn-sm m-3">Add New Book</a>
+{% endif %}
 
 <div id="book_cards"></div>
 
