@@ -145,7 +145,8 @@
     refreshAllBooks()
   
     function detailBookAjax(id){
-    }
+      location.href = "/book-info/" + id
+  }
 
     function getBooks(){
       fetch_string = "{% url 'main:search_book_json' 'search' 'sort' %}"
