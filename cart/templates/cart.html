@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container m-4">
+    <h1 class="m-3">Cart Page</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Judul Buku</th>
+                <th scope="col">Harga</th>
+                <th scope="col">Jumlah</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.book.title }}</td>
+                    <td>${{ item.book.price }}</td>
+                    <td>
+                        <button class="btn btn-secondary btn-sm" onclick="decreaseQuantity()">-</button>
+                        {{ item.quantity }}
+                        <button class="btn btn-secondary btn-sm" onclick="increaseQuantity()">+</button>
+                    </td>
+                    <td>${{ item.subtotal }}</td>
+                    <td><button class="btn btn-danger btn-sm" onclick="removeItem()">Remove</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h4>Total Harga: ${{ total_price }}</h4>
+
+    {% if user_balance >= total_price %}
+        <a href="{% url 'payment' %}" class="btn btn-primary">Bayar</a>
+    {% else %}
+        <a href="{% url 'top_up_balance' %}" class="btn btn-warning">Isi Saldo</a>
+    {% endif}
+</div>
+
+<!-- Tambahkan JavaScript untuk menangani penambahan, pengurangan, dan penghapusan item di keranjang belanja -->
+<script>
+    function increaseQuantity(itemId) {
+        const quantityElement = document.getElementById(`quantity-${itemId}`);
+        const currentQuantity = parseInt(quantityElement.innerText);
+        // Lakukan validasi atau logika tambahan jika diperlukan, misalnya, memeriksa stok buku
+        const newQuantity = currentQuantity + 1;
+        quantityElement.innerText = newQuantity;
+        // Kirim permintaan AJAX untuk memperbarui jumlah item di server jika diperlukan
+    }
+
+    function decreaseQuantity(itemId) {
+        const quantityElement = document.getElementById(`quantity-${itemId}`);
+        const currentQuantity = parseInt(quantityElement.innerText);
+        if (currentQuantity > 1) {
+            // Lakukan validasi atau logika tambahan jika diperlukan
+            const newQuantity = currentQuantity - 1;
+            quantityElement.innerText = newQuantity;
+            // Kirim permintaan AJAX untuk memperbarui jumlah item di server jika diperlukan
+        }
+    }
+
+    function removeItem(itemId) {
+        // Konfirmasi pengguna sebelum menghapus item
+        if (confirm('Apakah Anda yakin ingin menghapus item ini dari keranjang belanja?')) {
+            // Lakukan permintaan AJAX untuk menghapus item dari server
+            // Setelah penghapusan berhasil, hapus baris tabel yang sesuai dari tampilan
+            const itemRow = document.getElementById(`item-row-${itemId}`);
+            itemRow.remove();
+        }
+    }
+</script>
+
+
+{% endblock content %}
