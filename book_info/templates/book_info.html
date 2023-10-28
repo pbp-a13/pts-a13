@@ -229,12 +229,12 @@
         return fetch("{% url 'book_info:get_cart_json' %}").then((res) => res.json())
     }
 
-    function incrementAmount(id) {
+    async function incrementAmount(id) {
         const response = await fetch(`/increment-amount/${id}`);
         refreshAmount();
     }
 
-    function decrementAmount(id) {
+    async function decrementAmount(id) {
         const response = await fetch(`/decrement-amount/${id}`);
         refreshAmount();
     }
