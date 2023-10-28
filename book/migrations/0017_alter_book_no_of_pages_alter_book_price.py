@@ -14,10 +14,12 @@ class Migration(migrations.Migration):
             model_name='book',
             name='no_of_pages',
             field=models.IntegerField(default=974),
+
         ),
         migrations.AlterField(
             model_name='book',
             name='price',
             field=models.IntegerField(default=158590),
+
         ),
     ]
