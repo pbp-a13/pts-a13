@@ -25,6 +25,8 @@ def show_main(request):
         admin = (request.user.account.admin is not None)
     except Admin.DoesNotExist:
         return render(request, "main.html", context)
+    except Account.DoesNotExist:
+        return render(request, "main.html", context)
 
     
     context['admin'] = 1

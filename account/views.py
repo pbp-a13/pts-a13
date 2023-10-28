@@ -11,10 +11,10 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 import main.views
 
-
 def register(request):
+    user_form = UserCreationForm()
     if request.method == 'POST':
-        user_form = UserForm(request.POST)
+        user_form = UserCreationForm(request.POST)
         #account_form = AccountForm(request.POST)
         if user_form.is_valid(): #and account_form.is_valid():
             user_form.save()
@@ -23,14 +23,12 @@ def register(request):
             return redirect('main:show_main')
         else:
             messages.error(request, ('Please correct the error below.'))
-    else:
-        user_form = UserForm()
         #account_form = AccountForm()
     context = {
         'user_form': user_form,
         #'account_form': account_form,
     }
-    return main.views.show_main(request)
+    return render(request, 'register.html', context)
 
 
 
