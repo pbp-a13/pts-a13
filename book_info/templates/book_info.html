@@ -95,19 +95,19 @@
                     <div class="col-5"></div>
                 </div>
 
-                {% if request.user.is_authenticated %}
-                    <!-- Tampilkan konten untuk user yang telah login -->
-                    {% if book.stock > 0 %}
-                        <a class="btn btn-outline-primary" href="#" role="button">Tambahkan Keranjang</button>
+                <div style="margin-top: 15px; margin-bottom: 35px;">
+                    {% if request.user.is_authenticated %}
+                        <!-- Member -->
+                        {% if book.stock > 0 %}
+                            <a class="btn btn-outline-primary" href="#" role="button">Tambahkan Keranjang</a>
+                        {% else %}
+                            <a class="btn btn-outline-primary" href="#" role="button" disabled>Tambahkan Keranjang</a>
+                        {% endif %}
                     {% else %}
-                        <a class="btn btn-outline-primary" href="#" role="button" disabled>Tambahkan Keranjang</button>
+                        <!-- Non-member (belum login) -->
+                        <a class="btn btn-outline-primary" href="{% url 'account:login_user' %}" role="button">Tambahkan Keranjang</a>
                     {% endif %}
-                {% else %}
-                    <!-- Tampilkan konten untuk user yang belum login -->
-                    <a class="btn btn-outline-primary" href="{% url 'account:login_user' %}" role="button">Tambahkan Keranjang</a>
-                {% endif %}
-
-
+                </div>
 
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">
@@ -140,6 +140,7 @@
                         <p><strong>Keperpustakaan PBP A13</strong></p>
                     </span>
 
+                    <!-- Penilaian Buku -->
                     <li class="list-group-item">
                         <h5><strong>Penilaian Buku</strong></h5>
                     </li>
@@ -150,75 +151,39 @@
                                 <h5 class="card-title">{{ book.rating }}<small class="text-body-secondary"> dari 5</small></h5>
                                 <p class="card-text">
                                     {% for i in "12345" %}
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg> 
+                                        {% if i < rating %}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                            </svg> 
+                                        {% else %}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                                <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                            </svg>
+                                        {% endif %}     
                                     {% endfor %}  
                                     ({{ reviews|length }})                             
                                 </p>
+
+                                <input type="radio" class="btn-check" name="options-base" id="option1" autocomplete="off" checked>
+                                <label class="btn btn-outline-primary" for="option1">Semua</label>
+
+                                <input type="radio" class="btn-check" name="options-base" id="option2" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="option2">5 Bintang</label>
+
+                                <input type="radio" class="btn-check" name="options-base" id="option3" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="option3">4 Bintang</label>
+
+                                <input type="radio" class="btn-check" name="options-base" id="option4" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="option4">3 Bintang</label>
+
+                                <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="option5">2 Bintang</label>
+
+                                <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="option6">1 Bintang</label>
                             </div>
                         </div>
                     </div>
-
-                    <!-- card review (dummy)-->
-                    <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nama User</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-                                        5
-                                    </h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nama User</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-                                        5
-                                    </h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nama User</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-                                        5
-                                    </h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">Nama User</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-                                        5
-                                    </h6>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
 
                     <!-- card review -->
                     {% if reviews|length > 0 %}
