@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from account.models import Account # yang order belom
+from account.models import Account
+from order.models import Order
 
 @login_required
 def payment(request):

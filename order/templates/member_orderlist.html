@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <style>
+        body {
+            background-color: white;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            width: 800px;
+            height: 320px;
+            flex-shrink: 0;
+            display: flex;
+            margin: 0 auto;
+            border-radius: 20px;
+            background: #FFF;
+            box-shadow: 4px 4px 8px 0px #00000040;
+        }
+
+        .card p {
+            padding: 10px;
+        }
+
+        .placeholder-image {
+            background-color: #ccc; /* Warna latar belakang sementara */
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            max-width: 200px; /* Sesuaikan lebar maksimum jika diperlukan */
+            height: 100%; /* Pastikan elemen memiliki tinggi yang sama dengan card */
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3 style="padding-left: 20px;">Your Recent Order</h3>
+    <div class="card">
+        <div class="container text-left">
+            <div class="row">
+                <div class="col-3">
+                    <img src="..." class="rounded" alt="...">
+                </div>
+                <div class="col-6">
+                    <h3>{{ order.book.title }}</h3>
+                    <p>Quantity: {{ order.quantity }}</p>
+                    <p>Order Date: {{ order.order_date }}</p>
+                    <p>Total Price: {{ order.price }}</p>
+                    <p>Estimated Delivery Date: {{ order.estimated_delivery_date }}</p>
+                    <button type="button" class="btn btn-primary">Details</button>
+                </div>
+                <div class="col-3">
+                    {% if order.is_completed %}
+                    <div class="status-background" style="background-color: greenyellow;">
+                        <p>Status: Completed</p>
+                    </div>
+                    {% else %}
+                    <div class="border border-5 border-success rounded", style="color: green; text-align: center;">
+                        <p>Ongoing</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+    </script>
+</body>
+
+{% endblock content %}
