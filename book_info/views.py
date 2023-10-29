@@ -10,34 +10,20 @@ from account.models import Account, Review
 from book_info.forms import BookForm
 from book_info.models import Cart
 from main.models import Admin
+from cart.models import CartItem
 
 # Create your views here.
 def show_info(request, id):
     book = get_object_or_404(Book, pk=id)
     reviews = Review.objects.filter(book=book)
-    cart = Cart.objects.filter(member=request.user.account, book=book)
+    # cart = CartItem.objects.filter(user=request.user, book=book)
+    cart, created = Cart.objects.get_or_create(member=request.user, book=book)
     context = {
-        # dummy
-        # 'authors': 'Leila S. Chudori',
-        # 'title': 'Laut Bercerita',
-        # 'categories': 'Fantasi',
-        # 'price': 109000,
-        # 'description': 'Buku ini terdiri atas dua bagian. Bagian pertama mengambil sudut pandang seorang mahasiswa aktivis bernama Laut, menceritakan bagaimana Laut dan kawan-kawannya menyusun rencana, berpindah-pindah dalam pelarian, hingga tertangkap oleh pasukan rahasia. Sedangkan bagian kedua dikisahkan oleh Asmara, adik Laut. Bagian kedua mewakili perasaan keluarga korban penghilangan paksa, bagaimana pencarian mereka terhadap kerabat mereka yang tak pernah kembali.',
-        # 'stock': 1550,
-        # 'jumlah_terjual': 44,
-        'jumlah_pembelian': 1,
-
         'book': book,
         'reviews': reviews,
         'cart': cart,
     }
-
     return render(request, "book_info.html", context)
-
-register = template.Library()
-@register.filter(name='is_admin')
-def is_admin(user):
-    return Admin.objects.filter(user=user).exists()
 
 def edit_book(request, id):
     # Get book berdasarkan ID
@@ -69,32 +55,32 @@ def get_cart_json(request):
         cart_dict = {
             'member': cart.member,
             'book': cart.book,
-            'jumlah_pembelian': cart.jumlah_pembelian,
+            'amount': cart.amount,
         }
         cart_list.append(cart_dict)
     return JsonResponse(cart_list, safe=False)
 
 def increment_amount(request, id):
     book = get_object_or_404(Book, pk=id)
-    member = request.user.account 
+    member = request.user 
 
     cart_entry, created = Cart.objects.get_or_create(member=member, book=book)
-    if cart_entry.jumlah_pembelian < book.stock:
-        cart_entry.jumlah_pembelian += 1
+    if cart_entry.amount < book.stock:
+        cart_entry.amount += 1
         cart_entry.save()
 
-    return JsonResponse({'success': True})
+    return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
 def decrement_amount(request, id):
     book = get_object_or_404(Book, pk=id)
-    member = request.user.account
+    member = request.user
 
     cart_entry, created = Cart.objects.get_or_create(member=member, book=book)
-    if cart_entry.jumlah_pembelian > 0:
-        cart_entry.jumlah_pembelian -= 1
+    if cart_entry.amount > 1:
+        cart_entry.amount -= 1
         cart_entry.save()
 
-    return JsonResponse({'success': True})
+    return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
 def get_review_json(request, id):
     book = get_object_or_404(Book, pk=id)
