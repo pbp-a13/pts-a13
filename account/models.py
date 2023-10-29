@@ -6,7 +6,7 @@ from django.dispatch import receiver
 
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    nama = models.CharField(max_length = 255 , default = "unknown")
+    nama = models.CharField(max_length = 255 , blank=True)
     email = models.EmailField(blank=True)
     buku_dibeli = models.ManyToManyField(Book, related_name='purchased', blank=True)
     buku_ongoing = models.ManyToManyField(Book, related_name='ongoing_purchase', blank=True)
@@ -16,7 +16,7 @@ class Account(models.Model):
 @receiver(post_save, sender=User)
 def create_user_account(sender, instance, created, **kwargs):
     if created:
-        Account.objects.create(user=instance)
+        Account.objects.create(user=instance, username=instance.username)
 
 @receiver(post_save, sender=User)
 def save_user_account(sender, instance, **kwargs):
@@ -31,11 +31,4 @@ class Review(models.Model):
     member = models.ForeignKey(Account, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     review_text = models.TextField()
-
-
-
-
-
-
-
 

@@ -17,7 +17,7 @@ def register(request):
         user_form = UserCreationForm(request.POST)
         #account_form = AccountForm(request.POST)
         if user_form.is_valid(): #and account_form.is_valid():
-            user_form.save()
+            new_user = user_form.save()
             #account_form.save()
             messages.success(request, ('Your profile was successfully created!'))
             return redirect('main:show_main')
@@ -50,12 +50,15 @@ def account_info(request):
     user = request.user 
 
     if Account.objects.filter(user=user).exists():
+        account = Account.objects.get(user=user)
+        print(user.username)
         # kalau bukan admin
-        return render(request, 'member_account_info.html', user)
+        return render(request, 'member_account_info.html', {'account': account})
 
     if Admin.objects.filter(user=user).exists():
+        admin = Admin.objects.get(user=user)
         # Kalau Admin
-        return render(request, 'admin_account_info.html', user)
+        return render(request, 'admin_account_info.html', {'admin': admin})
 
     # Kalau bukan keduanya
     return
