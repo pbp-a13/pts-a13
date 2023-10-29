@@ -35,7 +35,9 @@
 			<div class="container-fluid">
 			  <form class="d-flex" role="search">
 				  <div class="container d-flex justify-content-center align-items-center">
-					<h1 class="m-3">Toko Buku Pacil</h1>
+					<h1 class="m-3">
+						<a href="{% url 'main:show_main' %}" class="m-3" style="text-decoration: none; color: black;">Toko Buku Pacil</a>
+					</h1>
 				  </div>
 			  </form>
 			  
@@ -49,7 +51,9 @@
 					  <a href="{% url 'main:switch_mode' %}" class="btn btn-primary m-1" type="button">Admin Mode</a>
 					{% endif %}
 				  {% endif %}
-				  <div class="m-3"> {{user.username}} </div>
+				  <div class="m-3">
+					<a href="{% url 'account:account_info' %}" style="text-decoration: none; color: black;">{{ user.username }}</a>
+				</div>
 				  <a href="{% url 'account:logout_user' %}" class="btn btn-primary m-1" type="button">Logout</a>
 				{% else %}
 				<a href="{% url 'account:login_user' %}" class="btn btn-primary m-1" type="button">Login</a>
