@@ -17,7 +17,7 @@ def show_info(request, id):
     book = get_object_or_404(Book, pk=id)
     reviews = Review.objects.filter(book=book)
     # cart = CartItem.objects.filter(user=request.user, book=book)
-    cart, created = Cart.objects.get_or_create(member=request.user, book=book)
+    cart, created = CartItem.objects.get_or_create(user=request.user, book=book)
     context = {
         'book': book,
         'reviews': reviews,
@@ -46,38 +46,38 @@ def delete_book(request, id):
     # Hapus data
     book.delete()
     # Kembali ke halaman awal
-    return HttpResponseRedirect(reverse('book_info:show_info'))
+    return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
 def get_cart_json(request):
-    carts = Cart.objects.filter(member=request.user.account)
+    carts = CartItem.objects.filter(user=request.user)
     cart_list = []
     for cart in carts:
         cart_dict = {
-            'member': cart.member,
+            'user': cart.user,
             'book': cart.book,
-            'amount': cart.amount,
+            'quantity': cart.quantity,
         }
         cart_list.append(cart_dict)
     return JsonResponse(cart_list, safe=False)
 
 def increment_amount(request, id):
     book = get_object_or_404(Book, pk=id)
-    member = request.user 
+    user = request.user 
 
-    cart_entry, created = Cart.objects.get_or_create(member=member, book=book)
-    if cart_entry.amount < book.stock:
-        cart_entry.amount += 1
+    cart_entry, created = CartItem.objects.get_or_create(user=user, book=book)
+    if cart_entry.quantity < book.stock:
+        cart_entry.quantity += 1
         cart_entry.save()
 
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
 def decrement_amount(request, id):
     book = get_object_or_404(Book, pk=id)
-    member = request.user
+    user = request.user
 
-    cart_entry, created = Cart.objects.get_or_create(member=member, book=book)
-    if cart_entry.amount > 1:
-        cart_entry.amount -= 1
+    cart_entry, created = CartItem.objects.get_or_create(user=user, book=book)
+    if cart_entry.quantity > 1:
+        cart_entry.quantity -= 1
         cart_entry.save()
 
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
