@@ -9,7 +9,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('book', '0002_alter_book_no_of_pages_alter_book_price'),
         ('account', '0001_initial'),
     ]
 

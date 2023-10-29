@@ -10,7 +10,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('book', '0005_alter_book_no_of_pages_alter_book_price'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 

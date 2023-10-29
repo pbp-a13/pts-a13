@@ -11,7 +11,6 @@ class Migration(migrations.Migration):
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
-        ('book', '0003_alter_book_no_of_pages_alter_book_price'),
     ]
 
     operations = [
