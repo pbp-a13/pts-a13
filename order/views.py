@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from book.models import Book
 from datetime import datetime
+from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
 
 
 
@@ -18,7 +19,7 @@ def member_orderlist_view(request):
         book=Book.objects.get(pk=1),  # Ganti dengan buku yang sesuai
         quantity=4,  # Ganti dengan jumlah yang sesuai
         order_date=today,
-        estimated_delivery_date=datetime(2023, 10, 30),
+        estimated_delivery_date=datetime(2023, 10, 30, 12, 0, 0),
     )
 
     context = {
@@ -30,22 +31,20 @@ def member_orderlist_view(request):
     }
     return render(request, 'member_orderlist.html', context)
 
+
+
 @csrf_exempt
-def update_order(request):
+# views.py
+def apply_sort(request):
     if request.is_ajax() and request.method == "POST":
-        order_id = request.POST.get('order_id', None)
-        if order_id:
-            try:
-                order = Order.objects.get(pk=order_id)
-                order.is_completed = True
-                order.save()
-                data = {'is_completed': True}
-                return JsonResponse(data)
-            except Order.DoesNotExist:
-                return JsonResponse({"error": "Order not found"}, status=404)
-        else:
-            return JsonResponse({"error": "Invalid request"}, status=400)
+        filter_value = request.POST.get('filter_value')
+        # Lakukan sort berdasarkan nilai filter (misalnya, berdasarkan total harga)
+        # ...
+        # Kirim data yang telah diurutkan sebagai respons
+        sorted_data = {...}
+        return JsonResponse(sorted_data)
     else:
         return JsonResponse({"error": "Invalid request"}, status=400)
+
 
 

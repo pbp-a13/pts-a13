@@ -44,6 +44,28 @@
 </head>
 <body>
     <h3 style="padding-left: 20px;">Your Recent Order</h3>
+    <h6 style="margin: 20px;">Sort by: Total Price</h6>
+    <div class="filter-options">
+        <form id="search_form" onsubmit="return false;">
+            {% csrf_token %}
+            <div class="mb-3">
+                <div class="form-check form-check-inline" style="margin-left: 20px;">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                    <label class="form-check-label" for="semua">Recent</label>
+                </div>
+                <div class="form-check form-check-inline" style="margin-left: 20px;">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                    <label class="form-check-label" for="semua">Highest to Lowest</label>
+                </div>
+                <div class="form-check form-check-inline" style="margin-left: 20px;">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                    <label class="form-check-label" for="semua">Lowest to Highest</label>
+                </div>
+                <button type="button" class="btn btn-primary" style="margin-left: 20px;"  id="button_search">Apply</button>
+            </div>
+        </form>
+    </div>
+
     <div class="card">
         <div class="container text-left">
             <div class="row">
@@ -59,51 +81,40 @@
                     <button type="button" class="btn btn-primary">Details</button>
                 </div>
                 <div class="col-3">
-                    {% if user.is_authenticated %}
-                            <button class="ongoing-btn btn" role="button" data-order-id="{{ order.id }}">Complete this Order</button>
-                    {% endif %}
-
-                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                    <script>
-                    $(document).ready(function(){
-                        $(".ongoing-btn").click(function(){
-                            var orderId = $(this).data("order-id");
-                            var btn = $(this);
-
-                            $.ajax({
-                                url: '{% url "order:update_order" %}',
-                                type: 'POST',
-                                data: {
-                                    'order_id': orderId,
-                                    'csrfmiddlewaretoken': '{{ csrf_token }}'
-                                },
-                                dataType: 'json',
-                                success: function (data) {
-                                    if (data.is_completed) {
-                                        btn.css('background-color', 'gray');
-                                        btn.text('Completed');
-
-                                        btn.prop('disabled', true);
-                                    }
-                                }
-                            });
-                        });
-                    });
-                    </script>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-
-{% endblock content %}
-
-                    <!-- {% if order.is_completed %}
+                    {% if order.is_completed %}
                     <div class="status-background" style="background-color: greenyellow;">
                         <p>Status: Completed</p>
                     </div>
                     {% else %}
-                    <div class="border border-5 border-success rounded", style="color: green; text-align: center;">
+                    <div class="border border-5 border-secondary rounded", style="color: gray; text-align: center;">
                         <p>Ongoing</p>
                     </div>
-                    {% endif %} -->
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+        $("#button_search").click(function(){
+            // Tangkap nilai filter yang dipilih
+            var selectedFilter = $("input[name='inlineRadioOptions']:checked").val();
+
+            // Kirim permintaan Ajax dengan filter sebagai data
+            $.ajax({
+                url: '{% url "order:apply_sort" %}',
+                type: 'POST',
+                data: {
+                    'filter_value': selectedFilter,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                dataType: 'json',
+                success: function (data) {
+                }
+            });
+        });
+    });
+    </script>
+</body>
+
+{% endblock content %}
