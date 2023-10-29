@@ -52,7 +52,46 @@
                     <button type="button" class="btn btn-primary">Details</button>
                 </div>
                 <div class="col-3">
-                    {% if order.is_completed %}
+                    {% if user.is_authenticated %}
+                            <button class="ongoing-btn btn" role="button" data-order-id="{{ order.id }}">Complete this Order</button>
+                    {% endif %}
+
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                    <script>
+                    $(document).ready(function(){
+                        $(".ongoing-btn").click(function(){
+                            var orderId = $(this).data("order-id");
+                            var btn = $(this);
+
+                            $.ajax({
+                                url: '{% url "order:update_order" %}',
+                                type: 'POST',
+                                data: {
+                                    'order_id': orderId,
+                                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                                },
+                                dataType: 'json',
+                                success: function (data) {
+                                    if (data.is_completed) {
+                                        btn.css('background-color', 'gray');
+                                        btn.text('Completed');
+
+                                        btn.prop('disabled', true);
+                                    }
+                                }
+                            });
+                        });
+                    });
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock content %}
+
+                    <!-- {% if order.is_completed %}
                     <div class="status-background" style="background-color: greenyellow;">
                         <p>Status: Completed</p>
                     </div>
@@ -60,14 +99,4 @@
                     <div class="border border-5 border-success rounded", style="color: green; text-align: center;">
                         <p>Ongoing</p>
                     </div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-
-    </script>
-</body>
-
-{% endblock content %}
+                    {% endif %} -->
