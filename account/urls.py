@@ -12,4 +12,5 @@ urlpatterns = [
     path('logout/', logout_user, name='logout_user'),
     path('get_account_info/', get_account_info, name='get_account_info'),
     path('update_account_info/', update_account_info, name='update_account_info'),
+    path('search-members/', search_members, name='search_members'),
 ]

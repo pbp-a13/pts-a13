@@ -146,3 +146,15 @@ def update_account_info(request):
 
     # If the user is not logged in or does not have an account or it's not a POST request
     return JsonResponse({'error': 'Not logged in or invalid request'}, status=401)
+
+
+def search_members(request):
+    query = request.GET.get('query', '')
+    
+    # Perform the member search in your database using the username field
+    results = Account.objects.filter(user__username__icontains=query)
+
+    # Prepare the results in JSON format
+    members = [{'id': member.id, 'username': member.user.username, 'nama': member.nama} for member in results]
+
+    return JsonResponse(members, safe=False)

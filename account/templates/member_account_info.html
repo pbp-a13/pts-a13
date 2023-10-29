@@ -2,17 +2,46 @@
 
 {% block meta %}
     <title>Account Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .account-info {
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .account-info h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
 {% endblock meta %}
 
 {% block content %}
-    <div class="container">
-        <h1 class="my-4">Account Information</h1>
-
+<div class="container">
+        <h1>Account Information
         <button id="editButton" class="btn btn-primary mb-3">Edit</button>
+        </h1>
+        
+        <div class="account-info">
 
-        <p><strong>Username:</strong> {{ user.username }}</p>
 
-        <div id="accountInfo">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+
+            <div id="accountInfo">
             <p><strong>Nama:</strong> {{ account.nama }}</p>
             <p><strong>Email:</strong> {{ account.email }}</p>
             <p><strong>Alamat:</strong> {{ account.alamat }}</p>
@@ -53,6 +82,7 @@
             {% endfor %}
         </ul>
 
+    </div>
     </div>
 
 
