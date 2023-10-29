@@ -18,6 +18,7 @@ def show_main(request):
         'is_logged_in' : False,
         'user' : request.user,
         'admin' : 0,
+        'is_admin_mode': 0
         
     }
     if not request.user.is_authenticated:
@@ -31,6 +32,10 @@ def show_main(request):
 
     
     context['admin'] = 1
+    if request.user.account.admin.is_admin_mode:
+        context['is_admin_mode'] = 1
+    else:
+        context['is_admin_mode'] = 0
     
     return render(request, "main.html", context)
     
@@ -46,4 +51,9 @@ def search_book_json(request, search_mode, sort_mode):
         else:
             books = Book.objects.filter(authors__icontains=value).order_by(Lower(sort_mode))
         return HttpResponse(serializers.serialize('json', books))
+    
+def switch_mode(request):
+    request.user.account.admin.is_admin_mode = not request.user.account.admin.is_admin_mode
+    request.user.account.admin.save()
+    return show_main(request)
 
