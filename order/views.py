@@ -2,6 +2,8 @@ from django.shortcuts import render
 from order.models import Order
 from django.http import JsonResponse
 from django.core import serializers
+from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 @login_required
