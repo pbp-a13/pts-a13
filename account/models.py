@@ -11,12 +11,12 @@ class Account(models.Model):
     buku_dibeli = models.ManyToManyField(Book, related_name='purchased', blank=True)
     buku_ongoing = models.ManyToManyField(Book, related_name='ongoing_purchase', blank=True)
     saldo = models.IntegerField(default=0)
-    alamat = models.CharField(max_length = 1000, default=0, blank=True, null=True)
+    alamat = models.CharField(max_length = 1000, default="-", blank=True, null=True)
 
 @receiver(post_save, sender=User)
 def create_user_account(sender, instance, created, **kwargs):
     if created:
-        Account.objects.create(user=instance, username=instance.username)
+        Account.objects.create(user=instance)
 
 @receiver(post_save, sender=User)
 def save_user_account(sender, instance, **kwargs):

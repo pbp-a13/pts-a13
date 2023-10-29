@@ -1,3 +1,4 @@
+import json
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages 
 from django.shortcuts import render, redirect, get_object_or_404
@@ -7,9 +8,10 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import authenticate, login
 from .forms import UserForm, AccountForm
 from django.contrib.auth import logout
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 import main.views
+from django.views.decorators.csrf import csrf_exempt
 
 def register(request):
     user_form = UserCreationForm()
@@ -49,19 +51,23 @@ def login_user(request):
 def account_info(request):
     user = request.user 
 
-    if Account.objects.filter(user=user).exists():
+    if Admin.objects.filter(account=user).exists():
+        admin = Admin.objects.get(account=user)
+        # If the user is an admin
+        if admin.is_admin_mode:
+            # If the user is currently in admin mode
+            return render(request, 'admin_account_info.html', {'admin': admin})
+        else:
+            # If the user is an admin but currently in account mode
+            return render(request, 'member_account_info.html', {'account': admin})
+
+    elif Account.objects.filter(user=user).exists():
+        # If the user is not an admin but has an account
         account = Account.objects.get(user=user)
-        print(user.username)
-        # kalau bukan admin
         return render(request, 'member_account_info.html', {'account': account})
 
-    if Admin.objects.filter(user=user).exists():
-        admin = Admin.objects.get(user=user)
-        # Kalau Admin
-        return render(request, 'admin_account_info.html', {'admin': admin})
-
-    # Kalau bukan keduanya
-    return
+    # If the user is not logged in or does not have an account
+    return redirect('login')
 
 def logout_user(request):
     logout(request)
@@ -74,11 +80,69 @@ def is_admin(user):
 @user_passes_test(is_admin)
 def all_member_page(request):
     # Retrieve all members from the database
-    members = Account.objects.all()
+    accounts = Account.objects.all().order_by('user__username')
 
-    return render(request, 'admin_view_members.html', {'members': members})
+    return render(request, 'all_member_page.html', {'account': accounts})
 
 def member_details(request, member_id):
-    member = get_object_or_404(Account, id=member_id)
+    account = get_object_or_404(Account, id=member_id)
 
-    return render(request, 'member_details.html', {'member': member})
+    return render(request, 'member_detail.html', {'account': account})
+
+
+def get_account_info(request):
+    user = request.user 
+
+    if Admin.objects.filter(account=user).exists():
+        admin = Admin.objects.get(account=user)
+        # If the user is an admin
+        if admin.is_admin_mode:
+            # If the user is currently in admin mode
+            return JsonResponse({'nama': admin.nama, 'email': admin.email, 'alamat': admin.alamat})
+        else:
+            # If the user is an admin but currently in account mode
+            return JsonResponse({'nama': admin.nama, 'email': admin.email, 'alamat': admin.alamat})
+
+    elif Account.objects.filter(user=user).exists():
+        # If the user is not an admin but has an account
+        account = Account.objects.get(user=user)
+        return JsonResponse({'nama': account.nama, 'email': account.email, 'alamat': account.alamat})
+
+    # If the user is not logged in or does not have an account
+    return JsonResponse({'error': 'Not logged in'}, status=401)
+
+@csrf_exempt
+def update_account_info(request):
+    if request.method == 'POST':
+        user = request.user 
+        data = json.loads(request.body)
+
+        if Admin.objects.filter(account=user).exists():
+            admin = Admin.objects.get(account=user)
+            # If the user is an admin
+            if admin.is_admin_mode:
+                # If the user is currently in admin mode
+                admin.nama = data['nama']
+                admin.email = data['email']
+                admin.alamat = data['alamat']
+                admin.save()
+                return JsonResponse({'status': 'success'})
+            else:
+                # If the user is an admin but currently in account mode
+                admin.nama = data['nama']
+                admin.email = data['email']
+                admin.alamat = data['alamat']
+                admin.save()
+                return JsonResponse({'status': 'success'})
+
+        elif Account.objects.filter(user=user).exists():
+            # If the user is not an admin but has an account
+            account = Account.objects.get(user=user)
+            account.nama = data['nama']
+            account.email = data['email']
+            account.alamat = data['alamat']
+            account.save()
+            return JsonResponse({'status': 'success'})
+
+    # If the user is not logged in or does not have an account or it's not a POST request
+    return JsonResponse({'error': 'Not logged in or invalid request'}, status=401)

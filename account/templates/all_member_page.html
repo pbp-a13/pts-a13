@@ -1,18 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends 'base.html' %}
+
+{% block meta %}
     <title>View All Members</title>
-</head>
-<body>
+{% endblock meta %}
+
+{% block content %}
     <h1>View All Members</h1>
 
     <ul>
-        {% for member in members %}
+        {% for member in account %}
             <li>
-                {{ member.username }} - {{ member.nama }}
+                {{ member.user.username }} - {{ member.nama }}
                 <a href="{% url 'account:member_details' member.id %}">See Full Information</a>
             </li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock content %}
+

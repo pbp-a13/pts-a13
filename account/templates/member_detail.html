@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends 'base.html' %}
+
+{% block meta %}
     <title>Member Details</title>
-</head>
-<body>
+{% endblock meta %}
+
+{% block content %}
+
     <h1>Member Details</h1>
 
-    <p>Username: {{ account.username }}</p>
+    <p>Username: {{ account.user.username }}</p>
     <p>Nama: {{ account.nama }}</p>
     <p>Email: {{ account.email }}</p>
     <p>Alamat: {{ account.alamat }}</p>
     <p>Saldo: {{ account.saldo }}</p>
-</body>
-</html>
+
+{% endblock content %}
