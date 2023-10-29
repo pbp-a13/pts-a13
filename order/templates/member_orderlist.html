@@ -41,7 +41,8 @@
     </style>
 </head>
 <body>
-    <h3 style="padding-left: 20px;">Your Recent Order</h3>
+    {% if request.user.is_authenticated %}
+    <h3 style="padding-left: 20px;">Recent Order</h3>
     <div class="card">
         <div class="container text-left">
             <div class="row">
@@ -57,6 +58,9 @@
                     <a id="detailsButton" class="btn btn-primary" role="button" style="background-color: rgb(10, 22, 65); padding-left: 30px; padding-right: 30px;">Details</a>
                 </div>
                 <div class="col-3">
+                    {% if user.is_staff %}
+                        <button class="btn toggle-status" data-order-id="{{ order.id }}">Ongoing</button>
+                    {% endif %}
                     {% if order.is_completed %}
                     <div class="status-background" style="background-color: greenyellow;">
                         <p>Status: Completed</p>

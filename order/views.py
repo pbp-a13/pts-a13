@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.core import serializers
 
 # Create your views here.
+@login_required
 def member_orderlist_view(request):
     return render(request, 'member_orderlist.html')
 

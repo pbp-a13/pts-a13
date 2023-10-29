@@ -46,4 +46,7 @@ def search_book_json(request, search_mode, sort_mode):
         else:
             books = Book.objects.filter(authors__icontains=value).order_by(Lower(sort_mode))
         return HttpResponse(serializers.serialize('json', books))
+    
+def is_admin(user):
+    return user.is_authenticated and user.is_staff
 

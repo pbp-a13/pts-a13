@@ -18,7 +18,7 @@
     <p>Saya belum login</p>
 {% endif %}
 
-{% if admin == 1 %}
+{% if user.is_staff %}
   Saya admin
 {% endif %}
 
