@@ -1,3 +1,4 @@
+from pyexpat.errors import messages
 from django import template
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404, render
@@ -21,7 +22,7 @@ def show_info(request, id):
     reviews = Review.objects.filter(book=book)
 
     if request.user.is_authenticated:
-        cart, created = CartItem.objects.get_or_create(user=request.user, book=book)
+        cart, created = Cart.objects.get_or_create(user=request.user, book=book)
         context = {
             'book': book,
             'reviews': reviews,
@@ -62,37 +63,38 @@ def add_to_cart(request, id, jumlah_pembelian):
     cartItem, created = CartItem.objects.get_or_create(user=request.user, book=book)
     cart_entry, created = Cart.objects.get_or_create(user=request.user, book=book)
 
-    book.stock -= cart_entry.amount
-    cartItem.quantity += cart_entry.amount
-    cartItem.save()
-    cartItem.quantity = 1
+    if (cartItem.quantity + cart_entry.amount) <= book.stock:
+        cartItem.quantity += cart_entry.amount
+        cartItem.save()
+    cart_entry.amount = 1
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
 def get_cart_json(request):
     carts = CartItem.objects.filter(user=request.user)
-    cart_list = []
-    for cart in carts:
-        cart_dict = {
-            'User': cart.user.username,
-            'Book': {
-                'pk': cart.book.pk,
-                'Title': cart.book.title,
-                'Authors': cart.book.authors,
-                'Categories': cart.book.categories,
-                'Number of pages': cart.book.no_of_pages,
-                },
-            'Quantity': cart.quantity,
-        }
-        cart_list.append(cart_dict)
-    return JsonResponse(cart_list, safe=False)
+    # cart_list = []
+    # for cart in carts:
+    #     cart_dict = {
+    #         'User': cart.user.username,
+    #         'Book': {
+    #             'pk': cart.book.pk,
+    #             'Title': cart.book.title,
+    #             'Authors': cart.book.authors,
+    #             'Categories': cart.book.categories,
+    #             'Number of pages': cart.book.no_of_pages,
+    #             },
+    #         'Quantity': cart.quantity,
+    #     }
+    #     cart_list.append(cart_dict)
+    # return JsonResponse(cart_list, safe=False)
+    return HttpResponse(serializers.serialize('json', carts), content_type="application/json")
 
 def increment_amount(request, id):
     book = get_object_or_404(Book, pk=id)
     user = request.user 
 
-    cart_entry, created = CartItem.objects.get_or_create(user=user, book=book)
-    if cart_entry.quantity < book.stock:
-        cart_entry.quantity += 1
+    cart_entry, created = Cart.objects.get_or_create(user=user, book=book)
+    if cart_entry.amount < book.stock:
+        cart_entry.amount += 1
         cart_entry.save()
 
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
@@ -101,9 +103,9 @@ def decrement_amount(request, id):
     book = get_object_or_404(Book, pk=id)
     user = request.user
 
-    cart_entry, created = CartItem.objects.get_or_create(user=user, book=book)
-    if cart_entry.quantity > 1:
-        cart_entry.quantity -= 1
+    cart_entry, created = Cart.objects.get_or_create(user=user, book=book)
+    if cart_entry.amount > 1:
+        cart_entry.amount -= 1
         cart_entry.save()
 
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
