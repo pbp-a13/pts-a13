@@ -42,8 +42,15 @@
 			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
 			  <div class="container d-flex justify-content-center align-items-center">
 				{% if user.is_authenticated %}
-				  <div class="me-3"> {{user.username}} </div>
-				  <a href="{% url 'account:logout_user' %}" class="btn btn-primary" type="button">Logout</a>
+				  {% if admin == 1 %}
+				    {% if is_admin_mode == 1 %}
+					  <a href="{% url 'main:switch_mode' %}" class="btn btn-primary m-1" type="button">Member Mode</a>
+					{% else %}
+					  <a href="{% url 'main:switch_mode' %}" class="btn btn-primary m-1" type="button">Admin Mode</a>
+					{% endif %}
+				  {% endif %}
+				  <div class="m-3"> {{user.username}} </div>
+				  <a href="{% url 'account:logout_user' %}" class="btn btn-primary m-1" type="button">Logout</a>
 				{% else %}
 				<a href="{% url 'account:login_user' %}" class="btn btn-primary m-1" type="button">Login</a>
 				<a href="{% url 'account:register' %}" class="btn btn-primary m-1" type="button">Register</a>
