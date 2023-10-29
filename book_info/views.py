@@ -13,16 +13,25 @@ from main.models import Admin
 from cart.models import CartItem
 
 # Create your views here.
+def is_admin(user):
+    return user.is_authenticated and user.is_staff
+
 def show_info(request, id):
     book = get_object_or_404(Book, pk=id)
     reviews = Review.objects.filter(book=book)
-    # cart = CartItem.objects.filter(user=request.user, book=book)
-    cart, created = CartItem.objects.get_or_create(user=request.user, book=book)
-    context = {
-        'book': book,
-        'reviews': reviews,
-        'cart': cart,
-    }
+
+    if request.user.is_authenticated:
+        cart, created = CartItem.objects.get_or_create(user=request.user, book=book)
+        context = {
+            'book': book,
+            'reviews': reviews,
+            'cart': cart,
+        }
+    else:
+        context = {
+            'book': book,
+            'reviews': reviews,
+        }
     return render(request, "book_info.html", context)
 
 def edit_book(request, id):
@@ -48,14 +57,31 @@ def delete_book(request, id):
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
+def add_to_cart(request, id, jumlah_pembelian):
+    book = get_object_or_404(Book, pk=id)
+    cartItem, created = CartItem.objects.get_or_create(user=request.user, book=book)
+    cart_entry, created = Cart.objects.get_or_create(user=request.user, book=book)
+
+    book.stock -= cart_entry.amount
+    cartItem.quantity += cart_entry.amount
+    cartItem.save()
+    cartItem.quantity = 1
+    return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
+
 def get_cart_json(request):
     carts = CartItem.objects.filter(user=request.user)
     cart_list = []
     for cart in carts:
         cart_dict = {
-            'user': cart.user,
-            'book': cart.book,
-            'quantity': cart.quantity,
+            'User': cart.user.username,
+            'Book': {
+                'pk': cart.book.pk,
+                'Title': cart.book.title,
+                'Authors': cart.book.authors,
+                'Categories': cart.book.categories,
+                'Number of pages': cart.book.no_of_pages,
+                },
+            'Quantity': cart.quantity,
         }
         cart_list.append(cart_dict)
     return JsonResponse(cart_list, safe=False)
