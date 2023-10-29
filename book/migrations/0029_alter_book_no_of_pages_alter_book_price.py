@@ -13,11 +13,19 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='book',
             name='no_of_pages',
+<<<<<<< HEAD
             field=models.IntegerField(default=401),
+=======
+            field=models.IntegerField(default=474),
+>>>>>>> 148d43d98d506634a43ee336fa7e4c31cb4ddc74
         ),
         migrations.AlterField(
             model_name='book',
             name='price',
+<<<<<<< HEAD
             field=models.IntegerField(default=196247),
+=======
+            field=models.IntegerField(default=130723),
+>>>>>>> 148d43d98d506634a43ee336fa7e4c31cb4ddc74
         ),
     ]
