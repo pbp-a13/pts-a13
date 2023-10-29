@@ -46,7 +46,12 @@
 				{% if user.is_authenticated %}
 				  {% if admin == 1 %}
 				    {% if is_admin_mode == 1 %}
-					  <a href="{% url 'main:switch_mode' %}" class="btn btn-primary m-1" type="button">Member Mode</a>
+					<div>
+						<a href="{% url 'account:all_member_page' %}" class="btn btn-primary m-1" type="button">See All Members</a>
+					</div>
+					<div>
+						<a href="{% url 'main:switch_mode' %}" class="btn btn-primary m-1" type="button">Member Mode</a>
+					</div>
 					{% else %}
 					  <a href="{% url 'main:switch_mode' %}" class="btn btn-primary m-1" type="button">Admin Mode</a>
 					{% endif %}
