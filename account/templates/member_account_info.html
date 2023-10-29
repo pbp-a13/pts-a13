@@ -1,29 +1,136 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends 'base.html' %}
+
+{% block meta %}
     <title>Account Information</title>
-</head>
-<body>
-    <h1>Account Information</h1>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .container {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .account-info {
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        .account-info h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+    </style>
+{% endblock meta %}
 
-    <p>Username: {{ account.username }}</p>
-    <p>Nama: {{ account.nama }}</p>
-    <p>Email: {{ account.email }}</p>
-    <p>Alamat: {{ account.alamat }}</p>
-    <p>Saldo: {{ account.saldo }}</p>
+{% block content %}
+<div class="container">
+        <h1>Account Information
+        <button id="editButton" class="btn btn-primary mb-3">Edit</button>
+        </h1>
+        
+        <div class="account-info">
 
-    <h3>Buku yang Telah Dibeli:</h3>
-    <ul>
-        {% for book in account.buku_dibeli.all %}
-            <li>{{ book.title }}</li>
-        {% endfor %}
-    </ul>
 
-    <h3>Reviews:</h3>
-    <ul>
-        {% for review in account.review_set.all %}
-            <li>{{ review.book.title }}</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+
+            <div id="accountInfo">
+            <p><strong>Nama:</strong> {{ account.nama }}</p>
+            <p><strong>Email:</strong> {{ account.email }}</p>
+            <p><strong>Alamat:</strong> {{ account.alamat }}</p>
+            <p><strong>Saldo:</strong> {{ account.saldo }}</p>
+        </div>
+
+        <form id="editForm" style="display: none;" class="mb-3">
+            <div class="mb-3">
+                <label for="nama" class="form-label">Nama:</label>
+                <input type="text" id="nama" name="nama" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input type="text" id="email" name="email" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="alamat" class="form-label">Alamat:</label>
+                <input type="text" id="alamat" name="alamat" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" id="password" name="password" class="form-control">
+            </div>
+            <input type="submit" value="Submit" class="btn btn-primary">
+        </form>
+
+        <h3>Buku yang Telah Dibeli:</h3>
+        <ul>
+            {% for book in account.buku_dibeli.all %}
+                <li>{{ book.title }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Reviews:</h3>
+        <ul>
+            {% for review in account.review_set.all %}
+                <li>{{ review.book.title }}</li>
+            {% endfor %}
+        </ul>
+
+    </div>
+    </div>
+
+
+<script>
+
+document.getElementById('editButton').addEventListener('click', function() {
+
+    document.getElementById('accountInfo').style.display = 'none';
+    // Send a GET request to fetch the current account details
+    fetch('/account/get_account_info/')  // Replace with your API path
+        .then(response => response.json())
+        .then(data => {
+            // Populate the form with the current account details
+            document.getElementById('nama').value = data.nama;
+            document.getElementById('email').value = data.email;
+            document.getElementById('alamat').value = data.alamat;
+            // Show the form
+            document.getElementById('editForm').style.display = 'block';
+        });
+});
+
+document.getElementById('editForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Prepare the data to send in the POST request
+    const data = {
+        nama: document.getElementById('nama').value,
+        email: document.getElementById('email').value,
+        alamat: document.getElementById('alamat').value,
+        password: document.getElementById('password').value,
+    };
+
+    // Send a POST request to update the account details
+    fetch('/account/update_account_info/', {  // Replace with your API path
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Update the page with the new account details
+        location.reload();
+
+        document.getElementById('accountInfo').style.display = 'block';
+    });
+});
+</script>
+    
+{% endblock content %}
