@@ -1,21 +1,35 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages 
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Account, Admin
+from .models import Account
+from main.models import Admin
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import authenticate, login
+from .forms import UserForm, AccountForm
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+import main.views
 
 def register(request):
-    form = UserCreationForm()
-
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Your account has been successfully created!')
-            return redirect('main:login')
-    context = {'form':form}
+    user_form = UserCreationForm()
+    if request.method == 'POST':
+        user_form = UserCreationForm(request.POST)
+        #account_form = AccountForm(request.POST)
+        if user_form.is_valid(): #and account_form.is_valid():
+            user_form.save()
+            #account_form.save()
+            messages.success(request, ('Your profile was successfully created!'))
+            return redirect('main:show_main')
+        else:
+            messages.error(request, ('Please correct the error below.'))
+        #account_form = AccountForm()
+    context = {
+        'user_form': user_form,
+        #'account_form': account_form,
+    }
     return render(request, 'register.html', context)
+
 
 
 
@@ -46,6 +60,11 @@ def account_info(request):
     # Kalau bukan keduanya
     return
 
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+### so far ini belum kepake.. gw jg udh ganti modelsnya jd mungkin hrs dimodif dikit
 def is_admin(user):
     return Admin.objects.filter(user=user).exists()
 

@@ -8,19 +8,22 @@
 <div class="container m-4" id="main_container" background-color>
 
 
-<h1 class="m-3">Toko Buku Pacil</h1>
 
-<form id="form" onsubmit="return false;">
-  {% csrf_token %}
-  <div>
-      <label for="name" class="col-form-label">Username:</label>
-      <input type="text" class="form-control" id="username" name="username"></input>
-  </div>
-  <div>
-      <label for="price" class="col-form-label">Password:</label>
-      <input type="number" class="form-control" id="password" name="password"></input>
-  </div>
-</form>
+{% if user.is_authenticated %}
+  {% if admin == 0 %}
+    Saya bukan admin tapi akun biasa
+  {% endif %}
+
+{% else %}
+    <p>Saya belum login</p>
+{% endif %}
+
+{% if admin == 1 %}
+  Saya admin
+{% endif %}
+
+
+
 
 
 <form id = "search_form" onsubmit="return false;">
@@ -71,7 +74,12 @@
 </form>
 
 
+
+
+
+{% if admin == 1 %}
 <a href="{% url 'book:add_book' %}" class="btn btn-primary btn-sm m-3">Add New Book</a>
+{% endif %}
 
 <div id="book_cards"></div>
 
@@ -93,7 +101,7 @@
       const books = await getBooks()
 
       
-      let htmlString = `<div class="row row-cols-md-5">`
+      let htmlString = `<div class="row row-cols-xl-5 row-cols-lg-4 row-cols-md-3">`
         books.forEach((book) => {
           htmlString += `\n
           <div class="card m-4">
@@ -112,11 +120,16 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Author: ${book.fields.authors}</li>
                   <li class="list-group-item">Price: ${book.fields.price}</li>
+
                   <li class="list-group-item">Rating: ${book.fields.rating}</li>
                 </ul>
                 </div>
                 <div class="card-footer">
+                  {% if is_admin_mode == 1 %}
+                    <button class="btn btn-primary btn-sm my-auto" onclick="detailBookAjax(${book.pk})">Edit</button>
+                  {% else %}
                     <button class="btn btn-primary btn-sm my-auto" onclick="detailBookAjax(${book.pk})">Detail</button>
+                  {% endif %}
                 </div>
             </div>`
     })
@@ -130,7 +143,8 @@
     refreshAllBooks()
   
     function detailBookAjax(id){
-    }
+      location.href = "/book-info/" + id
+  }
 
     function getBooks(){
       fetch_string = "{% url 'main:search_book_json' 'search' 'sort' %}"
@@ -153,6 +167,43 @@
       if (document.querySelector("#is_sort_rating").checked){
         fetch_string = fetch_string.replace("sort", "rating")
       }
+      //     }).then((res) => res.json())
+      //   }
+      //   if (document.querySelector("#is_sort_author").checked){
+      //     return fetch("{% url 'main:search_book_json' 'title' 'authors' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      //   else{
+      //     return fetch("{% url 'main:search_book_json' 'title' 'rating' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+
+      // }
+      // else{
+      //   if (document.querySelector("#is_sort_title").checked){
+      //     return fetch("{% url 'main:search_book_json' 'author' 'title' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      //   if (document.querySelector("#is_sort_author").checked){
+      //     return fetch("{% url 'main:search_book_json' 'author' 'authors' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      //   else{
+      //     return fetch("{% url 'main:search_book_json' 'author' 'rating' %}",{
+      //       method: "POST",
+      //       body: new FormData(document.querySelector('#search_form'))
+      //     }).then((res) => res.json())
+      //   }
+      // }
+
       console.log(fetch_string)
       return fetch(fetch_string,{
             method: "POST",
@@ -165,16 +216,6 @@
       refreshAllBooks()
     }
 
-
-    function login() {
-    fetch("{% url 'main:login' %}", {
-      method: "POST",
-      body: new FormData(document.querySelector('#form'))
-    }).then(refreshItems)
-
-    document.getElementById("form").reset()
-    return false
-  }
       
         
   

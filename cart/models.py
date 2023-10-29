@@ -10,3 +10,4 @@ class CartItem(models.Model):
     def subtotal(self):
         total = sum([book.price for book in self.books.all()])  # Menghitung total subtotal
         return total * self.quantity
+  

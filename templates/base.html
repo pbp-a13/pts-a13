@@ -15,7 +15,7 @@
 	</head>
 
     <body>
-		<div class="navbar", style="background-color: bisque;">
+		<!-- <div class="navbar", style="background-color: bisque;">
 			<div class="container p-0 text-left">
 				<div class="row align-items-center">
 				  <div class="col-9">
@@ -29,7 +29,36 @@
 				  </div>
 				</div>
 			</div>
-		</div>
+		</div> -->
+
+		<nav class="navbar bg-body-tertiary", style="background-color: bisque;">
+			<div class="container-fluid">
+			  <form class="d-flex" role="search">
+				  <div class="container d-flex justify-content-center align-items-center">
+					<h1 class="m-3">Toko Buku Pacil</h1>
+				  </div>
+			  </form>
+			  
+			  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+			  <div class="container d-flex justify-content-center align-items-center">
+				{% if user.is_authenticated %}
+				  {% if admin == 1 %}
+				    {% if is_admin_mode == 1 %}
+					  <a href="{% url 'main:switch_mode' %}" class="btn btn-primary m-1" type="button">Member Mode</a>
+					{% else %}
+					  <a href="{% url 'main:switch_mode' %}" class="btn btn-primary m-1" type="button">Admin Mode</a>
+					{% endif %}
+				  {% endif %}
+				  <div class="m-3"> {{user.username}} </div>
+				  <a href="{% url 'account:logout_user' %}" class="btn btn-primary m-1" type="button">Logout</a>
+				{% else %}
+				<a href="{% url 'account:login_user' %}" class="btn btn-primary m-1" type="button">Login</a>
+				<a href="{% url 'account:register' %}" class="btn btn-primary m-1" type="button">Register</a>
+				{% endif %}
+			  </div>
+			  </div>
+			</div>
+		  </nav>
 
         {% block content %}
         {% endblock content %}
