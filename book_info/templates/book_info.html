@@ -186,7 +186,7 @@
                                     {% endfor %}  
                                     ({{ reviews|length }})                             
                                 </p>
-
+<!-- 
                                 <form id = "search_form" onsubmit="return false;">
                                     {% csrf_token %}
                                     <div class="mb-3">
@@ -208,7 +208,50 @@
                                         <input type="radio" class="btn-check" name="options" id="bintang1" autocomplete="off">
                                         <label class="btn btn-outline-primary" for="bintang1" onclick="refreshAllReviews()">1 Bintang</label>
                                     </div>
-                                </form>
+                                </form> -->
+
+                                <form id = "search_form" onsubmit="return false;">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                                            <label class="form-check-label" for="semua">
+                                            Semua
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang5">
+                                            <label class="form-check-label" for="bintang5">
+                                            5 Bintang
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang4">
+                                            <label class="form-check-label" for="bintang4">
+                                            4 Bintang
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang3">
+                                            <label class="form-check-label" for="bintang3">
+                                            3 Bintang
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang2">
+                                            <label class="form-check-label" for="bintang2">
+                                            2 Bintang
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang1">
+                                            <label class="form-check-label" for="bintang1">
+                                            1 Bintang
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" id="button_search" >Apply</button>
+                                  </form>
                             </div>
                         </div>
                     </div>
@@ -250,25 +293,46 @@
                     <form id = "search_form" onsubmit="return false;">
                         {% csrf_token %}
                         <div class="mb-3">
-                            <input type="radio" class="btn-check" name="options" id="semua" autocomplete="off" checked>
-                            <label class="btn btn-outline-primary" for="semua" onclick="refreshAllReviews()">Semua</label>
-
-                            <input type="radio" class="btn-check" name="options" id="bintang5" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="bintang5" onclick="refreshAllReviews()">5 Bintang</label>
-
-                            <input type="radio" class="btn-check" name="options" id="bintang4" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="bintang4" onclick="refreshAllReviews()">4 Bintang</label>
-
-                            <input type="radio" class="btn-check" name="options" id="bintang3" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="bintang3" onclick="refreshAllReviews()">3 Bintang</label>
-
-                            <input type="radio" class="btn-check" name="options" id="bintang2" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="bintang2" onclick="refreshAllReviews()">2 Bintang</label>
-
-                            <input type="radio" class="btn-check" name="options" id="bintang1" autocomplete="off">
-                            <label class="btn btn-outline-primary" for="bintang1" onclick="refreshAllReviews()">1 Bintang</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                                <label class="form-check-label" for="semua">
+                                Semua
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang5">
+                                <label class="form-check-label" for="bintang5">
+                                5 Bintang
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang4">
+                                <label class="form-check-label" for="bintang4">
+                                4 Bintang
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang3">
+                                <label class="form-check-label" for="bintang3">
+                                3 Bintang
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang2">
+                                <label class="form-check-label" for="bintang2">
+                                2 Bintang
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang1">
+                                <label class="form-check-label" for="bintang1">
+                                1 Bintang
+                                </label>
+                            </div>
                         </div>
+                        <button type="button" class="btn btn-primary" id="button_search" >Apply</button>
                     </form>
+
                 </div>
             </div>`
             reviews.forEach((review) => {
@@ -332,22 +396,7 @@
 
     }
 
-    document.getElementsById("semua").onclick = function(){
-        refreshAllReviews()
-    }
-    document.getElementById("bintang5").onclick = function(){
-        refreshAllReviews()
-    }
-    document.getElementById("bintang4").onclick = function(){
-        refreshAllReviews()
-    }
-    document.getElementById("bintang3").onclick = function(){
-        refreshAllReviews()
-    }
-    document.getElementById("bintang2").onclick = function(){
-        refreshAllReviews()
-    }
-    document.getElementById("bintang1").onclick = function(){
+    document.getElementsById("button_search").onclick = function(){
         refreshAllReviews()
     }
 </script>
