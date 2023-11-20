@@ -4,8 +4,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Declaration of Independence of the United States of America",
+      "image": null,
       "authors": "Jefferson, Thomas, 1743-1826",
-      "categories": "United States -- History -- Revolution, 1775-1783 -- Sources; United States. Declaration of Independence"
+      "categories": "United States -- History -- Revolution, 1775-1783 -- Sources; United States. Declaration of Independence",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -13,8 +20,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The United States Bill of Rights\r\nThe Ten Original Amendments to the Constitution of the United States",
+      "image": null,
       "authors": "United States",
-      "categories": "Civil rights -- United States -- Sources; United States. Constitution. 1st-10th Amendments"
+      "categories": "Civil rights -- United States -- Sources; United States. Constitution. 1st-10th Amendments",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -22,8 +36,15 @@
     "model": "book.Book",
     "fields": {
       "title": "John F. Kennedy's Inaugural Address",
+      "image": null,
       "authors": "Kennedy, John F. (John Fitzgerald), 1917-1963",
-      "categories": "United States -- Foreign relations -- 1961-1963; Presidents -- United States -- Inaugural addresses"
+      "categories": "United States -- Foreign relations -- 1961-1963; Presidents -- United States -- Inaugural addresses",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -31,8 +52,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Lincoln's Gettysburg Address\r\nGiven November 19, 1863 on the battlefield near Gettysburg, Pennsylvania, USA",
+      "image": null,
       "authors": "Lincoln, Abraham, 1809-1865",
-      "categories": "Consecration of cemeteries -- Pennsylvania -- Gettysburg; Soldiers' National Cemetery (Gettysburg, Pa.); Lincoln, Abraham, 1809-1865. Gettysburg address"
+      "categories": "Consecration of cemeteries -- Pennsylvania -- Gettysburg; Soldiers' National Cemetery (Gettysburg, Pa.); Lincoln, Abraham, 1809-1865. Gettysburg address",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -40,8 +68,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The United States Constitution",
+      "image": null,
       "authors": "United States",
-      "categories": "United States -- Politics and government -- 1783-1789 -- Sources; United States. Constitution"
+      "categories": "United States -- Politics and government -- 1783-1789 -- Sources; United States. Constitution",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -49,8 +84,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Give Me Liberty or Give Me Death",
+      "image": null,
       "authors": "Henry, Patrick, 1736-1799",
-      "categories": "Speeches, addresses, etc., American; United States -- Politics and government -- 1775-1783 -- Sources; Virginia -- Politics and government -- 1775-1783 -- Sources"
+      "categories": "Speeches, addresses, etc., American; United States -- Politics and government -- 1775-1783 -- Sources; Virginia -- Politics and government -- 1775-1783 -- Sources",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -58,8 +100,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Mayflower Compact",
-      "authors": "Rompis, Joel",
-      "categories": "Massachusetts -- History -- New Plymouth, 1620-1691 -- Sources; Pilgrims (New Plymouth Colony); Mayflower Compact (1620)"
+      "image": null,
+      "authors": "Joel",
+      "categories": "Massachusetts -- History -- New Plymouth, 1620-1691 -- Sources; Pilgrims (New Plymouth Colony); Mayflower Compact (1620)",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -67,8 +116,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Abraham Lincoln's Second Inaugural Address",
+      "image": null,
       "authors": "Lincoln, Abraham, 1809-1865",
-      "categories": "United States -- Politics and government -- 1861-1865; Presidents -- United States -- Inaugural addresses"
+      "categories": "United States -- Politics and government -- 1861-1865; Presidents -- United States -- Inaugural addresses",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -76,8 +132,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Abraham Lincoln's First Inaugural Address",
+      "image": null,
       "authors": "Lincoln, Abraham, 1809-1865",
-      "categories": "United States -- Politics and government -- 1861-1865; Presidents -- United States -- Inaugural addresses"
+      "categories": "United States -- Politics and government -- 1861-1865; Presidents -- United States -- Inaugural addresses",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -85,8 +148,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The King James Version of the Bible",
+      "image": null,
       "authors": "God",
-      "categories": "Bible"
+      "categories": "Bible",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -94,8 +164,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Alice's Adventures in Wonderland",
+      "image": null,
       "authors": "Carroll, Lewis, 1832-1898",
-      "categories": "Fantasy fiction; Children's stories; Imaginary places -- Juvenile fiction; Alice (Fictitious character from Carroll) -- Juvenile fiction"
+      "categories": "Fantasy fiction; Children's stories; Imaginary places -- Juvenile fiction; Alice (Fictitious character from Carroll) -- Juvenile fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -103,8 +180,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Through the Looking-Glass",
+      "image": null,
       "authors": "Carroll, Lewis, 1832-1898",
-      "categories": "Fantasy fiction; Children's stories; Imaginary places -- Juvenile fiction; Alice (Fictitious character from Carroll) -- Juvenile fiction"
+      "categories": "Fantasy fiction; Children's stories; Imaginary places -- Juvenile fiction; Alice (Fictitious character from Carroll) -- Juvenile fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -112,8 +196,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Hunting of the Snark: An Agony in Eight Fits",
+      "image": null,
       "authors": "Carroll, Lewis, 1832-1898",
-      "categories": "Nonsense verses, English"
+      "categories": "Nonsense verses, English",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -121,8 +212,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The 1990 CIA World Factbook",
+      "image": null,
       "authors": "United States. Central Intelligence Agency",
-      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc."
+      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc.",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -130,8 +228,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Moby-Dick; or, The Whale",
+      "image": null,
       "authors": "Melville, Herman, 1819-1891",
-      "categories": "Whaling -- Fiction; Sea stories; Psychological fiction; Ship captains -- Fiction; Adventure stories; Mentally ill -- Fiction; Ahab, Captain (Fictitious character) -- Fiction; Whales -- Fiction; Whaling ships -- Fiction"
+      "categories": "Whaling -- Fiction; Sea stories; Psychological fiction; Ship captains -- Fiction; Adventure stories; Mentally ill -- Fiction; Ahab, Captain (Fictitious character) -- Fiction; Whales -- Fiction; Whaling ships -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -139,8 +244,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Peter Pan",
+      "image": null,
       "authors": "Barrie, J. M. (James Matthew), 1860-1937",
-      "categories": "Fantasy literature; Peter Pan (Fictitious character) -- Fiction; Never-Never Land (Imaginary place) -- Fiction; Pirates -- Fiction; Fairies -- Fiction"
+      "categories": "Fantasy literature; Peter Pan (Fictitious character) -- Fiction; Never-Never Land (Imaginary place) -- Fiction; Pirates -- Fiction; Fairies -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -148,8 +260,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Book of Mormon\r\nAn Account Written by the Hand of Mormon, Upon Plates Taken from the Plates of Nephi",
+      "image": null,
       "authors": "Church of Jesus Christ of Latter-day Saints; Smith, Joseph, Jr., 1805-1844",
-      "categories": "Church of Jesus Christ of Latter-day Saints -- Sacred books; Mormon Church -- Sacred books"
+      "categories": "Church of Jesus Christ of Latter-day Saints -- Sacred books; Mormon Church -- Sacred books",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -157,8 +276,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Federalist Papers",
+      "image": null,
       "authors": "Hamilton, Alexander, 1757-1804; Jay, John, 1745-1829; Madison, James, 1751-1836",
-      "categories": "Constitutional history -- United States -- Sources; Constitutional law -- United States"
+      "categories": "Constitutional history -- United States -- Sources; Constitutional law -- United States",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -166,8 +292,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Song of Hiawatha",
+      "image": null,
       "authors": "Longfellow, Henry Wadsworth, 1807-1882; Morris, Woodrow W. [Editor]",
-      "categories": "Indians of North America -- Poetry; Hiawatha, active 15th century -- Poetry; Iroquois Indians -- Kings and rulers -- Poetry"
+      "categories": "Indians of North America -- Poetry; Hiawatha, active 15th century -- Poetry; Iroquois Indians -- Kings and rulers -- Poetry",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -175,8 +308,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Paradise Lost",
+      "image": null,
       "authors": "Milton, John, 1608-1674",
-      "categories": "Fall of man -- Poetry; Adam (Biblical figure) -- Poetry; Eve (Biblical figure) -- Poetry; Bible. Genesis -- History of Biblical events -- Poetry"
+      "categories": "Fall of man -- Poetry; Adam (Biblical figure) -- Poetry; Eve (Biblical figure) -- Poetry; Bible. Genesis -- History of Biblical events -- Poetry",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -184,8 +324,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Aesop's Fables\r\nTranslated by George Fyler Townsend",
+      "image": null,
       "authors": "Aesop, 620? BCE-564? BCE; Townsend, George Fyler, 1814-1900 [Translator]",
-      "categories": "Fables, Greek -- Translations into English; Aesop's fables -- Translations into English"
+      "categories": "Fables, Greek -- Translations into English; Aesop's fables -- Translations into English",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -193,8 +340,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Roget's Thesaurus",
+      "image": null,
       "authors": "Roget, Peter Mark, 1779-1869",
-      "categories": "English language -- Synonyms and antonyms"
+      "categories": "English language -- Synonyms and antonyms",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -202,8 +356,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Narrative of the Life of Frederick Douglass, an American Slave",
+      "image": null,
       "authors": "Douglass, Frederick, 1818-1895",
-      "categories": "Douglass, Frederick, 1818-1895; African American abolitionists -- Biography; Abolitionists -- United States -- Biography; Enslaved persons -- United States -- Biography"
+      "categories": "Douglass, Frederick, 1818-1895; African American abolitionists -- Biography; Abolitionists -- United States -- Biography; Enslaved persons -- United States -- Biography",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -211,8 +372,15 @@
     "model": "book.Book",
     "fields": {
       "title": "O Pioneers!",
+      "image": null,
       "authors": "Cather, Willa, 1873-1947",
-      "categories": "Nebraska -- Fiction; Historical fiction; Frontier and pioneer life -- Nebraska -- Fiction; Domestic fiction; Siblings -- Fiction; Farm life -- Fiction; Women pioneers -- Fiction; Women farmers -- Fiction; Women immigrants -- Fiction; Swedish Americans -- Fiction"
+      "categories": "Nebraska -- Fiction; Historical fiction; Frontier and pioneer life -- Nebraska -- Fiction; Domestic fiction; Siblings -- Fiction; Farm life -- Fiction; Women pioneers -- Fiction; Women farmers -- Fiction; Women immigrants -- Fiction; Swedish Americans -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -220,8 +388,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The 1991 CIA World Factbook",
+      "image": null,
       "authors": "United States. Central Intelligence Agency",
-      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc."
+      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc.",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -229,8 +404,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Paradise Lost",
+      "image": null,
       "authors": "Milton, John, 1608-1674",
-      "categories": "Fall of man -- Poetry; Adam (Biblical figure) -- Poetry; Eve (Biblical figure) -- Poetry; Bible. Genesis -- History of Biblical events -- Poetry"
+      "categories": "Fall of man -- Poetry; Adam (Biblical figure) -- Poetry; Eve (Biblical figure) -- Poetry; Bible. Genesis -- History of Biblical events -- Poetry",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -238,8 +420,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Far from the Madding Crowd",
+      "image": null,
       "authors": "Hardy, Thomas, 1840-1928",
-      "categories": "Didactic fiction; Love stories; Triangles (Interpersonal relations) -- Fiction; Pastoral fiction; Farm life -- Fiction; Women farmers -- Fiction; Wessex (England) -- Fiction"
+      "categories": "Didactic fiction; Love stories; Triangles (Interpersonal relations) -- Fiction; Pastoral fiction; Farm life -- Fiction; Women farmers -- Fiction; Wessex (England) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -247,8 +436,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Fables of Aesop\r\nSelected, Told Anew, and Their History Traced",
+      "image": null,
       "authors": "Aesop, 620? BCE-564? BCE; Jacobs, Joseph, 1854-1916 [Editor]",
-      "categories": "Aesop's fables -- Adaptations; Fables, Greek -- Adaptations"
+      "categories": "Aesop's fables -- Adaptations; Fables, Greek -- Adaptations",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -256,8 +452,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The 1990 United States Census",
+      "image": null,
       "authors": "United States. Bureau of the Census",
-      "categories": "United States -- Population -- Statistics; United States -- Census; Housing -- United States -- Statistics"
+      "categories": "United States -- Population -- Statistics; United States -- Census; Housing -- United States -- Statistics",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -265,8 +468,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Bible, King James Version, Complete",
-      "authors": "God",
-      "categories": "Bible"
+      "image": null,
+      "authors": null,
+      "categories": "Bible",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -274,8 +484,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Plays of Sophocles: Oedipus the King; Oedipus at Colonus; Antigone",
+      "image": null,
       "authors": "Sophocles, 495? BCE-406 BCE; Storr, Francis, 1839-1919 [Translator]",
-      "categories": "Tragedies; Antigone (Mythological character) -- Drama; Oedipus (Greek mythological figure) -- Drama; Greek drama (Tragedy) -- Translations into English"
+      "categories": "Tragedies; Antigone (Mythological character) -- Drama; Oedipus (Greek mythological figure) -- Drama; Greek drama (Tragedy) -- Translations into English",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -283,8 +500,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Herland",
+      "image": null,
       "authors": "Gilman, Charlotte Perkins, 1860-1935",
-      "categories": "Utopias -- Fiction; Women -- Fiction; Utopian fiction; Black humor"
+      "categories": "Utopias -- Fiction; Women -- Fiction; Utopian fiction; Black humor",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -292,8 +516,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Scarlet Letter",
+      "image": null,
       "authors": "Hawthorne, Nathaniel, 1804-1864",
-      "categories": "Adultery -- Fiction; Historical fiction; Revenge -- Fiction; Psychological fiction; Married women -- Fiction; Clergy -- Fiction; Triangles (Interpersonal relations) -- Fiction; Illegitimate children -- Fiction; Women immigrants -- Fiction; Puritans -- Fiction; Boston (Mass.) -- History -- Colonial period, ca. 1600-1775 -- Fiction"
+      "categories": "Adultery -- Fiction; Historical fiction; Revenge -- Fiction; Psychological fiction; Married women -- Fiction; Clergy -- Fiction; Triangles (Interpersonal relations) -- Fiction; Illegitimate children -- Fiction; Women immigrants -- Fiction; Puritans -- Fiction; Boston (Mass.) -- History -- Colonial period, ca. 1600-1775 -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -301,8 +532,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Zen and the Art of the Internet",
+      "image": null,
       "authors": "Kehoe, Brendan P., 1970-2011",
-      "categories": "Internet; Computer networks; Information networks; Information retrieval"
+      "categories": "Internet; Computer networks; Information networks; Information retrieval",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -310,8 +548,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Time Machine",
+      "image": null,
       "authors": "Wells, H. G. (Herbert George), 1866-1946",
-      "categories": "Science fiction; Time travel -- Fiction; Dystopias -- Fiction"
+      "categories": "Science fiction; Time travel -- Fiction; Dystopias -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -319,8 +564,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The War of the Worlds",
+      "image": null,
       "authors": "Wells, H. G. (Herbert George), 1866-1946",
-      "categories": "Science fiction; War stories; Martians -- Fiction; Mars (Planet) -- Fiction; Space warfare -- Fiction; Imaginary wars and battles -- Fiction; Life on other planets -- Fiction"
+      "categories": "Science fiction; War stories; Martians -- Fiction; Mars (Planet) -- Fiction; Space warfare -- Fiction; Imaginary wars and battles -- Fiction; Life on other planets -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -328,8 +580,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The 1990 United States Census [2nd]",
+      "image": null,
       "authors": "United States. Bureau of the Census",
-      "categories": "United States -- Population -- Statistics; United States -- Census; Housing -- United States -- Statistics"
+      "categories": "United States -- Population -- Statistics; United States -- Census; Housing -- United States -- Statistics",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -337,8 +596,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Jargon File, Version 2.9.10, 01 Jul 1992",
+      "image": null,
       "authors": "Raymond, Eric S., 1957- [Editor]; Steele, Guy L., 1954- [Editor]",
-      "categories": "Electronic data processing -- Terminology -- Humor; Computers -- Humor; Computers -- Slang -- Dictionaries"
+      "categories": "Electronic data processing -- Terminology -- Humor; Computers -- Humor; Computers -- Slang -- Dictionaries",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -346,8 +612,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Hitchhiker's Guide to the Internet",
+      "image": null,
       "authors": "Krol, Ed, 1951-",
-      "categories": "Internet; Computer networks"
+      "categories": "Internet; Computer networks",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -355,8 +628,15 @@
     "model": "book.Book",
     "fields": {
       "title": "NorthWestNet User Services Internet Resource Guide (NUSIRG)",
+      "image": null,
       "authors": "Kochmer, Jonathan",
-      "categories": "Internet"
+      "categories": "Internet",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -364,8 +644,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Legend of Sleepy Hollow",
+      "image": null,
       "authors": "Irving, Washington, 1783-1859",
-      "categories": "Ghosts -- Fiction; New York (State) -- History -- 1775-1865 -- Fiction"
+      "categories": "Ghosts -- Fiction; New York (State) -- History -- 1775-1865 -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -373,8 +660,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+      "image": null,
       "authors": "Stevenson, Robert Louis, 1850-1894",
-      "categories": "Science fiction; Horror tales; London (England) -- Fiction; Physicians -- Fiction; Psychological fiction; Self-experimentation in medicine -- Fiction; Multiple personality -- Fiction"
+      "categories": "Science fiction; Horror tales; London (England) -- Fiction; Physicians -- Fiction; Psychological fiction; Self-experimentation in medicine -- Fiction; Multiple personality -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -382,8 +676,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+      "image": null,
       "authors": "Stevenson, Robert Louis, 1850-1894",
-      "categories": "Science fiction; Horror tales; London (England) -- Fiction; Physicians -- Fiction; Psychological fiction; Self-experimentation in medicine -- Fiction; Multiple personality -- Fiction"
+      "categories": "Science fiction; Horror tales; London (England) -- Fiction; Physicians -- Fiction; Psychological fiction; Self-experimentation in medicine -- Fiction; Multiple personality -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -391,8 +692,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Song of the Lark",
+      "image": null,
       "authors": "Cather, Willa, 1873-1947",
-      "categories": "Musical fiction; Young women -- Fiction; Bildungsromans; Chicago (Ill.) -- Fiction; Swedish Americans -- Fiction; Colorado -- Fiction; Opera -- Fiction; Children of clergy -- Fiction; Women singers -- Fiction"
+      "categories": "Musical fiction; Young women -- Fiction; Bildungsromans; Chicago (Ill.) -- Fiction; Swedish Americans -- Fiction; Colorado -- Fiction; Opera -- Fiction; Children of clergy -- Fiction; Women singers -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -400,8 +708,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Anne of Green Gables",
+      "image": null,
       "authors": "Montgomery, L. M. (Lucy Maud), 1874-1942",
-      "categories": "Orphans -- Fiction; Islands -- Fiction; Friendship -- Fiction; Bildungsromans; Girls -- Fiction; Country life -- Prince Edward Island -- Fiction; Prince Edward Island -- History -- 20th century -- Fiction; Canada -- History -- 1867-1914 -- Fiction; Shirley, Anne (Fictitious character) -- Fiction"
+      "categories": "Orphans -- Fiction; Islands -- Fiction; Friendship -- Fiction; Bildungsromans; Girls -- Fiction; Country life -- Prince Edward Island -- Fiction; Prince Edward Island -- History -- 20th century -- Fiction; Canada -- History -- 1867-1914 -- Fiction; Shirley, Anne (Fictitious character) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -409,8 +724,15 @@
     "model": "book.Book",
     "fields": {
       "title": "A Christmas Carol in Prose; Being a Ghost Story of Christmas",
+      "image": null,
       "authors": "Dickens, Charles, 1812-1870; Leech, John, 1817-1864 [Illustrator]",
-      "categories": "Christmas stories; London (England) -- Fiction; Poor families -- Fiction; Ghost stories; Misers -- Fiction; Sick children -- Fiction; Scrooge, Ebenezer (Fictitious character) -- Fiction"
+      "categories": "Christmas stories; London (England) -- Fiction; Poor families -- Fiction; Ghost stories; Misers -- Fiction; Sick children -- Fiction; Scrooge, Ebenezer (Fictitious character) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -418,8 +740,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Anne of Avonlea",
+      "image": null,
       "authors": "Montgomery, L. M. (Lucy Maud), 1874-1942",
-      "categories": "Orphans -- Fiction; Islands -- Fiction; Teachers -- Fiction; Prince Edward Island -- History -- 20th century -- Fiction; Canada -- History -- 1914-1945 -- Fiction; Shirley, Anne (Fictitious character) -- Fiction"
+      "categories": "Orphans -- Fiction; Islands -- Fiction; Teachers -- Fiction; Prince Edward Island -- History -- 20th century -- Fiction; Canada -- History -- 1914-1945 -- Fiction; Shirley, Anne (Fictitious character) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -427,8 +756,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The 1992 CIA World Factbook",
+      "image": null,
       "authors": "United States. Central Intelligence Agency",
-      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc."
+      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc.",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -436,8 +772,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Surfing the Internet: An Introduction\r\nVersion 2.0.2",
+      "image": null,
       "authors": "Polly, Jean Armour",
-      "categories": "Internet addresses -- Directories; Computer network resources -- Directories; Electronic mail systems -- Directories"
+      "categories": "Internet addresses -- Directories; Computer network resources -- Directories; Electronic mail systems -- Directories",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -445,8 +788,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Pi",
+      "image": null,
       "authors": "Hemphill, Scott",
-      "categories": "Mathematics; Pi"
+      "categories": "Mathematics; Pi",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -454,8 +804,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Anne of the Island",
+      "image": null,
       "authors": "Montgomery, L. M. (Lucy Maud), 1874-1942",
-      "categories": "Orphans -- Fiction; Prince Edward Island -- History -- 20th century -- Fiction; Interpersonal relations -- Fiction; Canada -- History -- 1914-1945 -- Fiction; Self-perception -- Fiction; Universities and colleges -- Fiction; Nova Scotia -- History -- 20th century -- Fiction; Shirley, Anne (Fictitious character) -- Fiction"
+      "categories": "Orphans -- Fiction; Prince Edward Island -- History -- 20th century -- Fiction; Interpersonal relations -- Fiction; Canada -- History -- 1914-1945 -- Fiction; Self-perception -- Fiction; Universities and colleges -- Fiction; Nova Scotia -- History -- 20th century -- Fiction; Shirley, Anne (Fictitious character) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -463,8 +820,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Square Root of 2",
+      "image": null,
       "authors": "Kerr, Stan",
-      "categories": "Mathematics; Square root"
+      "categories": "Mathematics; Square root",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -472,8 +836,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Workshop on Electronic Texts: Proceedings, 9-10 June 1992",
+      "image": null,
       "authors": "Library of Congress; Daly, James, 1948- [Editor]",
-      "categories": "Text processing (Computer science) -- Congresses; Electronic books; Electronic publishing -- Congresses"
+      "categories": "Text processing (Computer science) -- Congresses; Electronic books; Electronic publishing -- Congresses",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -481,8 +852,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Marvelous Land of Oz",
+      "image": null,
       "authors": "Baum, L. Frank (Lyman Frank), 1856-1919",
-      "categories": "Oz (Imaginary place) -- Juvenile fiction; Fantasy literature; Conduct of life -- Juvenile fiction; Friendship -- Juvenile fiction; Voyages and travels -- Juvenile "
+      "categories": "Oz (Imaginary place) -- Juvenile fiction; Fantasy literature; Conduct of life -- Juvenile fiction; Friendship -- Juvenile fiction; Voyages and travels -- Juvenile ",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -490,8 +868,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Wonderful Wizard of Oz",
+      "image": null,
       "authors": "Baum, L. Frank (Lyman Frank), 1856-1919",
-      "categories": "Oz (Imaginary place) -- Juvenile fiction; Fantasy literature; Courage -- Juvenile fiction; Home -- Juvenile fiction; Good and evil -- Juvenile fiction; Dreams -- Juvenile fiction; Gale, Dorothy (Fictitious character) -- Juvenile fiction; Cowardly Lion (Fictitious character) -- Juvenile fiction; Cyclones -- Juvenile fiction; Scarecrow (Fictitious character from Baum) -- Juvenile fiction; Toto (Fictitious character) -- "
+      "categories": "Oz (Imaginary place) -- Juvenile fiction; Fantasy literature; Courage -- Juvenile fiction; Home -- Juvenile fiction; Good and evil -- Juvenile fiction; Dreams -- Juvenile fiction; Gale, Dorothy (Fictitious character) -- Juvenile fiction; Cowardly Lion (Fictitious character) -- Juvenile fiction; Cyclones -- Juvenile fiction; Scarecrow (Fictitious character from Baum) -- Juvenile fiction; Toto (Fictitious character) -- ",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -499,8 +884,15 @@
     "model": "book.Book",
     "fields": {
       "title": "NREN for All: Insurmountable Opportunity",
+      "image": null,
       "authors": "Polly, Jean Armour",
-      "categories": "Internet; National Research and Education Network (Computer network)"
+      "categories": "Internet; National Research and Education Network (Computer network)",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -508,8 +900,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Aladdin and the Magic Lamp",
+      "image": null,
       "authors": "Unknown",
-      "categories": "Fairy tales; Children's stories; Arabs -- Folklore; Folklore -- Arab countries"
+      "categories": "Fairy tales; Children's stories; Arabs -- Folklore; Folklore -- Arab countries",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -517,8 +916,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Paradise Regained",
+      "image": null,
       "authors": "Milton, John, 1608-1674",
-      "categories": "English poetry; Epic poetry; Bible. Gospels -- History of Biblical events -- Poetry; Jesus Christ -- Temptation -- Poetry"
+      "categories": "English poetry; Epic poetry; Bible. Gospels -- History of Biblical events -- Poetry; Jesus Christ -- Temptation -- Poetry",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -526,8 +932,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Discourse on the Method of Rightly Conducting One's Reason and of Seeking Truth in the Sciences",
+      "image": null,
       "authors": "Descartes, René, 1596-1650; Veitch, John, 1829-1894 [Translator]",
-      "categories": "Science -- Methodology; Methodology"
+      "categories": "Science -- Methodology; Methodology",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -535,8 +948,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Scarlet Pimpernel",
+      "image": null,
       "authors": "Orczy, Emmuska Orczy, Baroness, 1865-1947",
-      "categories": "Historical fiction; France -- History -- Revolution, 1789-1799 -- Fiction; Adventure stories; British -- France -- Fiction; Nobility -- Fiction; Blakeney, Percy, Sir (Fictitious character) -- Fiction"
+      "categories": "Historical fiction; France -- History -- Revolution, 1789-1799 -- Fiction; Adventure stories; British -- France -- Fiction; Nobility -- Fiction; Blakeney, Percy, Sir (Fictitious character) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -544,8 +964,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Communist Manifesto",
+      "image": null,
       "authors": "Engels, Friedrich, 1820-1895; Marx, Karl, 1818-1883",
-      "categories": "Socialism; Communism"
+      "categories": "Socialism; Communism",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -553,8 +980,15 @@
     "model": "book.Book",
     "fields": {
       "title": "A Princess of Mars",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Science fiction; Mars (Planet) -- Fiction; Princesses -- Fiction; Carter, John (Fictitious character) -- Fiction; Dejah Thoris (Fictitious character) -- Fiction"
+      "categories": "Science fiction; Mars (Planet) -- Fiction; Princesses -- Fiction; Carter, John (Fictitious character) -- Fiction; Dejah Thoris (Fictitious character) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -562,8 +996,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Number \"e\"",
+      "image": null,
       "authors": "Unknown",
-      "categories": "Mathematics; Mathematical constants"
+      "categories": "Mathematics; Mathematical constants",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -571,8 +1012,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Gods of Mars",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Science fiction; Mars (Planet) -- Fiction; Life on other planets -- Fiction; Carter, John (Fictitious character) -- Fiction; Dejah Thoris (Fictitious character) -- Fiction"
+      "categories": "Science fiction; Mars (Planet) -- Fiction; Life on other planets -- Fiction; Carter, John (Fictitious character) -- Fiction; Dejah Thoris (Fictitious character) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -580,8 +1028,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The First 100,000 Prime Numbers",
+      "image": null,
       "authors": "Unknown",
-      "categories": "Mathematics; Numbers, Prime"
+      "categories": "Mathematics; Numbers, Prime",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -589,8 +1044,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Dawn of Amateur Radio in the U.K. and Greece: A Personal View",
+      "image": null,
       "authors": "Joly, Norman F.",
-      "categories": "Radio broadcasting"
+      "categories": "Radio broadcasting",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -598,8 +1060,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Black Experience in America",
+      "image": null,
       "authors": "Coombs, Norman, 1932-",
-      "categories": "African Americans -- History; Slavery -- United States -- History"
+      "categories": "African Americans -- History; Slavery -- United States -- History",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -607,8 +1076,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The warlord of Mars",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Science fiction; Mars (Planet) -- Fiction; Carter, John (Fictitious character) -- Fiction; Dejah Thoris (Fictitious character) -- Fiction"
+      "categories": "Science fiction; Mars (Planet) -- Fiction; Carter, John (Fictitious character) -- Fiction; Dejah Thoris (Fictitious character) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -616,8 +1092,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The 32nd Mersenne Prime\r\nPredicted by Mersenne",
+      "image": null,
       "authors": "Slowinski, David",
-      "categories": "Numbers, Prime; Number theory"
+      "categories": "Numbers, Prime; Number theory",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -625,8 +1108,15 @@
     "model": "book.Book",
     "fields": {
       "title": "What Is Man? and Other Essays",
+      "image": null,
       "authors": "Twain, Mark, 1835-1910",
-      "categories": "American essays"
+      "categories": "American essays",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -634,8 +1124,15 @@
     "model": "book.Book",
     "fields": {
       "title": "On the Duty of Civil Disobedience",
+      "image": null,
       "authors": "Thoreau, Henry David, 1817-1862",
-      "categories": "Civil disobedience; Government, Resistance to"
+      "categories": "Civil disobedience; Government, Resistance to",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -643,8 +1140,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Thuvia, Maid of Mars",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Science fiction; Martians -- Fiction; Mars (Planet) -- Fiction"
+      "categories": "Science fiction; Martians -- Fiction; Mars (Planet) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -652,8 +1156,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Red Badge of Courage: An Episode of the American Civil War",
+      "image": null,
       "authors": "Crane, Stephen, 1871-1900",
-      "categories": "Historical fiction; War stories; United States -- History -- Civil War, 1861-1865 -- Fiction; Virginia -- History -- Civil War, 1861-1865 -- Fiction; Chancellorsville, Battle of, Chancellorsville, Va., 1863 -- Fiction"
+      "categories": "Historical fiction; War stories; United States -- History -- Civil War, 1861-1865 -- Fiction; Virginia -- History -- Civil War, 1861-1865 -- Fiction; Chancellorsville, Battle of, Chancellorsville, Va., 1863 -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -661,8 +1172,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Adventures of Tom Sawyer, Complete",
+      "image": null,
       "authors": "Twain, Mark, 1835-1910",
-      "categories": "Humorous stories; Bildungsromans; Boys -- Fiction; Male friendship -- Fiction; Adventure stories; Missouri -- Fiction; Sawyer, Tom (Fictitious character) -- Fiction; Child witnesses -- Fiction; Runaway children -- Fiction; Mississippi River Valley -- Fiction"
+      "categories": "Humorous stories; Bildungsromans; Boys -- Fiction; Male friendship -- Fiction; Adventure stories; Missouri -- Fiction; Sawyer, Tom (Fictitious character) -- Fiction; Child witnesses -- Fiction; Runaway children -- Fiction; Mississippi River Valley -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -670,8 +1188,15 @@
     "model": "book.Book",
     "fields": {
       "title": "E-mail 101",
+      "image": null,
       "authors": "Goodwin, John E.",
-      "categories": "Electronic mail systems"
+      "categories": "Electronic mail systems",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -679,8 +1204,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Adventures of Huckleberry Finn",
+      "image": null,
       "authors": "Twain, Mark, 1835-1910; Kemble, E. W. (Edward Windsor), 1861-1933 [Illustrator]",
-      "categories": "Humorous stories; Bildungsromans; Boys -- Fiction; Male friendship -- Fiction; Adventure stories; Missouri -- Fiction; Race relations -- Fiction; Runaway children -- Fiction; Finn, Huckleberry (Fictitious character) -- Fiction; Fugitive slaves -- Fiction; Mississippi River -- Fiction"
+      "categories": "Humorous stories; Bildungsromans; Boys -- Fiction; Male friendship -- Fiction; Adventure stories; Missouri -- Fiction; Race relations -- Fiction; Runaway children -- Fiction; Finn, Huckleberry (Fictitious character) -- Fiction; Fugitive slaves -- Fiction; Mississippi River -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -688,8 +1220,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The House of the Seven Gables",
+      "image": null,
       "authors": "Hawthorne, Nathaniel, 1804-1864",
-      "categories": "Historical fiction; Domestic fiction; Paranormal fiction; Haunted houses -- Fiction; Salem (Mass.) -- Fiction"
+      "categories": "Historical fiction; Domestic fiction; Paranormal fiction; Haunted houses -- Fiction; Salem (Mass.) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -697,8 +1236,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Tarzan of the Apes",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Tarzan (Fictitious character) -- Fiction; Africa -- Fiction; Fantasy fiction; Adventure stories; British -- Africa -- Fiction; Wild men -- Fiction"
+      "categories": "Tarzan (Fictitious character) -- Fiction; Africa -- Fiction; Fantasy fiction; Adventure stories; British -- Africa -- Fiction; Wild men -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -706,8 +1252,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Terminal Compromise",
+      "image": null,
       "authors": "Schwartau, Winn, 1952-",
-      "categories": "Computer security -- Fiction; Didactic fiction; Privacy, Right of -- Fiction; Records -- Access control -- Fiction"
+      "categories": "Computer security -- Fiction; Didactic fiction; Privacy, Right of -- Fiction; Records -- Access control -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -715,8 +1268,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Online World",
+      "image": null,
       "authors": "De Presno, Odd, 1944-",
-      "categories": "Internet"
+      "categories": "Internet",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -724,8 +1284,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Return of Tarzan",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Adventure stories"
+      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Adventure stories",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -733,8 +1300,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Ivanhoe: A Romance",
+      "image": null,
       "authors": "Scott, Walter, 1771-1832",
-      "categories": "Historical fiction; Knights and knighthood -- Fiction; Love stories; Triangles (Interpersonal relations) -- Fiction; Great Britain -- History -- Richard I, 1189-1199 -- Fiction; Jews -- England -- Fiction; Ivanhoe, Wilfred of, Sir (Fictitious character) -- Fiction; Anglo-Saxons -- Fiction; Normans -- Great Britain -- Fiction"
+      "categories": "Historical fiction; Knights and knighthood -- Fiction; Love stories; Triangles (Interpersonal relations) -- Fiction; Great Britain -- History -- Richard I, 1189-1199 -- Fiction; Jews -- England -- Fiction; Ivanhoe, Wilfred of, Sir (Fictitious character) -- Fiction; Anglo-Saxons -- Fiction; Normans -- Great Britain -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -742,8 +1316,15 @@
     "model": "book.Book",
     "fields": {
       "title": "From the Earth to the Moon; and, Round the Moon",
+      "image": null,
       "authors": "Verne, Jules, 1828-1905",
-      "categories": "Science fiction; Space flight to the moon -- Fiction; Moon -- Fiction; Space ships -- Fiction; Manned space flight -- Fiction"
+      "categories": "Science fiction; Space flight to the moon -- Fiction; Moon -- Fiction; Space ships -- Fiction; Manned space flight -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -751,8 +1332,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Frankenstein; Or, The Modern Prometheus",
+      "image": null,
       "authors": "Shelley, Mary Wollstonecraft, 1797-1851",
-      "categories": "Science fiction; Horror tales; Gothic fiction; Scientists -- Fiction; Monsters -- Fiction; Frankenstein, Victor (Fictitious character) -- Fiction; Frankenstein's monster (Fictitious character) -- Fiction"
+      "categories": "Science fiction; Horror tales; Gothic fiction; Scientists -- Fiction; Monsters -- Fiction; Frankenstein, Victor (Fictitious character) -- Fiction; Frankenstein's monster (Fictitious character) -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -760,8 +1348,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Beasts of Tarzan",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Jungle animals -- Fiction; Adventure stories"
+      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Jungle animals -- Fiction; Adventure stories",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -769,8 +1364,15 @@
     "model": "book.Book",
     "fields": {
       "title": "A Connecticut Yankee in King Arthur's Court",
+      "image": null,
       "authors": "Twain, Mark, 1835-1910",
-      "categories": "Fantasy fiction; Satire; Knights and knighthood -- Fiction; Arthurian romances -- Adaptations; Time travel -- Fiction; Americans -- Great Britain -- Fiction; Kings and rulers -- Fiction; Britons -- Fiction"
+      "categories": "Fantasy fiction; Satire; Knights and knighthood -- Fiction; Arthurian romances -- Adaptations; Time travel -- Fiction; Americans -- Great Britain -- Fiction; Kings and rulers -- Fiction; Britons -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -778,8 +1380,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The 1993 CIA World Factbook",
+      "image": null,
       "authors": "United States. Central Intelligence Agency",
-      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc."
+      "categories": "World politics -- Handbooks, manuals, etc.; Geography -- Handbooks, manuals, etc.; Political science -- Handbooks, manuals, etc.; Political statistics -- Handbooks, manuals, etc.",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -787,8 +1396,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Price/Cost Indexes from 1875 to 1989; Estimated to 2010",
+      "image": null,
       "authors": "Hart, Michael, 1947-2011",
-      "categories": "Cost and standard of living"
+      "categories": "Cost and standard of living",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -796,8 +1412,15 @@
     "model": "book.Book",
     "fields": {
       "title": "North American Free Trade Agreement, 1992 Oct. 7 Tariff Phasing Descriptions",
+      "image": null,
       "authors": "Canada",
-      "categories": "Canada. Treaties, etc. 1992 Oct. 7; Tariff -- Law and legislation -- North America; Free trade -- North America; Foreign trade regulation -- North America; Free trade -- United States; Free trade -- Canada; Free trade -- Mexico"
+      "categories": "Canada. Treaties, etc. 1992 Oct. 7; Tariff -- Law and legislation -- North America; Free trade -- North America; Foreign trade regulation -- North America; Free trade -- United States; Free trade -- Canada; Free trade -- Mexico",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -805,8 +1428,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Son of Tarzan",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Adventure stories"
+      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Adventure stories",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -814,8 +1444,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Tom Sawyer Abroad",
+      "image": null,
       "authors": "Twain, Mark, 1835-1910",
-      "categories": "Adventure stories; Sawyer, Tom (Fictitious character) -- Fiction; Balloon ascensions -- Fiction; Americans -- Foreign countries -- Fiction"
+      "categories": "Adventure stories; Sawyer, Tom (Fictitious character) -- Fiction; Balloon ascensions -- Fiction; Americans -- Foreign countries -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -823,8 +1460,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Tarzan and the Jewels of Opar",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Adventure stories"
+      "categories": "Tarzan (Fictitious character) -- Fiction; Fantasy fiction; Adventure stories",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -832,8 +1476,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Tom Sawyer, Detective",
+      "image": null,
       "authors": "Twain, Mark, 1835-1910",
-      "categories": "Sawyer, Tom (Fictitious character) -- Fiction; Mystery fiction"
+      "categories": "Sawyer, Tom (Fictitious character) -- Fiction; Mystery fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -841,8 +1492,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Alexander's Bridge",
+      "image": null,
       "authors": "Cather, Willa, 1873-1947",
-      "categories": "Civil engineers -- Fiction; London (England) -- Fiction; Psychological fiction; Married people -- Fiction; Boston (Mass.) -- Fiction; Mistresses -- Fiction; Bridges -- Design and construction -- Fiction"
+      "categories": "Civil engineers -- Fiction; London (England) -- Fiction; Psychological fiction; Married people -- Fiction; Boston (Mass.) -- Fiction; Mistresses -- Fiction; Bridges -- Design and construction -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -850,8 +1508,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Prisoner of Zenda",
+      "image": null,
       "authors": "Hope, Anthony, 1863-1933",
-      "categories": "Impostors and imposture -- Fiction; Adventure stories; British -- Foreign countries -- Fiction"
+      "categories": "Impostors and imposture -- Fiction; Adventure stories; British -- Foreign countries -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -859,8 +1524,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Monster Men",
+      "image": null,
       "authors": "Burroughs, Edgar Rice, 1875-1950",
-      "categories": "Science fiction; Fantasy fiction"
+      "categories": "Science fiction; Fantasy fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -868,8 +1540,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Flatland: A Romance of Many Dimensions",
+      "image": null,
       "authors": "Abbott, Edwin Abbott, 1838-1926",
-      "categories": "Fourth dimension"
+      "categories": "Fourth dimension",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -877,8 +1556,15 @@
     "model": "book.Book",
     "fields": {
       "title": "A Tale of Two Cities",
+      "image": null,
       "authors": "Dickens, Charles, 1812-1870",
-      "categories": "Historical fiction; France -- History -- Revolution, 1789-1799 -- Fiction; London (England) -- History -- 18th century -- Fiction; War stories; Executions and executioners -- Fiction; French -- England -- London -- Fiction; Lookalikes -- Fiction; British -- France -- Paris -- Fiction; Paris (France) -- History -- 1789-1799 -- Fiction"
+      "categories": "Historical fiction; France -- History -- Revolution, 1789-1799 -- Fiction; London (England) -- History -- 18th century -- Fiction; War stories; Executions and executioners -- Fiction; French -- England -- London -- Fiction; Lookalikes -- Fiction; British -- France -- Paris -- Fiction; Paris (France) -- History -- 1789-1799 -- Fiction",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -886,8 +1572,15 @@
     "model": "book.Book",
     "fields": {
       "title": "Collected Articles of Frederick Douglass",
+      "image": null,
       "authors": "Douglass, Frederick, 1818-1895",
-      "categories": "Douglass, Frederick, 1818-1895; Slavery; African American abolitionists; Essays; Reconstruction (U.S. history, 1865-1877)"
+      "categories": "Douglass, Frederick, 1818-1895; Slavery; African American abolitionists; Essays; Reconstruction (U.S. history, 1865-1877)",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   },
   {
@@ -895,8 +1588,15 @@
     "model": "book.Book",
     "fields": {
       "title": "The Complete Works of William Shakespeare",
+      "image": null,
       "authors": "Shakespeare, William, 1564-1616",
-      "categories": "English drama -- Early modern and Elizabethan, 1500-1600"
+      "categories": "English drama -- Early modern and Elizabethan, 1500-1600",
+      "price": 100000,
+      "description": "a book",
+      "no_of_pages": 200,
+      "stock": 0,
+      "rating": 0,
+      "jumlah_terjual": 0
     }
   }
 ]
