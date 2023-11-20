@@ -46,7 +46,7 @@
                 </div>
                 
                 <!-- [ KHUSUS ADMIN ] -->
-                {% if user.is_authenticated and user.is_admin %}
+                {% if user.is_authenticated and user.is_staff %}
                     <div class="col-sm-3" style="padding: 5px;">
                         <a class="btn btn-primary" href="{% url 'book_info:edit_book' book.pk %}" role="button">Edit</a>
                         <a class="btn btn-danger" href="{% url 'book_info:delete_book' book.pk %}" role="button">Delete</a>
@@ -76,16 +76,21 @@
                         <div class="row">
                         <!-- button: Decrement  -->
                         <div class="col">
-                            <!-- <button class="btn btn-primary btn-sm" type="submit">-</button> -->
-                            <button class="btn btn-primary btn-sm" onclick="decrementAmount('{{ book.id }}')">-</button>
+                            <!-- <button class="btn btn-primary btn-sm" onclick="refreshAmount()">-</button> -->
+                            <form method="POST" action="{% url 'book_info:decrement_amount' book.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary btn-sm">-</button>
+                            </form>
                         </div>
                         <!-- default jumlah pembelian -->
-                        <!-- <div class="col">1</div> -->
-                        <div class="col" id="jumlah-pembelian">{{ cart.jumlah_pembelian }}</div>
+                        <div class="col">{{ cart.amount }}</div>
                         <!-- button: increment -->
                         <div class="col">
-                            <button class="btn btn-primary btn-sm" onclick="incrementAmount('{{ book.id }}')">+</button>
-                            <!-- <button class="btn btn-primary btn-sm" type="submit">+</button> -->
+                            <!-- <button class="btn btn-primary btn-sm" onclick="refreshAmount()">+</button> -->
+                            <form method="POST" action="{% url 'book_info:increment_amount' book.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-primary btn-sm">+</button>
+                            </form>
                         </div>
                         </div>
                     </div>
@@ -98,14 +103,32 @@
                 <div style="margin-top: 15px; margin-bottom: 35px;">
                     {% if request.user.is_authenticated %}
                         <!-- Member -->
-                        {% if book.stock > 0 %}
-                            <a class="btn btn-outline-primary" href="#" role="button">Tambahkan Keranjang</a>
+                        {% if user.is_staff or book.stock == 0 %}
+                            <button class="btn btn-outline-primary" disabled>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                    <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                </svg>
+                                Masukkan Keranjang
+                            </button>
                         {% else %}
-                            <a class="btn btn-outline-primary" href="#" role="button" disabled>Tambahkan Keranjang</a>
+                            <a class="btn btn-outline-primary" href="{% url 'book_info:add_to_cart' book.id cart.amount %}" role="button">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                    <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                                    <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                </svg>
+                                Masukkan Keranjang
+                            </a>
                         {% endif %}
                     {% else %}
                         <!-- Non-member (belum login) -->
-                        <a class="btn btn-outline-primary" href="{% url 'account:login_user' %}" role="button">Tambahkan Keranjang</a>
+                        <a class="btn btn-outline-primary" href="{% url 'account:login_user' %}" role="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
+                                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                            Masukkan Keranjang
+                        </a>
                     {% endif %}
                 </div>
 
@@ -128,7 +151,7 @@
                         <p><strong>{{ book.title }}</strong></p>
                     </span>
                     <span>
-                        Penulis
+                        Pengarang
                         <p><strong>{{ book.authors }}</strong></p>
                     </span>
                     <span>
@@ -145,7 +168,7 @@
                         <h5><strong>Penilaian Buku</strong></h5>
                     </li>
                     <br>
-                    <div class="card mb-3" style="background-color: bisque;">
+                    <div class="card mb-3" style="background-color: rgb(196, 228, 255);">
                         <div class="card-body">
                             <div class="text-center">
                                 <h5 class="card-title">{{ book.rating }}<small class="text-body-secondary"> dari 5</small></h5>
@@ -163,52 +186,78 @@
                                     {% endfor %}  
                                     ({{ reviews|length }})                             
                                 </p>
+<!-- 
+                                <form id = "search_form" onsubmit="return false;">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <input type="radio" class="btn-check" name="options" id="semua" autocomplete="off" checked>
+                                        <label class="btn btn-outline-primary" for="semua" onclick="refreshAllReviews()">Semua</label>
 
-                                <input type="radio" class="btn-check" name="options-base" id="option1" autocomplete="off" checked>
-                                <label class="btn btn-outline-primary" for="option1">Semua</label>
+                                        <input type="radio" class="btn-check" name="options" id="bintang5" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="bintang5" onclick="refreshAllReviews()">5 Bintang</label>
 
-                                <input type="radio" class="btn-check" name="options-base" id="option2" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="option2">5 Bintang</label>
+                                        <input type="radio" class="btn-check" name="options" id="bintang4" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="bintang4" onclick="refreshAllReviews()">4 Bintang</label>
 
-                                <input type="radio" class="btn-check" name="options-base" id="option3" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="option3">4 Bintang</label>
+                                        <input type="radio" class="btn-check" name="options" id="bintang3" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="bintang3" onclick="refreshAllReviews()">3 Bintang</label>
 
-                                <input type="radio" class="btn-check" name="options-base" id="option4" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="option4">3 Bintang</label>
+                                        <input type="radio" class="btn-check" name="options" id="bintang2" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="bintang2" onclick="refreshAllReviews()">2 Bintang</label>
 
-                                <input type="radio" class="btn-check" name="options-base" id="option5" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="option5">2 Bintang</label>
+                                        <input type="radio" class="btn-check" name="options" id="bintang1" autocomplete="off">
+                                        <label class="btn btn-outline-primary" for="bintang1" onclick="refreshAllReviews()">1 Bintang</label>
+                                    </div>
+                                </form> -->
 
-                                <input type="radio" class="btn-check" name="options-base" id="option6" autocomplete="off">
-                                <label class="btn btn-outline-primary" for="option6">1 Bintang</label>
+                                <form id = "search_form" onsubmit="return false;">
+                                    {% csrf_token %}
+                                    <div class="mb-3">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                                            <label class="form-check-label" for="semua">
+                                            Semua
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang5">
+                                            <label class="form-check-label" for="bintang5">
+                                            5 Bintang
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang4">
+                                            <label class="form-check-label" for="bintang4">
+                                            4 Bintang
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang3">
+                                            <label class="form-check-label" for="bintang3">
+                                            3 Bintang
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang2">
+                                            <label class="form-check-label" for="bintang2">
+                                            2 Bintang
+                                            </label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang1">
+                                            <label class="form-check-label" for="bintang1">
+                                            1 Bintang
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" id="button_search" >Apply</button>
+                                  </form>
                             </div>
                         </div>
                     </div>
 
                     <!-- card review -->
-                    {% if reviews|length > 0 %}
-                        <div class="row row-cols-1 row-cols-md-3 g-4">
-                            {% for review in reviews %}
-                                <div class="col">
-                                    <div class="card h-100">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ review.user_name }}</h5>
-                                            <h6 class="card-subtitle mb-2 text-body-secondary">
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                                </svg>
-                                                {{ review.rating }}
-                                            </h6>
-                                            <p class="card-text">{{ review.comment }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    {% else %}
-                        <p>Belum ada penilaian untuk buku ini.</p>
-                    {% endif %}
-                    
+                    <div id="review_cards"></div>
 
                 </ul>
             </div>
@@ -217,14 +266,138 @@
 </div>
 
 <script>
-    async function incrementAmount(id) {
-        const response = await fetch(`/increment-amount/${id}`);
-        // refreshProducts();
+    async function refreshAllReviews() {
+        document.getElementById("review_cards").innerHTML = ""
+        const reviews = await getReview()
+        
+        let htmlString = `<div class="card mb-3" style="background-color: bisque;">`
+            htmlString += `\n
+            <div class="card-body">
+                <div class="text-center">
+                    <h5 class="card-title">${book.fields.rating}<small class="text-body-secondary"> dari 5</small></h5>
+                    <p class="card-text">
+                        {% for i in "12345" %}
+                            {% if i < rating %}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg> 
+                            {% else %}
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                    <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                </svg>
+                            {% endif %}     
+                        {% endfor %}  
+                        (${reviews|length})                             
+                    </p>
+
+                    <form id = "search_form" onsubmit="return false;">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                                <label class="form-check-label" for="semua">
+                                Semua
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang5">
+                                <label class="form-check-label" for="bintang5">
+                                5 Bintang
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang4">
+                                <label class="form-check-label" for="bintang4">
+                                4 Bintang
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang3">
+                                <label class="form-check-label" for="bintang3">
+                                3 Bintang
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang2">
+                                <label class="form-check-label" for="bintang2">
+                                2 Bintang
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang1">
+                                <label class="form-check-label" for="bintang1">
+                                1 Bintang
+                                </label>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="button_search" >Apply</button>
+                    </form>
+
+                </div>
+            </div>`
+            reviews.forEach((review) => {
+                htmlString += `\n
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    {% if reviews|length == 0 %}
+                        <p>Belum ada penilaian.</p>
+                    {% else %}
+                        {% for review in reviews %}
+                            <div class="col">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${review.fields.user_name }</h5>
+                                        <h6 class="card-subtitle mb-2 text-body-secondary">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                            </svg>
+                                            ${review.fields.rating}
+                                        </h6>
+                                        <p class="card-text">${review.fields.comment}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}`
+        })
+        htmlString += `\n </div>`
+  
+        document.getElementById("review_cards").innerHTML = htmlString
     }
 
-    async function decrementAmount(id) {
-        const response = await fetch(`/decrement-amount/${id}`);
-        // refreshProducts();
+    refreshAllReviews()
+
+    function getReview(){
+        fetch_string = "{% url 'book_info:search_review_json' 'rating' %}"
+
+        if (document.querySelector("#semua").checked){
+            fetch_string = "{% url 'book_info:search_review_json' 'semua' %}"
+        }
+        if (document.querySelector("#bintang5").checked){
+            fetch_string = "{% url 'book_info:search_review_json' '5' %}"
+        }
+        if (document.querySelector("#bintang4").checked){
+            fetch_string = "{% url 'book_info:search_review_json' '4'  %}"
+        }
+        if (document.querySelector("#bintang3").checked){
+            fetch_string = "{% url 'book_info:search_review_json' '3' %}"
+        }
+        if (document.querySelector("#bintang2").checked){
+            fetch_string = "{% url 'book_info:search_review_json' '2' %}"
+        }
+        if (document.querySelector("#bintang1").checked){
+            fetch_string = "{% url 'book_info:search_review_json' '1' %}"
+        }
+
+        console.log(fetch_string)
+        return fetch(fetch_string,{
+            method: "POST",
+            body: new FormData(document.querySelector('#search_form'))
+        }).then((res) => res.json())
+
+    }
+
+    document.getElementsById("button_search").onclick = function(){
+        refreshAllReviews()
     }
 </script>
 {% endblock %}
