@@ -2,23 +2,27 @@
 
 {% block content %}
 
-<div class="container m-4">
-    <h1 class="m-3">Halaman Pembayaran</h1>
+<div class="container mt-5">
+    <h1 class="mb-4">Halaman Pembayaran</h1>
 
     <div class="row">
         <div class="col-md-6">
-            <h3>Ringkasan Pembayaran</h3>
-            <p>Total Harga: ${{ total_price }}</p>
-            <p>Saldo Anda: ${{ user_profile.balance }}</p>
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">Ringkasan Pembayaran</h3>
+                    <p class="card-text">Total Harga: ${{ total_price }}</p>
+                    <p class="card-text">Saldo Anda: ${{ user_profile.balance }}</p>
 
-            {% if user_profile.balance >= total_price %}
-                <form method="post" action="{% url 'payment' %}">
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-primary">Bayar</button>
-                </form>
-            {% else %}
-                <p class="text-danger">Saldo Anda tidak mencukupi untuk pembayaran.</p>
-            {% endif}
+                    {% if user_profile.balance >= total_price %}
+                        <form method="post" action="{% url 'payment' %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary">Bayar</button>
+                        </form>
+                    {% else %}
+                        <p class="text-danger">Saldo Anda tidak mencukupi untuk pembayaran.</p>
+                    {% endif}
+                </div>
+            </div>
         </div>
     </div>
 </div>

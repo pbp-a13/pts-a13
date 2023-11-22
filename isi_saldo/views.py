@@ -3,13 +3,12 @@ from account.models import Account
 
 def top_up_balance(request):
     user = request.user
-    user_balance, created = Account.saldo.objects.get_or_create(user=user, defaults={'balance': 0.00}) # ???
+    user_account, created = Account.objects.get_or_create(user=user, defaults={'saldo': 0})
 
     if request.method == 'POST':
-        # pengisian saldo
-        amount = float(request.POST.get('amount', 0.00))
-        user_balance.balance += amount
-        user_balance.save()
+        amount = int(request.POST.get('amount', 0))
+        user_account.saldo += amount
+        user_account.save()
         return redirect('account_info')  # Redirect ke halaman info akun setelah pengisian saldo
 
-    return render(request, 'top_up_balance.html', {'user_balance': user_balance})
+    return render(request, 'top_up_balance.html', {'user_account': user_account})
