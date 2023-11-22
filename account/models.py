@@ -6,12 +6,12 @@ from django.dispatch import receiver
 
 class Account(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    nama = models.CharField(max_length = 255 , default = "unknown")
+    nama = models.CharField(max_length = 255 , blank=True)
     email = models.EmailField(blank=True)
     buku_dibeli = models.ManyToManyField(Book, related_name='purchased', blank=True)
     buku_ongoing = models.ManyToManyField(Book, related_name='ongoing_purchase', blank=True)
     saldo = models.IntegerField(default=0)
-    alamat = models.CharField(max_length = 1000, default=0, blank=True, null=True)
+    alamat = models.CharField(max_length = 1000, default="-", blank=True, null=True)
 
 @receiver(post_save, sender=User)
 def create_user_account(sender, instance, created, **kwargs):
@@ -31,11 +31,4 @@ class Review(models.Model):
     member = models.ForeignKey(Account, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     review_text = models.TextField()
-
-
-
-
-
-
-
 
