@@ -9,9 +9,10 @@ from django.core import serializers
 from book.models import Book
 from account.models import Account, Review
 from book_info.forms import BookForm
-from book_info.models import Cart
+from book_info.models import Cart, CartOfBooks
 from main.models import Admin
 from cart.models import CartItem
+from django.contrib.auth.models import User
 
 # Create your views here.
 def is_admin(user):
@@ -22,17 +23,17 @@ def show_info(request, id):
     reviews = Review.objects.filter(book=book)
 
     if request.user.is_authenticated:
-        cart, created = Cart.objects.get_or_create(user=request.user, book=book)
-        context = {
-            'book': book,
-            'reviews': reviews,
-            'cart': cart,
-        }
+        user = request.user
     else:
-        context = {
-            'book': book,
-            'reviews': reviews,
-        }
+        user, created = User.objects.get_or_create(username='anonymous')
+
+    cart, created = Cart.objects.get_or_create(user=user, book=book)
+    context = {
+        'book': book,
+        'reviews': reviews,
+        'cart': cart,
+    }
+
     return render(request, "book_info.html", context)
 
 def edit_book(request, id):
@@ -62,35 +63,28 @@ def add_to_cart(request, id, jumlah_pembelian):
     book = get_object_or_404(Book, pk=id)
     cartItem, created = CartItem.objects.get_or_create(user=request.user, book=book)
     cart_entry, created = Cart.objects.get_or_create(user=request.user, book=book)
+    cart_of_books, created = CartOfBooks.objects.get_or_create(user=request.user, book=book)
 
-    if (cartItem.quantity + cart_entry.amount) <= book.stock:
-        cartItem.quantity += cart_entry.amount
-        cartItem.save()
+    if (cart_of_books.amount + cart_entry.amount) <= book.stock:
+        cart_of_books.amount += cart_entry.amount
+        cart_of_books.save()
+
+    book.cartitem_set.add(cart_of_books)
+    
     cart_entry.amount = 1
+    cart_entry.save()
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
 def get_cart_json(request):
     carts = CartItem.objects.filter(user=request.user)
-    # cart_list = []
-    # for cart in carts:
-    #     cart_dict = {
-    #         'User': cart.user.username,
-    #         'Book': {
-    #             'pk': cart.book.pk,
-    #             'Title': cart.book.title,
-    #             'Authors': cart.book.authors,
-    #             'Categories': cart.book.categories,
-    #             'Number of pages': cart.book.no_of_pages,
-    #             },
-    #         'Quantity': cart.quantity,
-    #     }
-    #     cart_list.append(cart_dict)
-    # return JsonResponse(cart_list, safe=False)
     return HttpResponse(serializers.serialize('json', carts), content_type="application/json")
 
 def increment_amount(request, id):
     book = get_object_or_404(Book, pk=id)
-    user = request.user 
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user, created = User.objects.get_or_create(username='anonymous')
 
     cart_entry, created = Cart.objects.get_or_create(user=user, book=book)
     if cart_entry.amount < book.stock:
@@ -101,8 +95,11 @@ def increment_amount(request, id):
 
 def decrement_amount(request, id):
     book = get_object_or_404(Book, pk=id)
-    user = request.user
-
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user, created = User.objects.get_or_create(username='anonymous')
+        
     cart_entry, created = Cart.objects.get_or_create(user=user, book=book)
     if cart_entry.amount > 1:
         cart_entry.amount -= 1
