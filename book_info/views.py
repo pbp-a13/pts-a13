@@ -12,6 +12,7 @@ from book_info.forms import BookForm
 from book_info.models import Cart
 from main.models import Admin
 from cart.models import CartItem
+from django.contrib.auth.models import User
 
 # Create your views here.
 def is_admin(user):
@@ -22,17 +23,17 @@ def show_info(request, id):
     reviews = Review.objects.filter(book=book)
 
     if request.user.is_authenticated:
-        cart, created = Cart.objects.get_or_create(user=request.user, book=book)
-        context = {
-            'book': book,
-            'reviews': reviews,
-            'cart': cart,
-        }
+        user = request.user
     else:
-        context = {
-            'book': book,
-            'reviews': reviews,
-        }
+        user, created = User.objects.get_or_create(username='anonymous')
+
+    cart, created = Cart.objects.get_or_create(user=user, book=book)
+    context = {
+        'book': book,
+        'reviews': reviews,
+        'cart': cart,
+    }
+
     return render(request, "book_info.html", context)
 
 def edit_book(request, id):
@@ -90,7 +91,10 @@ def get_cart_json(request):
 
 def increment_amount(request, id):
     book = get_object_or_404(Book, pk=id)
-    user = request.user 
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user, created = User.objects.get_or_create(username='anonymous')
 
     cart_entry, created = Cart.objects.get_or_create(user=user, book=book)
     if cart_entry.amount < book.stock:
@@ -101,8 +105,11 @@ def increment_amount(request, id):
 
 def decrement_amount(request, id):
     book = get_object_or_404(Book, pk=id)
-    user = request.user
-
+    if request.user.is_authenticated:
+        user = request.user
+    else:
+        user, created = User.objects.get_or_create(username='anonymous')
+        
     cart_entry, created = Cart.objects.get_or_create(user=user, book=book)
     if cart_entry.amount > 1:
         cart_entry.amount -= 1
