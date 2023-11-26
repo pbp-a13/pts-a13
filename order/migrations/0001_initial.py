@@ -16,10 +16,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Cart',
+            name='Order',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('amount', models.PositiveIntegerField(default=1)),
+                ('quantity', models.PositiveIntegerField()),
+                ('is_completed', models.BooleanField(default=False)),
+                ('order_date', models.DateTimeField(auto_now_add=True)),
+                ('estimated_delivery_date', models.DateTimeField(blank=True, null=True)),
                 ('book', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='book.book')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
