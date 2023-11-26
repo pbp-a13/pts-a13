@@ -71,7 +71,7 @@ def add_to_cart(request, id, amount):
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
 def get_cart_json(request):
-    carts = CartItem.objects.filter(user=request.user)
+    carts = Cart.objects.filter(user=request.user)
     # cart_list = []
     # for cart in carts:
     #     cart_dict = {
