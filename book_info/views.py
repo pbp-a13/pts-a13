@@ -59,10 +59,10 @@ def delete_book(request, id):
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
-def add_to_cart(request, id, jumlah_pembelian):
+def add_to_cart(request, id, amount):
     book = get_object_or_404(Book, pk=id)
-    cartItem, created = CartItem.objects.get_or_create(user=request.user, book=book)
-    cart_entry, created = Cart.objects.get_or_create(user=request.user, book=book)
+    cartItem, created = CartItem.objects.get_or_create(user=request.user, books=book)
+    cart_entry, created = Cart.objects.get_or_create(user=request.user, book=book, amount=amount)
 
     if (cartItem.quantity + cart_entry.amount) <= book.stock:
         cartItem.quantity += cart_entry.amount
