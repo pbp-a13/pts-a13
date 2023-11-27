@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'payment',
     'order',
     'isi_saldo',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
