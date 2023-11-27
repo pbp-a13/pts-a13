@@ -10,6 +10,9 @@ from account.models import Account
 from main.models import Admin
 
 from django.shortcuts import render
+from django.views.decorators.csrf import csrf_exempt
+
+import json
 
 def show_main(request):
     books = Book.objects.all()
@@ -57,3 +60,24 @@ def switch_mode(request):
     request.user.account.admin.save()
     return show_main(request)
 
+
+def show_json(request):
+    data = Book.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+
+@csrf_exempt
+def search_book_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+        user = request.user,
+        value = data["value"],
+        search_mode = data["search_mode"],
+        sort_mode = data["sort_mode"]
+        if search_mode == "title":
+            books = Book.objects.filter(title__icontains=value).order_by(Lower(sort_mode))
+        else:
+            books = Book.objects.filter(authors__icontains=value).order_by(Lower(sort_mode))
+
+        return HttpResponse(serializers.serialize('json', books))
