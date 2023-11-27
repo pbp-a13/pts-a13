@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 import environ
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -94,8 +96,12 @@ WSGI_APPLICATION = 'toko_buku.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tokobuku_talespony',
+        'USER': 'tokobuku_talespony',
+        'PASSWORD': '46b50dd20eb635d89130ac5cf67d957c49f7d287',
+        'HOST': 'wkm.h.filess.io',
+        'PORT': '3307',
     }
 }
 
