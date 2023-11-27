@@ -97,10 +97,10 @@ WSGI_APPLICATION = 'toko_buku.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tokobuku_talespony',
-        'USER': 'tokobuku_talespony',
-        'PASSWORD': '46b50dd20eb635d89130ac5cf67d957c49f7d287',
-        'HOST': 'wkm.h.filess.io',
+        'NAME': 'tokobukuv2_policetask',
+        'USER': 'tokobukuv2_policetask',
+        'PASSWORD': '9c6245f5aa3f7a34829ecedee76dda7f4cdf56b7',
+        'HOST': '13g.h.filess.io',
         'PORT': '3307',
     }
 }
