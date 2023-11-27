@@ -10,7 +10,8 @@ Berikut deskripsi proyek kami.
 - Adrial Natanael Liong - 2206026321 </br>
 - Kezia Lasma Angelica - 2206082234 </br>
 - Alifa Muhammad Hafidz - 2206082852 </br>
-- Shafira Ramadhina Adifa  - 2206082972 </br>
+- Shafira Ramadhina Adifa  - 2206082972 </br> 
+
 
 
 
