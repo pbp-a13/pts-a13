@@ -18,5 +18,5 @@ urlpatterns = [
     path('search-book/<search_mode>/<sort_mode>', search_book_json, name ='search_book_json'),
     path('switch-mode', switch_mode, name="switch_mode"),
     path('json/', show_json, name='show_json'), 
-    path('json-flutter/<search_mode>/<sort_mode>', search_book_flutter, name = 'search_book_flutter'),
+    path('json-flutter/<value>/<search_mode>/<sort_mode>', search_book_flutter, name = 'search_book_flutter'),
 ]
