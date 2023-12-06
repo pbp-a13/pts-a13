@@ -18,11 +18,18 @@
             border-radius: 20px;
             background: #FFF;
             box-shadow: 4px 4px 8px 0px #00000040;
+            padding: 15px;
         }
 
         .card p {
-            padding: 10px;
+            padding: 4px;
         }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+        }
+
 
         .placeholder-image {
             background-color: #ccc; /* Warna latar belakang sementara */
@@ -37,18 +44,40 @@
 </head>
 <body>
     <h3 style="padding-left: 20px;">Your Recent Order</h3>
+    <h6 style="margin: 20px;">Sort by: Total Price</h6>
+    <div class="filter-options">
+        <form id="search_form" onsubmit="return false;">
+            {% csrf_token %}
+            <div class="mb-3">
+                <div class="form-check form-check-inline" style="margin-left: 20px;">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                    <label class="form-check-label" for="semua">Recent</label>
+                </div>
+                <div class="form-check form-check-inline" style="margin-left: 20px;">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                    <label class="form-check-label" for="semua">Highest to Lowest</label>
+                </div>
+                <div class="form-check form-check-inline" style="margin-left: 20px;">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
+                    <label class="form-check-label" for="semua">Lowest to Highest</label>
+                </div>
+                <button type="button" class="btn btn-primary" style="margin-left: 20px;"  id="button_search">Apply</button>
+            </div>
+        </form>
+    </div>
+
     <div class="card">
         <div class="container text-left">
             <div class="row">
                 <div class="col-3">
-                    <img src="..." class="rounded" alt="...">
+                    <img src="/static/book/images/default_book.png" class="rounded img-fluid" alt="...">
                 </div>
                 <div class="col-6">
-                    <h3>{{ order.book.title }}</h3>
-                    <p>Quantity: {{ order.quantity }}</p>
-                    <p>Order Date: {{ order.order_date }}</p>
-                    <p>Total Price: {{ order.price }}</p>
-                    <p>Estimated Delivery Date: {{ order.estimated_delivery_date }}</p>
+                    <h3>{{ title }}</h3>
+                    <p>Quantity: {{ quantity }}</p>
+                    <p>Order Date: {{ order_date }}</p>
+                    <p>Total Price: Rp{{ price }}</p>
+                    <p>Estimated Delivery Date: {{ estimated_delivery_date }}</p>
                     <button type="button" class="btn btn-primary">Details</button>
                 </div>
                 <div class="col-3">
@@ -57,7 +86,7 @@
                         <p>Status: Completed</p>
                     </div>
                     {% else %}
-                    <div class="border border-5 border-success rounded", style="color: green; text-align: center;">
+                    <div class="border border-5 border-secondary rounded", style="color: gray; text-align: center;">
                         <p>Ongoing</p>
                     </div>
                     {% endif %}
@@ -66,7 +95,25 @@
         </div>
     </div>
     <script>
+        $(document).ready(function(){
+        $("#button_search").click(function(){
+            // Tangkap nilai filter yang dipilih
+            var selectedFilter = $("input[name='inlineRadioOptions']:checked").val();
 
+            // Kirim permintaan Ajax dengan filter sebagai data
+            $.ajax({
+                url: '{% url "order:apply_sort" %}',
+                type: 'POST',
+                data: {
+                    'filter_value': selectedFilter,
+                    'csrfmiddlewaretoken': '{{ csrf_token }}'
+                },
+                dataType: 'json',
+                success: function (data) {
+                }
+            });
+        });
+    });
     </script>
 </body>
 

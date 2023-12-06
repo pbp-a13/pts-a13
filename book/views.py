@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from book.forms import BookForm
 from django.urls import reverse
+from django.core.management import call_command
 from book.models import Book
 from django.core import serializers
 

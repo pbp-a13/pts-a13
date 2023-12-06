@@ -31,4 +31,3 @@ class Review(models.Model):
     member = models.ForeignKey(Account, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
     review_text = models.TextField()
-
