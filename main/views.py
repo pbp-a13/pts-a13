@@ -66,18 +66,34 @@ def show_json(request):
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 
-@csrf_exempt
-def search_book_flutter(request):
-    if request.method == 'POST':
+# @csrf_exempt
+# def search_book_flutter(request):
+#     if request.method == 'POST':
         
-        data = json.loads(request.body)
-        user = request.user,
-        value = data["value"],
-        search_mode = data["search_mode"],
-        sort_mode = data["sort_mode"]
-        if search_mode == "title":
-            books = Book.objects.filter(title__icontains=value).order_by(Lower(sort_mode))
-        else:
-            books = Book.objects.filter(authors__icontains=value).order_by(Lower(sort_mode))
+#         data = json.loads(request.body)
+#         user = request.user,
+#         value = data["value"],
+#         search_mode = data["search_mode"],
+#         sort_mode = data["sort_mode"]
+#         if search_mode == "title":
+#             books = Book.objects.filter(title__icontains=value).order_by(Lower(sort_mode))
+#         else:
+#             books = Book.objects.filter(authors__icontains=value).order_by(Lower(sort_mode))
 
-        return HttpResponse(serializers.serialize('json', books))
+#         return HttpResponse(serializers.serialize('json', books))
+    
+@csrf_exempt
+def search_book_flutter(request, value, search_mode, sort_mode): 
+    # data = json.loads(request.body)
+    # user = request.user,
+    # value = data["value"],
+    # search_mode = data["search_mode"],
+    # sort_mode = data["sort_mode"]
+    if value == "*None*":
+        value = ""
+    if search_mode == "title":
+        books = Book.objects.filter(title__icontains=value).order_by(Lower(sort_mode))
+    else:
+        books = Book.objects.filter(authors__icontains=value).order_by(Lower(sort_mode))
+
+    return HttpResponse(serializers.serialize('json', books))
