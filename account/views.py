@@ -12,6 +12,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 import main.views
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
 
 def register(request):
     user_form = UserCreationForm()
@@ -158,3 +159,33 @@ def search_members(request):
     members = [{'id': member.id, 'username': member.user.username, 'nama': member.nama} for member in results]
 
     return JsonResponse(members, safe=False)
+
+@csrf_exempt
+def get_all_members(request):
+    # Retrieve all members from the database
+    accounts = Account.objects.all().order_by('user__username')
+
+    # Convert queryset to a list of dictionaries
+    members_data = [
+        {'id': account.id, 'username': account.user.username, 'nama': account.nama}
+        for account in accounts
+    ]
+
+    return JsonResponse({'members': members_data})
+
+@csrf_exempt
+def register_flutter(request):
+    user_form = UserCreationForm()
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user_form = UserCreationForm(data)
+        if user_form.is_valid():
+            new_user = user_form.save()
+            return JsonResponse({'message': 'Registration successful'}, status=201)
+        else:
+            return JsonResponse({'message': 'Invalid form data'}, status=400)
+
+    context = {
+        'user_form': user_form,
+    }
+    return JsonResponse(context)

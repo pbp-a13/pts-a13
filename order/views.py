@@ -4,10 +4,9 @@ from .models import Order
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from book.models import Book
+from account.models import Account
 from datetime import datetime
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
-
-
 
 # Create your views here.
 def member_orderlist_view(request):
@@ -15,11 +14,11 @@ def member_orderlist_view(request):
 
     # Membuat objek Order baru dengan order_date pada hari ini
     order = Order.objects.create(
-        user=request.user,  # Ganti dengan user yang sesuai
-        book=Book.objects.get(pk=1),  # Ganti dengan buku yang sesuai
-        quantity=4,  # Ganti dengan jumlah yang sesuai
-        order_date=today,
-        estimated_delivery_date=datetime(2023, 10, 30, 12, 0, 0),
+        user = request.user,  # Ganti dengan user yang sesuai
+        book = Book.objects.get(pk=1),  # Ganti dengan buku yang sesuai
+        quantity = 4,  # Ganti dengan jumlah yang sesuai
+        order_date = today,
+        estimated_delivery_date = datetime(2023, 10, 30, 12, 0, 0),
     )
 
     context = {
@@ -31,7 +30,15 @@ def member_orderlist_view(request):
     }
     return render(request, 'member_orderlist.html', context)
 
-
+# kode placeholder nambahin ke cart
+def add_to_cart(request, id):
+    if request.method == 'POST':
+        account = Account.objects.get(user=request.user)
+        order, new = Order.objects.get_or_create(user=request.user)
+        book = Book.objects.get(pk=id)
+        order.books.add(book)
+        return HttpResponse(b"CREATED", status=201)
+    return HttpResponseNotFound
 
 @csrf_exempt
 # views.py
