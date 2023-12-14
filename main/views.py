@@ -11,7 +11,7 @@ from main.models import Admin
 
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-
+from django.contrib.auth.models import User
 import json
 
 def show_main(request):
@@ -97,3 +97,20 @@ def search_book_flutter(request, value, search_mode, sort_mode):
         books = Book.objects.filter(authors__icontains=value).order_by(Lower(sort_mode))
 
     return HttpResponse(serializers.serialize('json', books))
+
+
+
+def show_admin_json(request):
+    data = Admin.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+@csrf_exempt
+def switch_mode_flutter(request):
+    username_flutter = request.POST.get('username')
+    user = User.objects.get(username=username_flutter)
+    is_admin_mode = user.account.admin.is_admin_mode = not user.account.admin.is_admin_mode 
+    user.account.admin.save()
+
+    return JsonResponse({
+        'is_admin_mode' : is_admin_mode
+    })
