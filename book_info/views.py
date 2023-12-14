@@ -84,19 +84,19 @@ def add_to_cart(request, id, amount):
 
 def get_cart_json(request):
     carts = Cart.objects.filter(user=request.user)
-    cart_list = []
-    for cart in carts:
-        if cart.total_amount > 0:
-            cart_dict = {
-                'ID Item': cart.pk,
-                'Book': {
-                    'pk': cart.book.pk,
-                    'Total amount': cart.total_amount,
-                    },
-            }
-            cart_list.append(cart_dict)
-    return JsonResponse(cart_list, safe=False)
-    # return HttpResponse(serializers.serialize('json', carts), content_type="application/json")
+    # cart_list = []
+    # for cart in carts:
+    #     if cart.total_amount > 0:
+    #         cart_dict = {
+    #             'ID Item': cart.pk,
+    #             'Book': {
+    #                 'pk': cart.book.pk,
+    #                 'Total amount': cart.total_amount,
+    #                 },
+    #         }
+    #         cart_list.append(cart_dict)
+    # return JsonResponse(cart_list, safe=False)
+    return HttpResponse(serializers.serialize('json', carts))
 
 def increment_amount(request, id):
     book = get_object_or_404(Book, pk=id)
