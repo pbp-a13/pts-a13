@@ -158,14 +158,36 @@ def edit_book_flutter(request, book_id):
         return JsonResponse({"status": "success"}, status=200)
     else:
         return JsonResponse({"status": "error"}, status=401)
+    
+@csrf_exempt
+def add_to_cart_flutter(request):
+    if request.method == 'POST':
+        
+        data = json.loads(request.body)
+        book = get_object_or_404(Book, pk=id)
 
-# @csrf_exempt
-# def filter_review_flutter(request, sort_mode): 
-#     # data = json.loads(request.body)
-#     # user = request.user,
-#     if sort_mode == "Low to High":
-#         reviews = Review.objects.order_by(Lower(data["rating"]))
-#     else:
-#         reviews = Review.objects.order_by(Lower(data["rating"))
+        cart_entry = Cart.objects.get_or_create(
+            user = request.user,
+            book = get_object_or_404(Book, pk=id),
+            amount = int(data["amount"]),
+        )
 
-#     return HttpResponse(serializers.serialize('json', reviews))
+        if (cart_entry.total_amount + cart_entry.amount) <= book.stock:
+            cart_entry.total_amount += cart_entry.amount
+
+        cart_entry.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+
+@csrf_exempt
+def filter_review_flutter(request, sort_mode): 
+    # data = json.loads(request.body)
+    user = request.user,
+    if sort_mode == "Ascending":
+        reviews = Review.objects.order_by(user["username"].asc())
+    else:
+        reviews = Review.objects.order_by(user["username"].desc())
+
+    return HttpResponse(serializers.serialize('json', reviews))
