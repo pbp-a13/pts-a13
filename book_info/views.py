@@ -34,18 +34,9 @@ def show_info(request, id):
         'cart': cart,
     }
 
-    if request.user.is_authenticated:
-        cart, created = Cart.objects.get_or_create(user=request.user, book=book)
-        context = {
-            'book': book,
-            'reviews': reviews,
-            'cart': cart,
-        }
-    else:
-        context = {
-            'book': book,
-            'reviews': reviews,
-        }
+    if cart.total_amount == 0:
+        cart.delete()
+
     return render(request, "book_info.html", context)
 
 def edit_book(request, id):
@@ -84,19 +75,19 @@ def add_to_cart(request, id, amount):
 
 def get_cart_json(request):
     carts = Cart.objects.filter(user=request.user)
-    # cart_list = []
-    # for cart in carts:
-    #     if cart.total_amount > 0:
-    #         cart_dict = {
-    #             'ID Item': cart.pk,
-    #             'Book': {
-    #                 'pk': cart.book.pk,
-    #                 'Total amount': cart.total_amount,
-    #                 },
-    #         }
-    #         cart_list.append(cart_dict)
-    # return JsonResponse(cart_list, safe=False)
-    return HttpResponse(serializers.serialize('json', carts))
+    cart_list = []
+    for cart in carts:
+        if cart.total_amount > 0:
+            cart_dict = {
+                'ID Item': cart.pk,
+                'Book': {
+                    'pk': cart.book.pk,
+                    'Total amount': cart.total_amount,
+                    },
+            }
+            cart_list.append(cart_dict)
+    return JsonResponse(cart_list, safe=False)
+    # return HttpResponse(serializers.serialize('json', carts), content_type="application/json")
 
 def increment_amount(request, id):
     book = get_object_or_404(Book, pk=id)
@@ -146,3 +137,35 @@ def search_review_json(request, search_mode):
         elif search_mode == "1":
             reviews = Review.objects.filter(rating=1)
         return HttpResponse(serializers.serialize('json', reviews))
+
+@csrf_exempt
+def edit_book_flutter(request, book_id):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+
+        # Menggunakan get_object_or_404 untuk mendapatkan objek atau memberikan respons 404 jika tidak ditemukan
+        book = get_object_or_404(Book, id=book_id)
+
+        # Melakukan pembaruan pada atribut objek yang ada
+        book.fields.authors = data.get("authors", book.fields.authors)
+        book.fields.title = data.get("title", book.fields.title)
+        book.fields.price = int(data.get("price", book.fields.price))
+        book.fields.stock = int(data.get("stock", book.fields.stock))
+
+        # Menyimpan perubahan ke dalam database
+        book.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+
+# @csrf_exempt
+# def filter_review_flutter(request, sort_mode): 
+#     # data = json.loads(request.body)
+#     # user = request.user,
+#     if sort_mode == "Low to High":
+#         reviews = Review.objects.order_by(Lower(data["rating"]))
+#     else:
+#         reviews = Review.objects.order_by(Lower(data["rating"))
+
+#     return HttpResponse(serializers.serialize('json', reviews))
