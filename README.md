@@ -1,5 +1,5 @@
 # Proyek Tengah Semester Kelompok A13 -- pacil-bookstore
-## Website: [http://pacil-bookstore.pbp.cs.ui.ac.id/](http://pacil-bookstore.pbp.cs.ui.ac.id/)
+## Website: [pts-a13-o3pdazjyd-not0nlines-projects.vercel.app](pts-a13-o3pdazjyd-not0nlines-projects.vercel.app)
 
 Berikut deskripsi proyek kami.
 
