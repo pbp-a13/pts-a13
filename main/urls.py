@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_json_by_id, show_main
+from main.views import delete_book_flutter, get_review_json, show_json_by_id, show_main
 from main.views import get_book_json
 from main.views import search_book_json
 from account.views import login_user
@@ -23,4 +23,6 @@ urlpatterns = [
     path('show_admin_json/', show_admin_json, name='show_admin_json'),
     path('switch_mode_flutter', switch_mode_flutter, name = 'switch_mode_flutter'),
     path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
+    path('get-review/<int:id>/', get_review_json, name='get_review_json'),
+    path('delete-flutter/<int:id>/', delete_book_flutter, name='delete_book_flutter'),
 ]
