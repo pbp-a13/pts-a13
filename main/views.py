@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from book.models import Book
 from django.http import HttpResponse
 from django.core import serializers
@@ -6,7 +6,7 @@ from django.db.models.functions import Lower
 from django.http import JsonResponse
 
 from django.contrib.auth.decorators import login_required
-from account.models import Account
+from account.models import Account, Review
 from main.models import Admin
 
 from django.shortcuts import render
@@ -120,30 +120,18 @@ def show_json_by_id(request, id):
     data = Book.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
-# @csrf_exempt
-# def show_json_by_id(request, book_id):
-#     if request.method == 'GET':
-#         try:
-#             # Retrieve the book
-#             book = Book.objects.get(pk=book_id)
+@csrf_exempt
+def get_review_json(request, id):
+    book = Book.objects.filter(pk=id)
+    reviews = Review.objects.filter(book=book)
+    return HttpResponse(serializers.serialize('json', reviews), content_type="application/json")
 
-#             # Create a dictionary for the JSON response
-#             book_data = {
-#                 'id': book.id,
-#                 'title': book.title,
-#                 'image': str(book.image),  # Assuming image is a FileField or ImageField
-#                 'authors': book.authors,
-#                 'categories': book.categories,
-#                 'price': book.price,
-#                 'description': book.description,
-#                 'no_of_pages': book.no_of_pages,
-#                 'stock': book.stock,
-#                 'rating': book.rating,
-#                 'jumlah_terjual': book.jumlah_terjual,
-#             }
+@csrf_exempt
+def delete_book_flutter(request, id):
+    if request.method == 'POST':
+        book = Book.objects.get(pk = id)
+        book.delete()
 
-#             return JsonResponse({'book': book_data})
-#         except Book.DoesNotExist:
-#             return JsonResponse({'error': 'Book not found'}, status=404)
-#     else:
-#         return HttpResponseBadRequest('Invalid request method')
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
