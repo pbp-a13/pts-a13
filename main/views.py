@@ -114,3 +114,36 @@ def switch_mode_flutter(request):
     return JsonResponse({
         'is_admin_mode' : is_admin_mode
     })
+
+@csrf_exempt
+def show_json_by_id(request, id):
+    data = Book.objects.filter(pk=id)
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+# @csrf_exempt
+# def show_json_by_id(request, book_id):
+#     if request.method == 'GET':
+#         try:
+#             # Retrieve the book
+#             book = Book.objects.get(pk=book_id)
+
+#             # Create a dictionary for the JSON response
+#             book_data = {
+#                 'id': book.id,
+#                 'title': book.title,
+#                 'image': str(book.image),  # Assuming image is a FileField or ImageField
+#                 'authors': book.authors,
+#                 'categories': book.categories,
+#                 'price': book.price,
+#                 'description': book.description,
+#                 'no_of_pages': book.no_of_pages,
+#                 'stock': book.stock,
+#                 'rating': book.rating,
+#                 'jumlah_terjual': book.jumlah_terjual,
+#             }
+
+#             return JsonResponse({'book': book_data})
+#         except Book.DoesNotExist:
+#             return JsonResponse({'error': 'Book not found'}, status=404)
+#     else:
+#         return HttpResponseBadRequest('Invalid request method')

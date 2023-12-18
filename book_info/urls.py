@@ -13,7 +13,7 @@ urlpatterns = [
     path('get-cart/', get_cart_json, name='get_cart_json'),
     path('get-review/<int:id>/', get_review_json, name='get_review_json'),
     path('search-review/<rating>/', search_review_json, name ='search_review_json'),
-    path('edit-flutter/', edit_book_flutter, name='edit_book_flutter'),
+    path('edit-flutter/<int:id>/', edit_book_flutter, name='edit_book_flutter'),
     path('add-to-cart-flutter/', add_to_cart_flutter, name='add_to_cart_flutter'),
     path('filter-review-flutter/', filter_review_flutter, name='filter_review_flutter'),
 ]

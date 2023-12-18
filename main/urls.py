@@ -1,5 +1,5 @@
 from django.urls import path
-from main.views import show_main
+from main.views import show_json_by_id, show_main
 from main.views import get_book_json
 from main.views import search_book_json
 from account.views import login_user
@@ -22,4 +22,5 @@ urlpatterns = [
     path('json-flutter/<value>/<search_mode>/<sort_mode>', search_book_flutter, name = 'search_book_flutter'),
     path('show_admin_json/', show_admin_json, name='show_admin_json'),
     path('switch_mode_flutter', switch_mode_flutter, name = 'switch_mode_flutter'),
+    path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
 ]
