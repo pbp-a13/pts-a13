@@ -1,3 +1,4 @@
+import json
 from pyexpat.errors import messages
 from django import template
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
@@ -139,18 +140,18 @@ def search_review_json(request, search_mode):
         return HttpResponse(serializers.serialize('json', reviews))
 
 @csrf_exempt
-def edit_book_flutter(request, book_id):
+def edit_book_flutter(request, id):
     if request.method == 'POST':
         data = json.loads(request.body)
 
         # Menggunakan get_object_or_404 untuk mendapatkan objek atau memberikan respons 404 jika tidak ditemukan
-        book = get_object_or_404(Book, id=book_id)
+        book = get_object_or_404(Book, id=id)
 
         # Melakukan pembaruan pada atribut objek yang ada
-        book.fields.authors = data.get("authors", book.fields.authors)
-        book.fields.title = data.get("title", book.fields.title)
-        book.fields.price = int(data.get("price", book.fields.price))
-        book.fields.stock = int(data.get("stock", book.fields.stock))
+        book.authors = data.get("authors", book.authors)
+        book.title = data.get("title", book.title)
+        book.price = int(data.get("price", book.price))
+        book.stock = int(data.get("stock", book.stock))
 
         # Menyimpan perubahan ke dalam database
         book.save()
