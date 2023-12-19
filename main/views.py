@@ -122,9 +122,14 @@ def show_json_by_id(request, id):
 
 @csrf_exempt
 def get_review_json(request, id):
-    book = Book.objects.filter(pk=id)
-    reviews = Review.objects.filter(book=book)
-    return HttpResponse(serializers.serialize('json', reviews), content_type="application/json")
+    try:
+        book = Book.objects.get(pk=id)
+        reviews = Review.objects.filter(book=book)
+        return HttpResponse(serializers.serialize('json', reviews), content_type="application/json")
+    except Book.DoesNotExist:
+        return HttpResponse("Book not found.", status=404)
+    except Review.DoesNotExist:
+        return HttpResponse("No reviews found for the specified book ID.", status=404)
 
 @csrf_exempt
 def delete_book_flutter(request, id):
@@ -135,3 +140,13 @@ def delete_book_flutter(request, id):
         return JsonResponse({"status": "success"}, status=200)
     else:
         return JsonResponse({"status": "error"}, status=401)
+    
+@csrf_exempt
+def is_admin_mode(request):
+    admin = Admin.objects.get(account=request.user)
+    return HttpResponse(serializers.serialize('json', admin), content_type="application/json")
+
+@csrf_exempt
+def sort_review_flutter(request, sort_mode): 
+    reviews = Review.objects.all().order_by(Lower(sort_mode))
+    return HttpResponse(serializers.serialize('json', reviews))

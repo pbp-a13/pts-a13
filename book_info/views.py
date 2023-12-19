@@ -163,16 +163,18 @@ def edit_book_flutter(request, id):
 @csrf_exempt
 def add_to_cart_flutter(request, id, amount):
     if request.method == 'POST':
-        # data = json.loads(request.body)
         book = get_object_or_404(Book, pk=id)
-
+        if (book.stock == 0):
+            return JsonResponse({"status": "failed"}, status=200)      
+        
         cart_entry, created = Cart.objects.get_or_create(user=request.user, book=book, amount=amount)
 
         if (cart_entry.total_amount + cart_entry.amount) <= book.stock:
             cart_entry.total_amount += cart_entry.amount
 
         cart_entry.save()
-
+        print(cart_entry.total_amount)
+        
         return JsonResponse({"status": "success"}, status=200)
     else:
         return JsonResponse({"status": "error"}, status=401)
