@@ -13,4 +13,7 @@ urlpatterns = [
     path('get_account_info/', get_account_info, name='get_account_info'),
     path('update_account_info/', update_account_info, name='update_account_info'),
     path('search-members/', search_members, name='search_members'),
+    path('get_all_member_info/', get_all_members, name='get_all_member_info'),
+    path('register_flutter/', register_flutter, name='register_flutter'),
+    path('get_member_reviews/', get_member_reviews, name='get_member_reviews'),
 ]

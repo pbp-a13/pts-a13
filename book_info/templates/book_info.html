@@ -46,7 +46,7 @@
                 </div>
                 
                 <!-- [ KHUSUS ADMIN ] -->
-                {% if user.is_authenticated and user.is_staff %}
+                {% if is_admin and is_admin_mode %}
                     <div class="col-sm-3" style="padding: 5px;">
                         <a class="btn btn-primary" href="{% url 'book_info:edit_book' book.pk %}" role="button">Edit</a>
                         <a class="btn btn-danger" href="{% url 'book_info:delete_book' book.pk %}" role="button">Delete</a>
@@ -99,11 +99,11 @@
                     </div>
                     <div class="col-5"></div>
                 </div>
-
+                
                 <div style="margin-top: 15px; margin-bottom: 35px;">
-                    {% if request.user.is_authenticated %}
-                        <!-- Member -->
-                        {% if user.is_staff or book.stock == 0 %}
+                    {% if is_member %}
+                        <!-- Admin mode -->
+                        {% if is_admin_mode or book.stock == 0 %}
                             <button class="btn btn-outline-primary" disabled>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
                                     <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"/>
@@ -111,6 +111,7 @@
                                 </svg>
                                 Masukkan Keranjang
                             </button>
+                        <!-- Member / Admin (member mode) -->
                         {% else %}
                             <a class="btn btn-outline-primary" href="{% url 'book_info:add_to_cart' book.id cart.amount %}" role="button">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
@@ -176,7 +177,7 @@
                                         <h5 class="card-title">{{ book.rating }}<small class="text-body-secondary"> dari 5</small></h5>
                                         <p class="card-text">
                                             {% for i in "12345" %}
-                                                {% if i < rating %}
+                                                {% if i <= rating %}
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                                                     </svg> 
@@ -189,47 +190,24 @@
                                             ({{ reviews|length }})                             
                                         </p>
                                     </div>
-                                    <!-- 
-                                    <form id = "search_form" onsubmit="return false;">
-                                        {% csrf_token %}
-                                        <div class="mb-3">
-                                            <input type="radio" class="btn-check" name="options" id="semua" autocomplete="off" checked>
-                                            <label class="btn btn-outline-primary" for="semua" onclick="refreshAllReviews()">Semua</label>
-
-                                            <input type="radio" class="btn-check" name="options" id="bintang5" autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="bintang5" onclick="refreshAllReviews()">5 Bintang</label>
-
-                                            <input type="radio" class="btn-check" name="options" id="bintang4" autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="bintang4" onclick="refreshAllReviews()">4 Bintang</label>
-
-                                            <input type="radio" class="btn-check" name="options" id="bintang3" autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="bintang3" onclick="refreshAllReviews()">3 Bintang</label>
-
-                                            <input type="radio" class="btn-check" name="options" id="bintang2" autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="bintang2" onclick="refreshAllReviews()">2 Bintang</label>
-
-                                            <input type="radio" class="btn-check" name="options" id="bintang1" autocomplete="off">
-                                            <label class="btn btn-outline-primary" for="bintang1" onclick="refreshAllReviews()">1 Bintang</label>
-                                        </div>
-                                    </form> -->
                                     
                                     <div class="col">
-                                        <form id = "search_form" onsubmit="return false;">
+                                        <form id = "filter_form" onsubmit="return false;">
                                             {% csrf_token %}
                                             <div class="mb-3" style="text-align: left;">
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="semua" checked="">
-                                                    <label class="form-check-label" for="semua">
-                                                    Semua
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="user" checked="">
+                                                    <label class="form-check-label" for="user">
+                                                    user
                                                     </label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang5">
-                                                    <label class="form-check-label" for="bintang5">
-                                                    5 Bintang
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="ulasan">
+                                                    <label class="form-check-label" for="ulasan">
+                                                    ulasan
                                                     </label>
                                                 </div>
-                                                <div class="form-check form-check-inline">
+                                                <!-- <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="bintang4">
                                                     <label class="form-check-label" for="bintang4">
                                                     4 Bintang
@@ -252,9 +230,9 @@
                                                     <label class="form-check-label" for="bintang1">
                                                     1 Bintang
                                                     </label>
-                                                </div>
+                                                </div> -->
                                             </div>
-                                            <button type="button" class="btn btn-primary" id="button_search" >Apply</button>
+                                            <button type="button" class="btn btn-primary" id="button_apply" >Apply</button>
                                         </form>
                                     </div>
                                 </div>
@@ -263,7 +241,30 @@
                     </div>
 
                     <!-- card review -->
-                    <div id="review_cards"></div>
+                    <div id="review_cards">
+                        <div class="row row-cols-1 row-cols-md-3 g-4">
+                            {% if reviews|length == 0 %}
+                                <p>Belum ada penilaian.</p>
+                            {% else %}
+                                {% for review in reviews %}
+                                    <div class="col">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{review.fields.user_name }}</h5>
+                                                <h6 class="card-subtitle mb-2 text-body-secondary">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                                    </svg>
+                                                    {{book.fields.rating}}
+                                                </h6>
+                                                <p class="card-text">{{review.fields.comment}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
 
                 </ul>
             </div>
@@ -276,29 +277,27 @@
         document.getElementById("review_cards").innerHTML = ""
         const reviews = await getReview()
         
-        let htmlString = `<div class="row row-cols-1 row-cols-md-3 g-4">`
-            reviews.forEach((review) => {
-                htmlString += `\n
-                {% if reviews|length == 0 %}
-                    <p>Belum ada penilaian.</p>
-                {% else %}
-                    {% for review in reviews %}
-                        <div class="col">
-                            <div class="card h-100">
-                                <div class="card-body">
-                                    <h5 class="card-title">${review.fields.user_name }</h5>
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
-                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
-                                        </svg>
-                                        ${review.fields.rating}
-                                    </h6>
-                                    <p class="card-text">${review.fields.comment}</p>
-                                </div>
-                            </div>
+        let htmlString = `<div class="row row-cols-1 row-cols-md-3 g-4">
+            {% if reviews|length == 0 %}
+                <p>Belum ada penilaian.</p>
+            {% else %}`
+        reviews.forEach((review) => {
+            htmlString += `
+                <div class="col">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">${review.fields.user_name }</h5>
+                            <h6 class="card-subtitle mb-2 text-body-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                                </svg>
+                                ${book.fields.rating}
+                            </h6>
+                            <p class="card-text">${review.fields.comment}</p>
                         </div>
-                    {% endfor %}
-                {% endif %}`
+                    </div>
+                </div>
+            {% endif %}`
         })
         htmlString += `\n </div>`
   
@@ -308,36 +307,24 @@
     refreshAllReviews()
 
     function getReview(){
-        fetch_string = "{% url 'book_info:search_review_json' 'rating' %}"
+        fetch_string = "{% url 'book_info:sort_review_json' 'sort_mode' %}"
 
-        if (document.querySelector("#semua").checked){
-            fetch_string = "{% url 'book_info:search_review_json' 'semua' %}"
+        if (document.querySelector("#user").checked){
+            fetch_string = "{% url 'book_info:sort_review_json' 'member.user' %}"
         }
-        if (document.querySelector("#bintang5").checked){
-            fetch_string = "{% url 'book_info:search_review_json' '5' %}"
-        }
-        if (document.querySelector("#bintang4").checked){
-            fetch_string = "{% url 'book_info:search_review_json' '4'  %}"
-        }
-        if (document.querySelector("#bintang3").checked){
-            fetch_string = "{% url 'book_info:search_review_json' '3' %}"
-        }
-        if (document.querySelector("#bintang2").checked){
-            fetch_string = "{% url 'book_info:search_review_json' '2' %}"
-        }
-        if (document.querySelector("#bintang1").checked){
-            fetch_string = "{% url 'book_info:search_review_json' '1' %}"
+        if (document.querySelector("#ulasan").checked){
+            fetch_string = "{% url 'book_info:sort_review_json' 'review_text' %}"
         }
 
         console.log(fetch_string)
         return fetch(fetch_string,{
             method: "POST",
-            body: new FormData(document.querySelector('#search_form'))
+            body: new FormData(document.querySelector('#filter_form'))
         }).then((res) => res.json())
 
     }
 
-    document.getElementsById("button_search").onclick = function(){
+    document.getElementsById("button_apply").onclick = function(){
         refreshAllReviews()
     }
 </script>

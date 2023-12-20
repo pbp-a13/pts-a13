@@ -9,5 +9,3 @@ class Order(models.Model):
     quantity = models.IntegerField(default=0)
     is_completed = models.BooleanField(default=False)
     order_date = models.DateTimeField(auto_now_add=True)
-    estimated_delivery_date = models.DateTimeField(null=True, blank=True)
-

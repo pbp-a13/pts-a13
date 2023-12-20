@@ -2,7 +2,7 @@ import json
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages 
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Account
+from .models import Account, Review
 from main.models import Admin
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import authenticate, login
@@ -12,6 +12,7 @@ from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 import main.views
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.models import User
 
 def register(request):
     user_form = UserCreationForm()
@@ -89,27 +90,29 @@ def member_details(request, member_id):
 
     return render(request, 'member_detail.html', {'account': account})
 
-
+@csrf_exempt
 def get_account_info(request):
     user = request.user 
 
     if Admin.objects.filter(account=user).exists():
         admin = Admin.objects.get(account=user)
+        # account_Admin = Account.objects.get(account=user)
         # If the user is an admin
         if admin.is_admin_mode:
             # If the user is currently in admin mode
-            return JsonResponse({'nama': admin.nama, 'email': admin.email, 'alamat': admin.alamat})
+            return JsonResponse({'nama': admin.nama, 'email': admin.email, 'alamat': admin.alamat, "username": admin.user.username, "orders_completed": admin.orders_completed}, status=200)
         else:
             # If the user is an admin but currently in account mode
-            return JsonResponse({'nama': admin.nama, 'email': admin.email, 'alamat': admin.alamat})
+            return JsonResponse({'nama': admin.nama, 'email': admin.email, 'alamat': admin.alamat, "username": admin.user.username}, status =200)
 
     elif Account.objects.filter(user=user).exists():
         # If the user is not an admin but has an account
         account = Account.objects.get(user=user)
-        return JsonResponse({'nama': account.nama, 'email': account.email, 'alamat': account.alamat})
+        return JsonResponse({'nama': account.nama, 'email': account.email, 'alamat': account.alamat, "username": account.user.username, "saldo": account.saldo}, status=200)
 
     # If the user is not logged in or does not have an account
     return JsonResponse({'error': 'Not logged in'}, status=401)
+
 
 @csrf_exempt
 def update_account_info(request):
@@ -158,3 +161,47 @@ def search_members(request):
     members = [{'id': member.id, 'username': member.user.username, 'nama': member.nama} for member in results]
 
     return JsonResponse(members, safe=False)
+
+@csrf_exempt
+def get_all_members(request):
+    # Retrieve all members from the database
+    accounts = Account.objects.all().order_by('user__username')
+
+    # Convert queryset to a list of dictionaries
+    members_data = [
+        {'id': account.id, 'username': account.user.username, 'nama': account.nama}
+        for account in accounts
+    ]
+
+    return JsonResponse({'members': members_data}, status= 200)
+
+@csrf_exempt
+def register_flutter(request):
+    user_form = UserCreationForm()
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        user_form = UserCreationForm(data)
+        if user_form.is_valid():
+            new_user = user_form.save()
+            return JsonResponse({'message': 'Registration successful'}, status=201)
+        else:
+            return JsonResponse({'message': 'Invalid form data'}, status=400)
+
+    context = {
+        'user_form': user_form,
+    }
+    return JsonResponse(context)
+    
+@csrf_exempt
+def get_member_reviews(request):
+    member = Account.objects.get(user=request.user)
+    reviews = Review.objects.filter(member=member)
+    result = []
+    for review in reviews:
+        book = review.book
+        result.append({
+            'title': book.title,
+            'author': book.authors,
+            'review': review.review_text
+        })
+    return JsonResponse(result, safe=False)
