@@ -93,23 +93,23 @@ WSGI_APPLICATION = 'toko_buku.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'tokobukuv2_policetask',
-#         'USER': 'tokobukuv2_policetask',
-#         'PASSWORD': '9c6245f5aa3f7a34829ecedee76dda7f4cdf56b7',
-#         'HOST': '13g.h.filess.io',
-#         'PORT': '3307',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tokobukuv2_policetask',
+        'USER': 'tokobukuv2_policetask',
+        'PASSWORD': '9c6245f5aa3f7a34829ecedee76dda7f4cdf56b7',
+        'HOST': '13g.h.filess.io',
+        'PORT': '3307',
+    }
+}
 
 # Set database settings automatically using DATABASE_URL.
 if PRODUCTION:
