@@ -56,7 +56,7 @@ def show_info(request, id):
         context['is_member'] = 0
     if not admin:
         context['is_admin'] = 0
-    if admin and not admin.is_admin_mode:
+    if (admin and not admin.is_admin_mode) or not account:
         context['is_admin_mode'] = 0
 
     if cart.total_amount == 0:
@@ -124,10 +124,13 @@ def increment_amount(request, id):
         user, created = User.objects.get_or_create(username='anonymous')
 
     cart_entry, created = Cart.objects.get_or_create(user=user, book=book)
+    # print(book.stock)
     if cart_entry.amount < book.stock:
+        # print('success:', (cart_entry.amount < book.stock))
         cart_entry.amount += 1
+        # print('amount (not saved): ', cart_entry.amount)
         cart_entry.save()
-
+    # print('amount (saved): ', cart_entry.amount)
     return HttpResponseRedirect(reverse('book_info:show_info', args=[str(book.pk)]))
 
 def decrement_amount(request, id):
@@ -256,3 +259,23 @@ def sort_review_flutter(request, sort_mode):
         elif sort_mode == "review_text":
             reviews = Review.objects.all().order_by(Lower(sort_mode))
         return HttpResponse(serializers.serialize('json', reviews))
+
+@csrf_exempt 
+def get_cart_json_flutter(request):
+    carts = Cart.objects.filter(user=request.user)
+    cart_list = []
+    for cart in carts:
+        if cart.total_amount > 0:
+            cart_dict = {
+                'pk': cart.pk,
+                'Book': {
+                    'pk': cart.book.pk,
+                    'title': cart.book.title,
+                    'author': cart.book.authors,
+                    'price': cart.book.price,
+                },
+                'total_amount': cart.total_amount,
+            }
+            cart_list.append(cart_dict)
+    # return JsonResponse(cart_list, safe=False)
+    return HttpResponse(serializers.serialize('json', cart_list), content_type="application/json")

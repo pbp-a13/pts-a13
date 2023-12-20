@@ -69,7 +69,7 @@ def logout(request):
 @csrf_exempt
 def get_account(request):
     user = get_user(request)
-    print(user)
+    # print(user)
     if user is not None:
         if user.is_active:
             if Admin.objects.filter(account=user).exists():

@@ -174,23 +174,6 @@ def get_all_members(request):
     ]
 
     return JsonResponse({'members': members_data}, status= 200)
-
-@csrf_exempt
-def register_flutter(request):
-    user_form = UserCreationForm()
-    if request.method == 'POST':
-        data = json.loads(request.body)
-        user_form = UserCreationForm(data)
-        if user_form.is_valid():
-            new_user = user_form.save()
-            return JsonResponse({'message': 'Registration successful'}, status=201)
-        else:
-            return JsonResponse({'message': 'Invalid form data'}, status=400)
-
-    context = {
-        'user_form': user_form,
-    }
-    return JsonResponse(context)
     
 @csrf_exempt
 def get_member_reviews(request):
@@ -205,3 +188,32 @@ def get_member_reviews(request):
             'review': review.review_text
         })
     return JsonResponse(result, safe=False)
+
+@csrf_exempt
+def register_flutter(request):
+    if request.method == 'POST':
+        print('Raw data:', request.body)  # Print the raw data
+        data = json.loads(request.body)
+        print('Parsed data:', data)  # Print the parsed data
+        user_form = UserCreationForm(data)
+        if user_form.is_valid():
+            new_user = user_form.save()
+            return JsonResponse({'message': 'Registration successful'}, status=201)
+        else:
+            print('Form errors:', user_form.errors)  # Print the form errors
+            return JsonResponse({'message': 'Invalid form data'}, status=400)
+    else:
+        return JsonResponse({'message': 'This endpoint only supports POST requests'}, status=405)
+
+
+
+# @csrf_exempt
+# def switch_mode_flutter(request):
+#     username_flutter = request.POST.get('username')
+#     user = User.objects.get(username=username_flutter)
+#     is_admin_mode = user.account.admin.is_admin_mode = not user.account.admin.is_admin_mode 
+#     user.account.admin.save()
+
+#     return JsonResponse({
+#         'is_admin_mode' : is_admin_mode
+#     })
