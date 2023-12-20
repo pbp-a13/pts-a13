@@ -272,8 +272,9 @@ def get_cart_json_flutter(request):
                     'pk': cart.book.pk,
                     'title': cart.book.title,
                     'author': cart.book.authors,
+                    'price': cart.book.price,
                 },
-                'Total amount': cart.total_amount,
+                'total_amount': cart.total_amount,
             }
             cart_list.append(cart_dict)
     # return JsonResponse(cart_list, safe=False)
