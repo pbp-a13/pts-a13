@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 from .models import Order
@@ -6,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from book.models import Book
 from datetime import datetime
 from django.http import HttpResponseRedirect, HttpResponse, HttpResponseNotFound
+from django.core import serializers
 
 
 
@@ -47,4 +49,88 @@ def apply_sort(request):
         return JsonResponse({"error": "Invalid request"}, status=400)
 
 
+def all_books(request):
+    books = Book.objects.all()
+    # for order in Order.objects.all():
+    #     order.delete()
+    return HttpResponse(serializers.serialize('json', books), content_type="application/json")
 
+def show_all_orders(request):
+    orders = Order.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', orders), content_type="application/json")
+
+@csrf_exempt
+def get_book(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        book = Book.objects.filter(pk=data["pk"])
+        return HttpResponse(serializers.serialize('json', book), content_type="application/json")
+
+    return HttpResponse(serializers.serialize('json', []), content_type="application/json")
+
+@csrf_exempt
+def show_user_orders(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        filter = data["filter"]
+        if filter == "completed":
+            orders = orders = Order.objects.filter(user=request.user, is_completed=True)
+        else:
+            orders = orders = Order.objects.filter(user=request.user, is_completed=False)
+        return HttpResponse(serializers.serialize('json', orders), content_type="application/json")
+    
+    return HttpResponse(serializers.serialize('json', []), content_type="application/json")
+
+@csrf_exempt
+def make_order(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        book = Book.objects.get(pk=data["pk"])
+        order, created = Order.objects.get_or_create(
+            user=request.user, 
+            book=book, 
+            is_completed=False,
+            defaults={'quantity': 1}
+        )
+        if created:
+            return JsonResponse({"status": True}, status=200)
+        return JsonResponse({"status": False}, status=200)
+    
+    return JsonResponse({"status": False}, status=400)
+
+@csrf_exempt
+def add_order(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        order = Order.objects.get(pk=data["order_id"])
+        order.quantity += 1
+        order.save()
+        return JsonResponse({"status": True}, status=200)
+    
+    return JsonResponse({"status": False}, status=400)
+
+@csrf_exempt
+def minus_order(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        order = Order.objects.get(pk=data["order_id"])
+        order.quantity -= 1
+        order.save()
+        if order.quantity == 0:
+            order.delete()
+        return JsonResponse({"status": True}, status=200)
+    
+    return JsonResponse({"status": False}, status=400)
+
+@csrf_exempt
+def complete_order(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        order = Order.objects.get(pk=data["order_id"])
+        if order.is_completed == False:
+            order.is_completed = True
+            order.save()
+            return JsonResponse({"status": True}, status=200)
+    
+    return JsonResponse({"status": False}, status=400)
+    
