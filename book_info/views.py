@@ -249,8 +249,8 @@ def delete_book_flutter(request, id):
 @csrf_exempt
 def sort_review_flutter(request, sort_mode): 
     if request.method == "POST":
-        if sort_mode == "user":
+        if sort_mode == "member.user.username":
             reviews = Review.objects.all().order_by(Lower(sort_mode))
-        elif sort_mode == "ulasan":
+        elif sort_mode == "review_text":
             reviews = Review.objects.all().order_by(Lower(sort_mode))
         return HttpResponse(serializers.serialize('json', reviews))
