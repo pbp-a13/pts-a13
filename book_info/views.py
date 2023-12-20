@@ -26,6 +26,8 @@ from django.db.models.functions import Lower
 def show_info(request, id):
     book = get_object_or_404(Book, pk=id)
     reviews = Review.objects.filter(book=book)
+    account = None
+    admin = None
 
     if request.user.is_authenticated:
         user = request.user
