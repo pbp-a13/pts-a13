@@ -1,5 +1,5 @@
 from django.urls import path
-from book_info.views import add_to_cart_flutter, book_review_json, delete_book_flutter, edit_book_flutter, filter_review_flutter, show_info, edit_book, delete_book, add_to_cart, increment_amount, decrement_amount, get_cart_json, get_review_json, sort_review_json, show_json_by_id, sort_review_flutter
+from book_info.views import add_to_cart_flutter, book_review_json, delete_book_flutter, edit_book_flutter, filter_review_flutter, get_cart_json_flutter, show_info, edit_book, delete_book, add_to_cart, increment_amount, decrement_amount, get_cart_json, get_review_json, sort_review_json, show_json_by_id, sort_review_flutter
 
 app_name = 'book_info'
 
@@ -20,4 +20,5 @@ urlpatterns = [
     path('get-book-review/<int:id>/', book_review_json, name='book_review_json'),
     path('delete-flutter/<int:id>/', delete_book_flutter, name='delete_book_flutter'),
     path('sort-review-flutter/<sort_mode>', sort_review_flutter, name ='sort_review_flutter'),
+    path('get-cart-flutter/', get_cart_json_flutter, name='get_cart_json_flutter'),
 ]

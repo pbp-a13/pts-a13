@@ -256,3 +256,21 @@ def sort_review_flutter(request, sort_mode):
         elif sort_mode == "review_text":
             reviews = Review.objects.all().order_by(Lower(sort_mode))
         return HttpResponse(serializers.serialize('json', reviews))
+
+@csrf_exempt 
+def get_cart_json_flutter(request):
+    carts = Cart.objects.filter(user=request.user)
+    cart_list = []
+    for cart in carts:
+        if cart.total_amount > 0:
+            cart_dict = {
+                'ID Item': cart.pk,
+                'Book': {
+                    'pk': cart.book.pk,
+                    'title': cart.book.title,
+                    'author': cart.book.authors,
+                },
+                'Total amount': cart.total_amount,
+            }
+            cart_list.append(cart_dict)
+    return HttpResponse(serializers.serialize('json', cart_list), content_type="application/json")
